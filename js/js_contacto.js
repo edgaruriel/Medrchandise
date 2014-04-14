@@ -1,3 +1,7 @@
+function EnviarCorreo() {
+    
+}
+
 function CrearMensajeGracias() {
     alert("Gracias por su comentario");
 }
