@@ -12,7 +12,7 @@ include_once("funciones/menu_header.php");
 </head>
 <body>
     <div id="cintilla">
-        
+        <!--hghgh -->
     </div>
 	<div id=contenedor>
 		<!--Inicio del header -->
