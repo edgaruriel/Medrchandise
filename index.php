@@ -29,6 +29,7 @@ include_once("funciones/menu_header.php");
 		?>			
 		</div>
 		</div>
+		<!-- HEYYYY Edgarcita-->
 		<!--Fin del header -->
 		
 		<!--Inicio del cuerpo-->
