@@ -1,0 +1,51 @@
+#forma {
+    font-family: Verdana, sans-serif;
+    font-size: 21px;
+    margin-top: 70px;
+    margin-left: 10%;
+    position: absolute;
+}
+
+#btn_enviar{
+    float: right;
+
+}
+.celda_texto{
+    text-align: right;
+    vertical-align: top;
+}
+.forma_areatexto{
+    width: 300px;
+    height: 100px;
+    resize: none;
+}
+.forma_texto{
+    border-color: #82c396;
+    border-style: solid;
+    border-width: 1px;
+    width: 300px;
+    height: 20px;
+}
+.texto {
+    font-size: 21px;
+    color: #999;
+}
+hr{
+    background-color:#000000; 
+	width: 95%;
+}
+
+#div_cuerpo{
+
+ -moz-padding-start: 5%;
+height: 50%;
+min-height: 428px;
+width:600px;
+position: absolute;
+top: 120px;
+margin: auto auto 70px 25%;
+ 
+background-color:#FFF;
+box-shadow:0px 0px 10px 2px #82c396;
+
+}

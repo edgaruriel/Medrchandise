@@ -1,0 +1,105 @@
+.boton{
+    background:url("../imagen/boton_idle.png") no-repeat;
+    height: 40px;
+    width: 120px;
+    background-size: 115px 35px;
+    text-align: center;
+    display: block;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    color: #bfbfbf;
+    font-style:normal;
+    text-decoration: none;
+    border: none;
+    padding-bottom: 12px;
+}
+
+.boton:link{
+    background:url("../imagen/boton_idle.png") no-repeat;
+    height: 40px;
+    width: 120px;
+    background-size: 115px 35px;
+    text-align: center;
+    display: block;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    color: #bfbfbf;
+    font-style:normal;
+    line-height:30px;
+    text-decoration: none;
+    border: none;
+}
+
+.boton:hover{
+    background:url("../imagen/boton_hover.png") no-repeat;
+    height: 40px;
+    width: 120px;
+    background-size: 115px 35px;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    color: #bfbfbf;
+    font-style:normal;
+    line-height:32px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.boton:active{
+    background:url("../imagen/boton_active.png") no-repeat;
+    height: 40px;
+    width: 120px;
+    background-size: 115px 35px;
+    text-align: center;
+    display: block;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    color: #bfbfbf;
+    font-style:normal;
+    line-height:34px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.boton:visited{
+    color: #bfbfbf;
+    text-decoration: none;
+}
+
+.boton:focus{
+    color: #bfbfbf;
+    outline: none;
+    text-decoration: none;
+    border: none;
+}
+.carrito{
+background:url(../imagen/carrito.png) no-repeat 4px 6px;
+text-indent:10px;
+display:block;
+}
+
+.carrito:hover{
+background:url(../imagen/carrito.png) no-repeat 4px 8px;
+text-indent:10px;
+display:block;
+}
+
+.carrito:active{
+background:url(../imagen/carrito.png) no-repeat 4px 10px;
+text-indent:10px;
+display:block;
+}
+
+#btn_numArtic{
+    position: absolute;
+    top: 10px;
+    z-index: 100;
+    margin-left: 0%;
+}

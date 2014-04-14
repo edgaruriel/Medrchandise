@@ -1,0 +1,56 @@
+@charset "utf-8";
+#cuenta{
+	margin:190px 1px 1px 240px;
+	float:left;	
+	width:370px;
+	height:330px;
+	border-color:#096;
+	border-style:solid;
+	border-width: 2px;
+	background-color:#FFF;
+}
+
+#crear_cuenta{
+	margin: 190px 240px 1px 1px;
+	float:right;	
+	width:370px;
+	height:330px;
+	border-color:#096;
+	border-style:solid;
+	border-width: 2px;
+	background-color:#FFF;
+	
+}
+.titulo_login{
+	font-size:21px;
+	font-family: Verdana, sans-serif;
+	color:White;
+}
+
+.texto_cuenta{
+	font-size:17px;	
+	color:#999;
+}
+
+.td_titulo{
+	width:370px;
+	background-image:url('../imagen/FondoCabeceraRegistro.gif');	
+}
+
+#btn_registrarse{
+ 	float:right;
+}
+
+#btn_ingresar{
+ 	float:right;
+}
+
+#contrasena_login{
+	color:#096;
+	text-decoration:none;
+}
+
+hr{
+	background-color:#096; 
+	width: 95%; 	
+}

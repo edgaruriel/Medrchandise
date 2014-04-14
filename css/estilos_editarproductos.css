@@ -1,0 +1,95 @@
+@charset "utf-8";
+/* CSS Document */
+#div_cuerpo{
+
+ -moz-padding-start: 5%;
+
+overflow-y: scroll;
+height: 74%;
+min-height: 428px;
+width:900px;
+position: absolute;
+top: 120px;
+margin: auto auto 70px 15%;
+ 
+background-color:#FFF;
+box-shadow:0px 0px 10px 2px #82c396;
+
+}
+
+#div_contenido{
+    margin: 20px auto 35px auto;
+    left: 0px;
+}
+
+#btn_nuevaoferta{
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 0px;
+}
+
+#btn_nuevoproducto{
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	font-size: 13px;
+}
+
+#table_producto{
+	width: 90%;
+	height: 60px;
+    width: 90%;
+    margin: 20px auto auto auto;
+    left: 0px;
+    border-collapse: collapse;
+}
+
+#tabla_titulo{
+	background-color: #82c396;
+    height: 60px;
+    width: 90%;
+    margin: auto;
+    left: 0px;
+}
+
+.tabla_textotitulo{
+	height:30px;
+	color:#FFF;
+	font-size:15px;
+	padding-top:5px;
+	padding-left:5px;
+	text-align: center;
+}
+
+.tabla_textocontenido{
+	height:30px;
+	color:#82c396;
+	font-size:15px;
+	padding-top:5px;
+	padding-left:5px;
+	text-align: center;
+}
+
+table {
+  border: #82c396 5px solid;
+  border-collapse: separate;
+  border-spacing: 5px;
+  cellpadding:10px;
+ 
+}
+
+
+ul{
+	position:relative;
+
+}
+.accion{
+	margin:0;
+	padding:0;
+	list-style:none;
+	top:0;
+	height:38px;
+	display: block;
+	display: inline;
+}
+

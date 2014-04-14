@@ -1,0 +1,102 @@
+@CHARSET "ISO-8859-1";
+#imagen{
+    float: left;
+    position: absolute;
+    margin-left: 15%;
+    /*border: 1px solid black;*/
+     margin-top: 1%;
+}
+
+.link_catego{
+    text-decoration: none;
+}
+
+.link_catego:hover{
+    text-decoration: underline;
+    color: green;
+}
+
+#info{
+    float: right;
+    position: absolute;
+    margin-left: 45%;
+    margin-top: 1%;
+    font-family: arial;
+}
+
+#info_gral{
+    margin-top: 5%;
+}
+
+#categorias{
+    float: left;
+    position: relative;
+    margin-top: 1%;
+}
+
+.linea_img{
+    width: 50px;
+    height: 50px;
+    margin: 0.5em 0.2em;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+#img_principal img{
+    width: 300px;
+    height: 300px;
+}
+
+#txt_buscar{
+    height: 20px;
+    width: 260px;
+    position: absolute;
+}
+
+#btn_buscar{
+    position: relative;
+    left: 275px;
+    top: 0px;
+}
+
+#txt_cantidad{
+    margin-left: 5%;
+    margin-top: 1%;
+    width: 8%;
+    text-align: right;
+}
+
+#txt_precio{
+    margin-left: 1.6%;
+    margin-top: 1%;
+    border: none;
+    background-color: transparent;
+    text-align: center;
+    width: 8%;
+}
+
+#txt_total{
+    text-align: left;
+    width: 8%;
+    margin-left: 7.6%;
+    margin-top: 1%;
+}
+
+#txt_dispo{
+    border: none;
+    background-color: transparent;
+    text-align: left;
+    margin-left: 1.5%;
+    margin-top: 1%;
+}
+
+#btn_agregar{
+    margin-left: 5%;
+    margin-top: 1%;
+    font-size: 13px;
+}
+
+.elem_categ{
+    padding:1em;
+    border: 1px solid green;
+}

@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* CSS Document */
+#cont_form{
+height: 680px;
+width:400px;
+position: relative;
+    top: 150px;
+	margin:auto;
+	background-color:#FFF;
+	box-shadow:0px 0px 10px 2px #82c396;
+	}
+	
+#cabecera{
+	height:30px;
+	color:#FFF;
+	font-size:30px;
+	padding-top:5px;
+	padding-left:5px;
+	background-image:url('../imagen/FondoCabeceraRegistro.gif');
+	
+	}	
+	
+#formulario{
+	width: auto;
+	height: auto;
+	margin:auto;
+    margin-bottom: 20%;
+	top: 10px;
+    position: relative;
+		}
+		
+#registro{
+	color:#999;
+	font-size:16px;
+	margin-left: 50px;
+	margin-right: 50px;
+	}
+	
+.campos {
+	border-color:#82c396;
+	border-style:double;
+	}
+	
+hr{
+	color:#62d7ba;
+	
+	}

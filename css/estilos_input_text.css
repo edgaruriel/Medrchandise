@@ -1,0 +1,68 @@
+input[type=text]{
+    padding: 4px;
+    box-shadow: 2px;
+    border: 2px solid #E6F3E6;
+    background: #ffffff;
+    outline-color: #62d7ba;
+    color: #999;
+}
+
+input[type=text]:hover{
+    border: 2px solid #82C396;
+}
+
+input[type=text]:focus{
+    border: 2px solid #62d7ba;
+    color: #82C396;
+}
+
+input[type=text]:disabled{
+    border: 2px solid #E6F3E6;
+    color: #000000;
+}
+
+input[type=password]{
+    padding: 4px;
+    box-shadow: 2px;
+    border: 2px solid #E6F3E6;
+    background: #ffffff;
+    outline-color: #62d7ba;
+    color: #999;
+}
+
+input[type=password]:hover{
+    border: 2px solid #82C396;
+}
+
+input[type=password]:focus{
+    border: 2px solid #62d7ba;
+    color: #82C396;
+}
+
+input[type=password]:disabled{
+    border: 2px solid #E6F3E6;
+    color: #000000;
+}
+
+textarea{
+    padding: 4px;
+    box-shadow: 2px;
+    border: 2px solid #E6F3E6;
+    background: #ffffff;
+    outline-color: #62d7ba;
+    color: #999;
+}
+
+textarea:hover{
+    border: 2px solid #82C396;
+}
+
+textarea:focus{
+    border: 2px solid #62d7ba;
+    color: #82C396;
+}
+
+textarea:disabled{
+    border: 2px solid #E6F3E6;
+    color: #000000;
+}

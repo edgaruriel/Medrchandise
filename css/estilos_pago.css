@@ -1,0 +1,72 @@
+@charset "utf-8";
+/* CSS Document */
+#div_cuerpo{
+
+height: 50%;
+min-height: 428px;
+width:900px;
+position: absolute;
+    top: 120px;
+	margin: auto auto 70px 15%;
+	padding: 1px 1px 35px 1px;
+	background-color:#FFF;
+	box-shadow:0px 0px 10px 2px #82c396;
+
+}
+
+#div_cuerpo_superior{
+background-color: #82c396;
+}
+#cabecera{
+	height:30px;
+	color:#FFF;
+	text-align: center;
+
+}
+h1{
+	padding-top: 5px;
+	margin-top: 0px;
+}
+
+#btn_pagar{
+	margin-top: 2%;
+	margin-left:42%;
+}
+
+#btn_guardar{
+	margin-left: 42%;
+}
+
+#div_contenido{
+    margin: 20px auto auto auto;
+    left: 0px;
+}
+
+
+#formulario{
+color:#999;
+	font-size:16px;
+	margin-left: 50px;
+	margin-right: 50px;
+
+}
+
+
+#descripcion{
+	 resize: none;
+}	
+
+#file_img{
+	 display: none;
+}
+
+table{
+	margin-left: 15%;
+
+}
+tr{
+	height: 52px;
+	margin: 14px;
+}
+
+

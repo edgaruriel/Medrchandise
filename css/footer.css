@@ -1,0 +1,33 @@
+@CHARSET "ISO-8859-1";
+
+#div_footer{
+    background-color: #82c396;
+    height: 60px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin: 0px;
+    left: 0px;
+}
+
+.leyenda{
+    width: 80%;
+    position: relative;
+    top:10px;
+    left: 10px;
+    font-size: 18px;
+    color: #e6f3e6;
+    line-height: 120%;
+}
+.footer_segmento{
+    width: 180px;
+    bottom: 3px;
+    position: fixed;
+    right: 40px;
+}
+
+.link_redes_sociales{
+width: 35px;
+height: 35px;
+border: none;
+}
