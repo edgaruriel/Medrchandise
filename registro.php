@@ -10,6 +10,7 @@ include_once("funciones/menu_header.php");
 <link href="css/estilos_botones.css" rel="stylesheet" type="text/css" />
 <link href="css/estilos_input_text.css" rel="stylesheet" type="text/css" />
 <link href="css/estilos_registro.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/js_registro.js"></script>
 <title>Medrchandise</title>
 </head>
 <body>
@@ -49,7 +50,7 @@ include_once("funciones/menu_header.php");
                     Fecha de nacimiento
                     <br>
                     <select id="mes" style='width:100px;' class="campos">
-						<option value='' />
+						<option value='0' />
 						<option value='1' selected>Enero</option>
                         <option value='2'>Febrero</option>
                         <option value='3'>Marzo</option>
@@ -64,7 +65,7 @@ include_once("funciones/menu_header.php");
                         <option value='12'>Diciembre</option>
                         		</select> &nbsp; 
 					<select id="dia" style='width:50px;' class="campos">
-						<option value='' />
+						<option value='0' />
 						<option value='1'>1</option>
                         <option value='2'>2</option>
                         <option value='3'>3</option>
@@ -98,7 +99,7 @@ include_once("funciones/menu_header.php");
                         <option value='31'>31</option>
                                 </select> &nbsp; 
                    <select id="anio" style='width:64px;' class="campos">
-                        <option value='' />
+                        <option value='0' />
                         <option value='2013'>2013</option>
                         <option value='2012'>2012</option>
                         <option value='2011'>2011</option>
@@ -184,10 +185,10 @@ include_once("funciones/menu_header.php");
                     <input type="text" id="correo" class="campos">
                     <br>
                     Contrase&ntilde;a:<br>
-                    <input type="password" id="contrase�a" class="campos">
+                    <input type="password" id="contrasena" class="campos">
                     <br>
                     Confirmar contrase&ntilde;a:<br>
-                    <input type="password" id="confcontrase�a" class="campos">
+                    <input type="password" id="confcontrasena" class="campos">
                     <br>
                     Direcci&oacute;n: <br>
                     <input type="text" id="direccion" class="campos">
@@ -212,8 +213,8 @@ include_once("funciones/menu_header.php");
                     <br>
                     <br>
                     <hr color="#82c396">
-                    
-                    <a href="" class="boton" id="btn_registrarse">Registrarse</a>
+                    <input type="submit" value="Registrarse" class="boton" id="btn_registrarse">
+                    <!-- <a href="" class="boton" id="btn_registrarse">Registrarse</a> -->
                     </form>
 				</div>
 		</div>
