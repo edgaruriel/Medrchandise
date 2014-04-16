@@ -85,25 +85,61 @@ include_once("funciones/menu_header.php");
 				
             <div id="productos">
                 <h1>Lista de Art&iacute;culos</h1>
-                <div id="producto">
-                    <div id="img_principal">
-                    <img src="imagen/prod.jpg">
-                </div>
-                <div id="nombreProducto">
-                    Producto 1
-                </div>
-                <div id="precioDetalles">
-                    <div id="precio">
-                        $200.00 MXN
-                    </div>
-                    <div id="detalles">
-                        <a href="detalles.php">Ver M&aacute;s [+]</a>
-                    </div>
-                    
-                </div>
-                </div>
-                
-                
+                <table>
+                    <tr>
+                        <td>
+                            <div id="producto">
+                                <div id="img_principal">
+                                    <img src="imagen/prod.jpg">
+                                </div>
+                                <div id="nombreProducto">
+                                    Producto 1
+                                </div>
+                                <div id="precioDetalles">
+                                    <div id="precio">$200.00 MXN</div>
+                                    <div id="detalles">
+                                    <a href="detalles.php">Ver M&aacute;s [+]</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="producto">
+                                <div id="img_principal">
+                                    <img src="imagen/prod.jpg">
+                                </div>
+                                <div id="nombreProducto">
+                                    Producto 1
+                                </div>
+                                <div id="precioDetalles">
+                                    <div id="precio">$200.00 MXN</div>
+                                    <div id="detalles">
+                                    <a href="detalles.php">Ver M&aacute;s [+]</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="producto">
+                                <div id="img_principal">
+                                    <img src="imagen/prod.jpg">
+                                </div>
+                                <div id="nombreProducto">
+                                    Producto 1
+                                </div>
+                                <div id="precioDetalles">
+                                    <div id="precio">$200.00 MXN</div>
+                                    <div id="detalles">
+                                    <a href="detalles.php">Ver M&aacute;s [+]</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        
+                    </tr>
+                </table>
             </div>
 		</div>
 		<!--Fin del cuerpo-->

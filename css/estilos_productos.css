@@ -2,7 +2,6 @@
 #producto{
     border: 1px solid #c8c8c8;
     float: left;
-    position: absolute;
     width: 200px;
     /*border: 1px solid black;*/
      margin-top: 1%;
@@ -76,7 +75,6 @@
 #precio{
     width: 60%; 
     margin-top: 3%;
-    position: absolute; 
 }
 
 #precioDetalles{
@@ -84,10 +82,9 @@
     height: 25px;
 }
 #detalles{
- width: 40%;
-    margin-left: 60%;
-    margin-top: 3%;
- position: relative;
+    width: 40%;
+    margin-left: 10%;
+    margin-top: 0%;
     color: #97c297;
 }
 
