@@ -41,13 +41,13 @@ include_once("funciones/menu_header.php");
         </div>			
 				<div id="formulario">
 					<form id="registro">
-                    Nombre: <br>
+                    *Nombre: <br>
                     <input type="text" id="nombre" class="campos">
                     <br>
                     Apellido: <br>
                     <input type="text" id="apellido" class="campos">
                     <br>
-                    Fecha de nacimiento
+                    *Fecha de nacimiento
                     <br>
                     <select id="mes" style='width:100px;' class="campos">
 						<option value='0' />
@@ -181,13 +181,13 @@ include_once("funciones/menu_header.php");
                         <option value='1935'>1935</option>
                         <option value='1934'>1934</option>
                                 </select><br>
-                    Correo:<br>
+                    *Correo:<br>
                     <input type="text" id="correo" class="campos">
                     <br>
-                    Contrase&ntilde;a:<br>
+                    *Contrase&ntilde;a:<br>
                     <input type="password" id="contrasena" class="campos">
                     <br>
-                    Confirmar contrase&ntilde;a:<br>
+                    *Confirmar contrase&ntilde;a:<br>
                     <input type="password" id="confcontrasena" class="campos">
                     <br>
                     Direcci&oacute;n: <br>
@@ -209,7 +209,7 @@ include_once("funciones/menu_header.php");
                     <br>
                     <br>
                     <input type="checkbox" id="aceptcondiciones" value="acepto"  class="campos">
-                    Acepto t&eacute;rminos y condiciones.
+                    *Acepto t&eacute;rminos y condiciones.
                     <br>
                     <br>
                     <hr color="#82c396">
