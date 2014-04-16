@@ -125,7 +125,7 @@ valor = document.getElementById("correo").value;
 function contrasena(){
 valor = document.getElementById("contrasena").value;
 	if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
-		alert('Debes de tener una cotrase&ntilde;a');
+		alert('Debes de tener una cotrase\u00f1a');
 		camposValidos[4]=false;
 	}else{
 	
@@ -135,7 +135,7 @@ valor = document.getElementById("contrasena").value;
 function confcontrasena(){
 valor = document.getElementById("confcontrasena").value;
 	if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
-		alert('No se ha confirmado la constrase&ntilde;a');
+		alert('No se ha confirmado la constrase\u00f1a');
 		camposValidos[5]=false;
 	}else{
 	
@@ -155,8 +155,9 @@ valor = document.getElementById("telefono").value;
 	if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
 		camposValidos[7]=true;                                                  
 	}else if( !(/^\d{7}$/.test(valor)) ) {
+		alert('El telefono debe de tener 7 digitos');
 		return camposValidos[7]=false;
-		alert('Telefono está mandando la alerta false');
+		
 	}
 	else{
 	
