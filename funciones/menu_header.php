@@ -73,7 +73,7 @@ function listarPanel(){
 	   $panel .= "<ul id=\"nombre_usuario\">";
 		$panel .= 	"<li><a href=\"#\">Usuario:".$_SESSION["cidusuario"].".</a>";
 	   $panel .= 		"<ul>";
-	   $panel .= 			"<li class=\"elem_usuario\"> <a href=\"cuenta_usuario.php\" class=\"link_usuario\">Cuenta</a></li>";
+	   $panel .= 			"<li class=\"elem_usuario\"> <a href=\"cuenta_usuario.php?cid_usuario=3\" class=\"link_usuario\">Cuenta</a></li>";
 	   $panel .= 			"<li class=\"elem_usuario\"> <a href=\"funciones/cerrar_sesion.php\" class=\"link_usuario\">Salir</a></li>";
 	   $panel .= 		"</ul>";
 	   $panel .= 	"</li>";
