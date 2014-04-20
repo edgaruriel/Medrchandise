@@ -219,7 +219,7 @@ $adatos = recuperarInfoUsuario($_GET["cid_usuario"]);
                     <input type="text" id="cp" name="cp" class="campos" value="<?php echo $adatos["codigo_postal"]?>">
                     <br>
                         <?php
-                            echo opciones_usuario();
+                            echo opciones_usuario($adatos["id_rol"]);
                         ?>
                     <br>
                     <br>

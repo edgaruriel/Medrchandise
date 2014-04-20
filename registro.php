@@ -216,7 +216,8 @@ include_once("./funciones/acceder_base_datos.php");
                     <input type="text" id="cp" name="cp" class="campos">
                     <br>
                         <?php
-                            echo opciones_usuario();
+                            $adatos=null;
+                            echo opciones_usuario($adatos);
                         ?>
                     <br>
                     <br>

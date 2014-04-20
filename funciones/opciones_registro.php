@@ -1,14 +1,22 @@
 <?php
-function opciones_usuario(){
+function opciones_usuario($adatos){
     $opciones = "";
  if(isset($_SESSION["cidusuario"]) && ($_SESSION["cidusuario"] == "admin")){
      $opciones .= "Tipo de usuario:<br>";
      $opciones .= "<select id='tipo_usuario' name='tipo_usuario'>";
-     $opciones .= "<option value='2'>Cliente</option>";
-     $opciones .= "<option value='1'>Administrador</option>";
-     $opciones .= "";
+     if($adatos!=null){
+     if($adatos[0]==1){
+         $opciones .= "<option value='2'>Cliente</option>";
+         $opciones .= "<option value='1' selected>Administrador</option>";
+     }else if($adatos[0]==2){
+            $opciones .= "<option value='2' selected>Cliente</option>";
+            $opciones .= "<option value='1'>Administrador</option>";
+     }
+     }else{  
+         $opciones .= "<option value='2'>Cliente</option>";
+         $opciones .= "<option value='1'>Administrador</option>";
+     }
      $opciones .= "</select>";
-     
  }else{
      
      if(isset($_SESSION["cidusuario"]) && ($_SESSION["cidusuario"] == "cliente")){
