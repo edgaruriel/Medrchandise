@@ -24,7 +24,8 @@ function validacion() {
 	estado();
 	ciudad();
 	cp();
-	aceptcondiciones()
+	aceptcondiciones();
+    validarcontrasenas();
 	
 	for (var i in camposValidos){
 		if (camposValidos[i]== false){
@@ -140,6 +141,17 @@ valor = document.getElementById("confcontrasena").value;
 	}else{
 	
 	camposValidos[5]=true;}
+}
+
+function validarcontrasenas(){
+    valorc = document.getElementById("contrasena").value;
+    valor = document.getElementById("confcontrasena").value;
+    if(valor!=valorc){
+        alert('Las contrase\u00f1as no coinciden');
+        camposValidos[12]=false;
+    }else{
+        camposValidos[12]=true;
+    }
 }
 
 function direccion(){
