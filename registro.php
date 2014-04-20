@@ -1,6 +1,6 @@
 <?php
-include_once("funciones/menu_header.php");
-include_once("funciones/opciones_registro.php");
+include_once("./funciones/menu_header.php");
+include_once("./funciones/opciones_registro.php");
 include_once("config.inc.php"); 
 include_once("./funciones/acceder_base_datos.php");
 ?>

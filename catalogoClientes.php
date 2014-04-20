@@ -1,8 +1,10 @@
 <?php
-include_once("funciones/menu_header.php");
+include_once("./funciones/menu_header.php");
 include_once("config.inc.php"); 
 include_once("./funciones/acceder_base_datos.php");
-include_once("funciones/opciones_registro.php");
+include_once("./funciones/opciones_registro.php");
+include_once("./funciones/mantener_sesion.php");
+validarSesion();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -13,6 +15,7 @@ include_once("funciones/opciones_registro.php");
 	<link href="css/estilos_botones.css" rel="stylesheet" type="text/css" />
 	<link href="css/estilos_input_text.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="css/estilos_catalogoClientes.css">
+    <script type="text/javascript" src="js/js_mensajeConfirmacion.js"></script>
 	<title>Editar Clientes</title>
 </head>
 <body>
@@ -46,6 +49,7 @@ include_once("funciones/opciones_registro.php");
 					<tr id="tabla_titulo">
                         <td class="tabla_textotitulo">ID</td>
 						<td colspan="2" class="tabla_textotitulo">Usuario</td>
+                        <td class="tabla_textotitulo">Rol</td>
 						<td class="tabla_textotitulo">Acciones</td>
 					</tr>
 					<?php

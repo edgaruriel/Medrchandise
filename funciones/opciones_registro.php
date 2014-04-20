@@ -12,9 +12,9 @@ function opciones_usuario(){
  }else{
      
      if(isset($_SESSION["cidusuario"]) && ($_SESSION["cidusuario"] == "cliente")){
-         $opciones .= "<input type='text' name='tipo_usuario' value='2'>";
+         $opciones .= "<input type='hidden' name='tipo_usuario' value='2'>";
      }else{
-        $opciones .= "<input type='text' name='tipo_usuario' value='2'>";
+        $opciones .= "<input type='hidden' name='tipo_usuario' value='2'>";
      }
  }
     return $opciones;
@@ -78,11 +78,11 @@ function listarUsuarios(){
  //Selecci�n de la base de datos
  seleccionarBaseDatos($pconexion);
  //Construcci�n de la sentencia SQL
- $cquery = "SELECT usuario.id_usuario AS Id_Usuario, usuario.nombre AS Nombre";
+ $cquery = "SELECT usuario.id_usuario AS Id_Usuario, usuario.nombre AS Nombre,";
  //$cquery .= " productos.precio AS Precio, productos.cantidad AS Cantidad,";
- //$cquery .= " proveedores.nombre AS Nombre";
- $cquery .= " FROM usuario";
- //$cquery .= " WHERE (productos.id_proveedor=proveedores.id_proveedor)"; 
+ $cquery .= " rol.tipo_rol AS Rol";
+ $cquery .= " FROM usuario,rol";
+ $cquery .= " WHERE (usuario.id_rol=rol.id_rol)"; 
   
  //Se ejecuta la sentencia SQL
  $lresult = mysqli_query($pconexion, $cquery); 
@@ -103,10 +103,11 @@ function listarUsuarios(){
 	   $ccontenido .= "<tr>";
 	   $ccontenido .= "<td class=\"tabla_textocontenido\">".$adatos["Id_Usuario"]."</td>";
         $ccontenido .= "<td colspan=\"2\" class=\"tabla_textocontenido\">".$adatos["Nombre"]."</td>";
+        $ccontenido .= "<td class=\"tabla_textocontenido\">".$adatos["Rol"]."</td>";
         $ccontenido .= "<td class=\"tabla_textocontenido\">";
          $ccontenido .= "<ul>";
          $ccontenido .= "<li class=\"accion\"><a href=\"cuenta_usuario.php?cid_usuario=$cid_usuario\"><img src=\"imagen/fotoeditar.jpg\"></a></li>";
-         $ccontenido .= "<li class=\"accion\"><a href=\"funciones/borrarUsuario.php?cid_usuario=$cid_usuario\"><img src=\"imagen/fotoborrar.jpg\"></a></li>";
+         $ccontenido .= "<li class=\"accion\"><a href=\"funciones/borrarUsuario.php?cid_usuario=$cid_usuario\" onClick=\"return confirmar(String.fromCharCode(191)+'Seguro que desea eliminar el registro?')\"><img src=\"imagen/fotoborrar.jpg\"></a></li>";
          $ccontenido .= "</ul>";
          $ccontenido .= "</td>";
 	   $ccontenido .= "</tr>";	

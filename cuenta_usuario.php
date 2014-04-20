@@ -1,8 +1,10 @@
 <?php
-include_once("funciones/menu_header.php");
-include_once("funciones/opciones_registro.php");
+include_once("./funciones/menu_header.php");
+include_once("./funciones/opciones_registro.php");
 include_once("config.inc.php");
 include_once("./funciones/acceder_base_datos.php");
+include_once("./funciones/mantener_sesion.php");
+validarSesion();
 $adatos = recuperarInfoUsuario($_GET["cid_usuario"]); 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -14,6 +16,7 @@ $adatos = recuperarInfoUsuario($_GET["cid_usuario"]);
 <link href="css/estilos_botones.css" rel="stylesheet" type="text/css" />
 <link href="css/estilos_input_text.css" rel="stylesheet" type="text/css" />
 <link href="css/estilos_registro.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/js_registro.js"></script>
 <title>Medrchandise</title>
 </head>
 <body>

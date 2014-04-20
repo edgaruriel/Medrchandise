@@ -1,5 +1,7 @@
 <?php
 include_once("funciones/menu_header.php");
+include_once("./funciones/mantener_sesion.php");
+validarSesion();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
