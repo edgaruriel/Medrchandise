@@ -1,5 +1,9 @@
 <?php
 include_once("funciones/menu_header.php");
+include_once("funciones/opciones_registro.php");
+include_once("config.inc.php");
+include_once("./funciones/acceder_base_datos.php");
+$adatos = recuperarInfoUsuario($_GET["cid_usuario"]); 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -39,41 +43,46 @@ include_once("funciones/menu_header.php");
         Modificar cuenta
         </div>			
 				<div id="formulario">
-					<form id="registro">
-                    Nombre: <br>
-                    <input type="text" id="nombre" class="campos" value="cliente">
+					<form id="registro" method="post" action="./funciones/editarUsuario.php">
+                        <input type="hidden" name="hdn_idusuario" value="<?php echo $adatos["id_usuario"]; ?>">
+                        <br>
+                    *Nombre: <br>
+                    <input type="text" id="nombre" name="nombre" class="campos" value="<?php echo $adatos["nombre"];?>">
                     <br>
-                    Apellido: <br>
-                    <input type="text" id="apellido" class="campos" value="mi apellido">
+                    Apellido(s): <br>
+                    <input type="text" id="apellido" name="apellido" class="campos"  value="<?php echo $adatos["apellido"];?>">
                     <br>
-                    Fecha de nacimiento
+                    *Nombre de usuario: <br>
+                    <input type="text" id="nombreusuario" name="nombreusuario" class="campos"  value="<?php echo $adatos["nick"];?>">
                     <br>
-                    <select id="mes" style='width:100px;' class="campos">
-						<option value='' />
-						<option value='1' selected>Enero</option>
-                        <option value='2'>Febrero</option>
-                        <option value='3'>Marzo</option>
-                        <option value='4'>Abril</option>
-                        <option value='5'>Mayo</option>
-                        <option value='6'>Junio</option>
-                        <option value='7'>Julio</option>
-                        <option value='8'>Agosto</option>
-                        <option value='9'>Septiembre</option>
+                    *Fecha de nacimiento
+                    <br>
+                    <select id="mes" name="mes" style='width:100px;' class="campos">
+						<option value='0' />
+						<option value='01' selected>Enero</option>
+                        <option value='02'>Febrero</option>
+                        <option value='03'>Marzo</option>
+                        <option value='04'>Abril</option>
+                        <option value='05'>Mayo</option>
+                        <option value='06'>Junio</option>
+                        <option value='07'>Julio</option>
+                        <option value='08'>Agosto</option>
+                        <option value='09'>Septiembre</option>
                         <option value='10'>Octubre</option>
                         <option value='11'>Noviembre</option>
                         <option value='12'>Diciembre</option>
                         		</select> &nbsp; 
-					<select id="dia" style='width:50px;' class="campos">
-						<option value='' />
-						<option value='1' selected>1</option>
-                        <option value='2'>2</option>
-                        <option value='3'>3</option>
-                        <option value='4'>4</option>
-                        <option value='5'>5</option>
-                        <option value='6'>6</option>
-                        <option value='7'>7</option>
-                        <option value='8'>8</option>
-                        <option value='9'>9</option>
+					<select id="dia" name="dia" style='width:50px;' class="campos">
+						<option value='0' />
+						<option value='01'>1</option>
+                        <option value='02'>2</option>
+                        <option value='03'>3</option>
+                        <option value='04'>4</option>
+                        <option value='05'>5</option>
+                        <option value='06'>6</option>
+                        <option value='07'>7</option>
+                        <option value='08'>8</option>
+                        <option value='09'>9</option>
                         <option value='10'>10</option>
                         <option value='11'>11</option>
                         <option value='12'>12</option>
@@ -97,8 +106,8 @@ include_once("funciones/menu_header.php");
                         <option value='30'>30</option>
                         <option value='31'>31</option>
                                 </select> &nbsp; 
-                   <select id="anio" style='width:64px;' class="campos">
-                        <option value='' />
+                   <select id="anio" name="anio" style='width:64px;' class="campos">
+                        <option value='0' />
                         <option value='2013'>2013</option>
                         <option value='2012'>2012</option>
                         <option value='2011'>2011</option>
@@ -121,7 +130,7 @@ include_once("funciones/menu_header.php");
                         <option value='1994'>1994</option>
                         <option value='1993'>1993</option>
                         <option value='1992'>1992</option>
-                        <option value='1991' selected>1991</option>
+                        <option value='1991'>1991</option>
                         <option value='1990'>1990</option>
                         <option value='1989'>1989</option>
                         <option value='1988'>1988</option>
@@ -180,37 +189,44 @@ include_once("funciones/menu_header.php");
                         <option value='1935'>1935</option>
                         <option value='1934'>1934</option>
                                 </select><br>
-                    Correo:<br>
-                    <input type="text" id="correo" class="campos" value="cliente@gmail.com">
+                    *Correo:<br>
+                    <input type="text" id="correo" name="correo" class="campos"  value="<?php echo $adatos["correo"];?>">
                     <br>
-                    Contrase&ntilde;a:<br>
-                    <input type="password" id="contraseña" class="campos">
+                    *Contrase&ntilde;a:<br>
+                    <input type="password" id="contrasena" name="contrasena" class="campos"  value="<?php echo $adatos["contrasena"];?>">
                     <br>
-                    Confirmar contrase&ntilde;a:<br>
-                    <input type="password" id="confcontraseña" class="campos">
+                    *Confirmar contrase&ntilde;a:<br>
+                    <input type="password" id="confcontrasena" name="confcontrasena" class="campos"  value="<?php echo $adatos["contrasena"];?>">
                     <br>
                     Direcci&oacute;n: <br>
-                    <input type="text" id="direccion" class="campos" value="calle del cliente">
+                    <input type="text" id="direccion" name="direccion" class="campos"  value="<?php echo $adatos["direccion"];?>">
                     <br>
                     Tel&eacute;fono:
                     <br>
-                    <input type="text" id="telefono" class="campos" value="999999999">
+                    <input type="text" id="telefono" name="telefono" class="campos"  value="<?php echo $adatos["telefono"];?>">
                     <br>
                     Estado: <br>
-                    <input type="text" id="estado" class="campos" value="M&eacute;rida">
+                    <input type="text" id="estado" name="estado" class="campos"  value="<?php echo $adatos["estado"];?>">
                     <br>
                     Ciudad/Municipio : <br>
-                    <input type="text" id="ciudad" class="campos" value="Yucat&aacute;n">
+                    <input type="text" id="ciudad" name="ciudad" class="campos"  value="<?php echo $adatos["ciudad"];?>">
                     <br>
                     C.P.: 
                     <br>
-                    <input type="text" id="cp" class="campos" value="97000">
+                    <input type="text" id="cp" name="cp" class="campos" value="<?php echo $adatos["codigo_postal"]?>">
                     <br>
+                        <?php
+                            echo opciones_usuario();
+                        ?>
+                    <br>
+                    <br>
+                    <input type="checkbox" id="aceptcondiciones" name="aceptcondiciones" value="acepto"  class="campos">
+                    *Acepto t&eacute;rminos y condiciones.
                     <br>
                     <br>
                     <hr color="#82c396">
-                    
-                    <a href="index.php" class="boton" id="btn_registrarse">Guardar</a>
+                    <input type="submit" value="Registrarse" class="boton" id="btn_registrarse" name="btn_registrarse">
+                    <!-- <a href="" class="boton" id="btn_registrarse">Registrarse</a> -->
                     </form>
 				</div>
 		</div>

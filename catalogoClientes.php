@@ -1,5 +1,8 @@
 <?php
 include_once("funciones/menu_header.php");
+include_once("config.inc.php"); 
+include_once("./funciones/acceder_base_datos.php");
+include_once("funciones/opciones_registro.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -41,81 +44,13 @@ include_once("funciones/menu_header.php");
 			<div id="div_contenido">
 				<table id="table_producto">
 					<tr id="tabla_titulo">
+                        <td class="tabla_textotitulo">ID</td>
 						<td colspan="2" class="tabla_textotitulo">Usuario</td>
 						<td class="tabla_textotitulo">Acciones</td>
 					</tr>
-					<tr>
-						<td colspan="2" class="tabla_textocontenido">Jaime Negrete</td>
-						<td class="tabla_textocontenido">
-							 <ul >			
-				  				<li class="accion"><a href="cuenta_usuario.php"><img src="imagen/fotoeditar.jpg"></a></li>
-				                <li class="accion"><a href="#"><img src="imagen/fotoborrar.jpg"></a></li>				  				
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2" class="tabla_textocontenido">Eddie Paredes</td>
-						<td class="tabla_textocontenido">
-							 <ul >			
-				  				<li class="accion"><a href="#"><img src="imagen/fotoeditar.jpg"></a></li>
-				                <li class="accion"><a href="#"><img src="imagen/fotoborrar.jpg"></a></li>				  				
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2" class="tabla_textocontenido">Aldo Castillo</td>
-						<td class="tabla_textocontenido">
-							 <ul >			
-				  				<li class="accion"><a href="#"><img src="imagen/fotoeditar.jpg"></a></li>
-				                <li class="accion"><a href="#"><img src="imagen/fotoborrar.jpg"></a></li>				  				
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2" class="tabla_textocontenido">Edgar Rodr&iacute;guez</td>
-						<td class="tabla_textocontenido">
-							 <ul >			
-				  				<li class="accion"><a href="#"><img src="imagen/fotoeditar.jpg"></a></li>
-				                <li class="accion"><a href="#"><img src="imagen/fotoborrar.jpg"></a></li>				  				
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2" class="tabla_textocontenido">Gabriel Rend&oacute;</td>
-						<td class="tabla_textocontenido">
-							 <ul >			
-				  				<li class="accion"><a href="#"><img src="imagen/fotoeditar.jpg"></a></li>
-				                <li class="accion"><a href="#"><img src="imagen/fotoborrar.jpg"></a></li>				  				
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2" class="tabla_textocontenido">Javier Mijangos</td>
-						<td class="tabla_textocontenido">
-							 <ul >			
-				  				<li class="accion"><a href="#"><img src="imagen/fotoeditar.jpg"></a></li>
-				                <li class="accion"><a href="#"><img src="imagen/fotoborrar.jpg"></a></li>				  				
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2" class="tabla_textocontenido">Pedrito</td>
-						<td class="tabla_textocontenido">
-							 <ul >			
-				  				<li class="accion"><a href="#"><img src="imagen/fotoeditar.jpg"></a></li>
-				                <li class="accion"><a href="#"><img src="imagen/fotoborrar.jpg"></a></li>				  				
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2" class="tabla_textocontenido">Pablito</td>
-						<td class="tabla_textocontenido">
-							 <ul >			
-				  				<li class="accion"><a href="#"><img src="imagen/fotoeditar.jpg"></a></li>
-				                <li class="accion"><a href="#"><img src="imagen/fotoborrar.jpg"></a></li>				  				
-							</ul>
-						</td>
-					</tr>
+					<?php
+                        echo listarUsuarios();
+                    ?>
 				</table>
 				
 			</div>

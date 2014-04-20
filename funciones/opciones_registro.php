@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 function opciones_usuario(){
     $opciones = "";
  if(isset($_SESSION["cidusuario"]) && ($_SESSION["cidusuario"] == "admin")){
@@ -71,4 +69,76 @@ function agregarUsuario(){
 
  return $cmensaje;
 }
+
+function listarUsuarios(){
+ 
+ $ccontenido = "";
+ //Conexi�n con el servidor de base de datos
+ $pconexion = abrirConexion();
+ //Selecci�n de la base de datos
+ seleccionarBaseDatos($pconexion);
+ //Construcci�n de la sentencia SQL
+ $cquery = "SELECT usuario.id_usuario AS Id_Usuario, usuario.nombre AS Nombre";
+ //$cquery .= " productos.precio AS Precio, productos.cantidad AS Cantidad,";
+ //$cquery .= " proveedores.nombre AS Nombre";
+ $cquery .= " FROM usuario";
+ //$cquery .= " WHERE (productos.id_proveedor=proveedores.id_proveedor)"; 
+  
+ //Se ejecuta la sentencia SQL
+ $lresult = mysqli_query($pconexion, $cquery); 
+	 
+ if (!$lresult) {
+   $cerror = "No fue posible recuperar la informaci�n de la base de datos.<br>";
+   $cerror .= "SQL: $cquery <br>";
+   $cerror .= "Descripci�n: ".mysqli_connect_error($pconexion);
+   die($cerror);
+ } 
+ else{ 
+   //Verifica que la consulta haya devuelto por lo menos un registro
+   if (mysqli_num_rows($lresult) > 0){
+  	 //Recorre los registros arrojados por la consulta SQL
+	 while ($adatos = mysqli_fetch_array($lresult, MYSQLI_BOTH)){
+
+       $cid_usuario = $adatos["Id_Usuario"]; //**
+	   $ccontenido .= "<tr>";
+	   $ccontenido .= "<td class=\"tabla_textocontenido\">".$adatos["Id_Usuario"]."</td>";
+        $ccontenido .= "<td colspan=\"2\" class=\"tabla_textocontenido\">".$adatos["Nombre"]."</td>";
+        $ccontenido .= "<td class=\"tabla_textocontenido\">";
+         $ccontenido .= "<ul>";
+         $ccontenido .= "<li class=\"accion\"><a href=\"cuenta_usuario.php?cid_usuario=$cid_usuario\"><img src=\"imagen/fotoeditar.jpg\"></a></li>";
+         $ccontenido .= "<li class=\"accion\"><a href=\"funciones/borrarUsuario.php?cid_usuario=$cid_usuario\"><img src=\"imagen/fotoborrar.jpg\"></a></li>";
+         $ccontenido .= "</ul>";
+         $ccontenido .= "</td>";
+	   $ccontenido .= "</tr>";	
+	 }   
+   }	 
+ }	 
+ 
+ mysqli_free_result($lresult); 
+ 
+ if ( empty($ccontenido) ){
+   $ccontenido .= "<tr>";
+   $ccontenido .= "<td colspan=\"11\">No se obtuvieron resultados</td>";		
+   $ccontenido .= "</tr>";
+ }
+ 
+ cerrarConexion($pconexion); 
+ return $ccontenido; 
+}
+
+function recuperarInfoUsuario($cid_usuario){
+ 
+ $adatos = array();
+ 
+ $pconexion = abrirConexion();
+ seleccionarBaseDatos($pconexion);
+ 
+ $cquery = "SELECT id_usuario, nombre, apellido, correo, fecha_nacimiento, direccion, telefono, estado, ciudad, codigo_postal, id_rol, nick, contrasena FROM
+usuario"; 
+ $cquery .= " WHERE (id_usuario = $cid_usuario)";
+ $adatos = extraerRegistro($pconexion, $cquery);
+ cerrarConexion($pconexion);
+   
+ return $adatos;
+} 
 ?>
