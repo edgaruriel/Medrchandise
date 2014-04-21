@@ -1,5 +1,7 @@
 <?php
 include_once("funciones/menu_header.php");
+include_once("funciones/menu_categorias.php");
+include_once("funciones/listar_productos.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -48,6 +50,7 @@ include_once("funciones/menu_header.php");
             <div id="categorias">
             <h1>Categor&iacute;as</h1>
                 <div>
+                    <!--
                     <ul id="menu_cat">
                         <li class="elem_categ"> <a href="#" class="link_catego">Categoria 1</a>
                             <ul>
@@ -80,12 +83,15 @@ include_once("funciones/menu_header.php");
                         <li class="elem_categ"> <a href="#" class="link_catego">Categoria 1</a></li>
                         <li class="elem_categ"> <a href="#" class="link_catego">Categoria 1</a></li>
                     </ul>
+                -->
+                <?php echo escribirMenuCat(); ?>
                 </div>
             </div>
 				
             <div id="productos">
                 <h1>Lista de Art&iacute;culos</h1>
                 <table>
+                <!--
                     <tr>
                         <td>
                             <div id="producto">
@@ -136,9 +142,8 @@ include_once("funciones/menu_header.php");
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        
-                    </tr>
+                -->
+                    <?php echo listarProductos(); ?>
                 </table>
             </div>
 		</div>
