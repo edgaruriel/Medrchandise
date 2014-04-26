@@ -69,8 +69,20 @@ table {
  
 }
 
+.estilo_cantidad{
+	width: 60px;	
+	padding: 4px;
+    box-shadow: 2px;
+    border: 2px solid #47C147;
+    background: #ffffff;
+    outline-color: #62d7ba;
+    color: #040000;
+     font-weight: bold;
+}
 
-
+#Btnsubmit{
+	display: none;
+}
 
 <!-- -->
 
@@ -95,19 +107,16 @@ table {
     position:fixed ;
 }
 
-#img_producto {
-   
+#img_producto {   
     width: 100px;
 }
-
-
 
 tr.fila_producto{
     height: 100px;
     border-bottom: 1px solid #82c396;
 }
-
 a.eliminar_prod:link,a.eliminar_prod:visited {
     color: red;
     text-decoration: none;
+    font-weight: bold;
 }

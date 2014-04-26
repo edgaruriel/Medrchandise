@@ -14,6 +14,7 @@ validarSesion();
 <link href="css/footer.css" rel="stylesheet" type="text/css" />
 <link href="css/estilos_carrito.css" rel="stylesheet" type="text/css"/>
 <link href="css/estilos_botones.css" rel="stylesheet" type="text/css" />
+<link href="css/estilos_input_text.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/js_carritoCompras.js"></script>
 <title>Medrchandise</title>
 </head>
@@ -40,8 +41,12 @@ validarSesion();
 		
 		<!--Inicio del cuerpo-->
 		<div id="cuerpo">
+		
 		<div id="div_cuerpo">		 
             <div id="productos">
+            
+            <form id="formCarrito" action="funciones/carritoCompras/agregarProdCarrito.php" method="post">
+            <!--  <a id="btnComprar" class="boton" href="#" >Siguiente</a>  -->
                 <table id="tabla_productos">
                     <tr id="tabla_titulo">
                         <td colspan="2" class="tabla_textotitulo">
@@ -63,13 +68,15 @@ validarSesion();
 				        <?php 
 				       echo listarProCarrito();
 				        ?>
-                </table>
+                </table>                
+                <input type="submit" id="Btnsubmit" name="Btnsubmit"  class="Btnsubmit" value="comprar">
+                </form>
             </div>
             <div id="resumen">
 			         <?php 
 			         echo resumenCarrito();
 			         ?>
-            </div>
+            </div>            
 		</div>
 		</div>
 		<!--Fin del cuerpo-->
