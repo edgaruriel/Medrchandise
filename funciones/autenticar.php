@@ -14,6 +14,11 @@
 	   	echo "Entro en cliente registrado";
 	   	if (($_POST["txt_usuario"]=="cliente") && ($_POST["pass_usuario"]=="registrado")) {
 	    iniciarSesion($_POST["txt_usuario"]);
+	    
+	    session_start();
+	    $carrito = array();
+	    $_SESSION["carrito"] = $carrito;
+	    
 	    $cdestino = "Location:../index.php";
 	   	}else{
 	   		echo "Entro en else de cliente";

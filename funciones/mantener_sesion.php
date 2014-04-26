@@ -1,8 +1,6 @@
 <?php 
 function validarSesion(){
 
-session_start();
-
 if(!isset($_SESSION["cidusuario"])){
 	$cdestino = "Location:index.php";
 	header($cdestino);

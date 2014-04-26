@@ -1,6 +1,9 @@
 <?php
 include_once("funciones/menu_header.php");
-include_once("./funciones/mantener_sesion.php");
+include_once("funciones/mantener_sesion.php");
+include_once("config.inc.php"); 
+include_once("./funciones/acceder_base_datos.php");
+include_once("funciones/carritoCompras/mostrarProCarrito.php");
 validarSesion();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -11,6 +14,7 @@ validarSesion();
 <link href="css/footer.css" rel="stylesheet" type="text/css" />
 <link href="css/estilos_carrito.css" rel="stylesheet" type="text/css"/>
 <link href="css/estilos_botones.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/js_carritoCompras.js"></script>
 <title>Medrchandise</title>
 </head>
 <body>
@@ -35,71 +39,38 @@ validarSesion();
 		<!--Fin del header -->
 		
 		<!--Inicio del cuerpo-->
-		<div id="div_cuerpo">
+		<div id="cuerpo">
+		<div id="div_cuerpo">		 
             <div id="productos">
                 <table id="tabla_productos">
-                    <tr id="header_tabla">
-                        <td class="celda_producto">
-                            Tienes <b>1</b> producto en el carrito
+                    <tr id="tabla_titulo">
+                        <td colspan="2" class="tabla_textotitulo">
+                           Producto.
                         </td>
-                        <td class="celda_precio">
-                            C.U.
+                        <td class="tabla_textotitulo">
+                            Precio por unidad.
                         </td>
-                        <td class="celda_cantidad">
-                            Cantidad
+                        <td class="tabla_textotitulo">
+                            Cantidad.
                         </td>
-                        <td class="celda_subtotal">
-                            &nbsp;
+                        <td class="tabla_textotitulo">
+                            Subtotal.
                         </td>
-                        <td class="celda_eliminar">
-                            &nbsp;
+                        <td class="tabla_textotitulo">
+                            Operaciones.
                         </td>
-                    </tr>
-                    <tr class="fila_producto">
-                        <td class="celda_producto" >
-                            <table>
-                                <tr>
-                                    <td class="celda_imagen">
-                                         <img id="img_producto" alt="" src="imagen/prod.jpg">
-                                    </td>
-                                    <td id="nombre_producto">
-                                        Estetoscopio
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td class="celda_precio">
-                            $600.00
-                        </td>
-                        <td class="celda_cantidad">
-                            <input type="number" id="cantidad" value="1">
-                        </td>
-                        <td class="celda_subtotal">
-                            $600.00 MXN
-                        </td>
-                        <td class="celda_eliminar">
-                            <a class="eliminar_prod"href="#">x</a>
-                        </td>
-                    </tr>
+                    </tr>    
+				        <?php 
+				       echo listarProCarrito();
+				        ?>
                 </table>
             </div>
             <div id="resumen">
-                <div>
-                    &nbsp;
-                </div>
-                <div>
-                    Total
-                </div>
-                <div>
-                    <b>$600.00 MXN</b>
-                </div>
-                <div>
-                    Incl. IVA
-                </div>
-                <div>
-                    <a id="btn_comprar" class="boton" href="pago.php">Siguiente</a>
-                </div>
+			         <?php 
+			         echo resumenCarrito();
+			         ?>
             </div>
+		</div>
 		</div>
 		<!--Fin del cuerpo-->
 		

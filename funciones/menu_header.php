@@ -97,7 +97,7 @@ function listarPanel(){
 	   $panel .= 	"</li>";
 	   $panel .= "</ul>";
 	   $panel .= "<a class=\"boton\" id=\"btn_numArtic\" href=\"carrito.php\">";
-	   $panel .= "<span class=\"carrito\">0 Art&iacute;culos</span>";
+	   $panel .= "<span class=\"carrito\">". count($_SESSION["carrito"])." Art&iacute;culos</span>";
 	   $panel .= "</a>";
 	 
 	  }else{

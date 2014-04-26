@@ -6,39 +6,77 @@
     position: absolute;
 }
 
+
+<!-- -->
+#div_cuerpo{
+
+ -moz-padding-start: 5%;
+
+overflow-y: scroll;
+height: 74%;
+min-height: 428px;
+width:962px;
+position: absolute;
+top: 120px;
+margin: auto auto 70px 14%;
+ 
+background-color:#FFF;
+box-shadow:0px 0px 10px 2px #82c396;
+
+}
+
 #tabla_productos{
-   border-spacing: 10px;
+	width: 90%;
+	height: 60px;
+    width: 90%;
+  
+    left: 0px;
     border-collapse: collapse;
 }
 
-td.celda_producto{
-    width: 45%;
-    
+#tabla_titulo{
+	background-color: #82c396;
+    height: 60px;
+    width: 90%;
+    margin: auto;
+    left: 0px;
 }
 
-td.celda_precio{
-    width: 15%;
-    text-align: center;
-    
+.tabla_textotitulo{
+	height:30px;
+	color:#FFF;
+	font-size:15px;
+	padding-top:5px;
+	padding-left:5px;
+	text-align: center;
 }
 
-td.celda_cantidad{
-    text-align: center;
-    width: 10%;
-    
+.tabla_textocontenido{
+	height:30px;
+	width: 50px;
+	color:#82c396;
+	font-size:15px;
+	padding-top:5px;
+	padding-left:5px;
+	text-align: center;
 }
 
-td.celda_subtotal{
-    text-align: center;
-    width: 20%;
-    
+table {
+  border: #82c396 5px solid;
+  border-collapse: separate;
+  border-spacing: 5px;
+  cellpadding:10px;
+ 
 }
 
-td.celda_eliminar{
-    text-align: center;
-    width: 5%;
-    
-}
+
+
+
+<!-- -->
+
+
+
+
 
 #btn_comprar{
     top: 60px;
@@ -49,27 +87,20 @@ td.celda_eliminar{
 }
 
 #resumen{
-    margin-top: 160px;
-    margin-left: 80%;
+  
+    margin-left: 72%;
     font-size: 20px;
     line-height: 150%;
     width: 200px;
     position:fixed ;
 }
-td.celda_imagen{
-    width: 130px;
-}
+
 #img_producto {
-    margin-left: 15px;
+   
     width: 100px;
 }
 
-#header_tabla{
-    color: #e6f3e6;
-    background-color: #82c396;
-    border: 8px solid #82c396;
-    
-}
+
 
 tr.fila_producto{
     height: 100px;
