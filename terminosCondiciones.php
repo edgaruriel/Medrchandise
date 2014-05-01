@@ -11,7 +11,6 @@ include_once("funciones/menu_header.php");
 <link href="css/estilos_login.css" rel="stylesheet" type="text/css"/>
 <link href="css/estilos_input_text.css" rel="stylesheet" type="text/css" />
 <link href="css/estilos_botones.css" rel="stylesheet" type="text/css" />
-<link href="css/estilos_terminoscondiciones" rel="stylesheet" type="text/css">
 <title>Medrchandise</title>
 </head>
 <body>
@@ -88,7 +87,6 @@ La forma de pago se verá reflejada en la factura o recibo y  en las condiciones 
 ·       Modificar o cancelar, temporal o permanentemente, el servicio prestado a través de CMM Online Store (o cualquier parte de éste) con o sin preaviso. Merdchandise no será responsable frente a Ud. o frente a otros terceros por tal modificación o cancelación; y/o<br>
 ·       Si, pese a modificarse los Términos y Condiciones y/o las Condiciones de Entrega, Ud. continúa utilizando el servicio prestado a través de Merdchandise (o cualquier parte de éste) tras dicha modificación, se considerará que ha dado su conformidad a dicho cambio. Es su responsabilidad revisar estos Términos de Uso, periódicamente, para poder estar en conocimiento de los cambios. Si no está de acuerdo con alguna modificación de los Términos y Condiciones, deberá dejar de utilizar el servicio de Merdchandise.
         </p>
-        <br>
         <br>
         <br>
         <br>

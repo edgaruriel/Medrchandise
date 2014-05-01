@@ -222,7 +222,7 @@ include_once("./funciones/acceder_base_datos.php");
                     <br>
                     <br>
                     <input type="checkbox" id="aceptcondiciones" name="aceptcondiciones" value="acepto"  class="campos">
-                    *Acepto t&eacute;rminos y condiciones.
+                    <a  href="terminosCondiciones.php">*Acepto t&eacute;rminos y condiciones.</a>
                     <br>
                     <br>
                     <hr color="#82c396">

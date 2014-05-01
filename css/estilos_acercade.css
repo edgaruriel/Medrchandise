@@ -4,16 +4,20 @@
 #titulo_acercaDe{
    position: absolute;
   top:150px; 
-  left:40%;
+  left:45%;
   
 }
 
 #contenido_acercaDe{
-   position: absolute;
+  position: absolute;
   top:200px; 
   left:230px;
-  max-height:1000px;
-  min-height:1000px;
+  max-height:500px;
+  min-height:800px;
   max-width:900px;
   min-width:600px;
+  background:#FFF;
+  padding:15px;
+  border: Green 1px solid; 
+
 }
