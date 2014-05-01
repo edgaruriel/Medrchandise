@@ -41,12 +41,12 @@ function listarProCarrito(){
 		// 	 $ccontenido .= "</tr>";
 		// 	 $ccontenido .= "<tr>";
 		 	 	  $ccontenido .= "<td class=\"tabla_textocontenido\">";
-			 	  $ccontenido .= "<input type=\"number\" id=\"cantidad".$producto["id"]."\" name=\"cantidad".$producto["id"]."\" min=\"1\" value=\"".$producto["cantidad"]."\" onkeypress=\"return validarNumero(event)\" onchange='actualizarSubtotal(this)'>";
+			 	  $ccontenido .= "<input type=\"number\" id=\"cantidad".$producto["id"]."\" name=\"cantidad".$producto["id"]."\" min=\"1\" value=\"".$producto["cantidad"]."\" onkeypress=\"return validarNumero(event)\" onchange='actualizarSubtotal(this)' class=\"estilo_cantidad\">";
 			 	  $ccontenido .= "</td>";
 		// 	 $ccontenido .= "</tr>";
 		// 	 $ccontenido .= "<tr>";
 		 	 	  $ccontenido .= "<td class=\"tabla_textocontenido\">";
-			 	  $ccontenido .= "$<input id=\"subtotal".$producto["id"]."\" name=\"subtotal_".$producto["id"]."\" value=\"".$producto["total"]."\" readonly>";
+			 	  $ccontenido .= "$<input type=\"text\" id=\"subtotal".$producto["id"]."\" name=\"subtotal".$producto["id"]."\" value=\"".$producto["total"]."\" readonly>";
 			 	  $ccontenido .= "</td>";
 		// 	 $ccontenido .= "</tr>";
 		// 	 $ccontenido .= "<tr>";
@@ -89,20 +89,66 @@ function resumenCarrito(){
 		$ccontenido .= "<br/>";
 		$ccontenido .= " Total de Articulos:";
 		$ccontenido .= "<br/>";
-		$ccontenido .= "<input id=\"productoTotal\" name=\"productoTotal\" value=\"".$cantidadTotal."\" readonly>";
+		$ccontenido .= "<input type=\"text\" id=\"productoTotal\" name=\"productoTotal\" value=\"".$cantidadTotal."\" readonly>";
 		$ccontenido .= "<br/>";
 		$ccontenido .= "Precio Total:";
-		$ccontenido .= "<input id=\"precioTotal\" name=\"precioTotal\" value=\"".$precioTotal."\" readonly>";
+		$ccontenido .= "<input type=\"text\" id=\"precioTotal\" name=\"precioTotal\" value=\"".$precioTotal."\" readonly>";
 		$ccontenido .= "<br/>";
 		$ccontenido .= " Incl. IVA";
 		$ccontenido .= "<br/>";
 		$ccontenido .= "<br/>";
-		$ccontenido .= "<a id=\"btn_comprar\" class=\"boton\" href=\"pago.php\">Siguiente</a>";
+		$ccontenido .= "<a id=\"btnComprar\" class=\"boton\" href=\"#\" >Siguiente</a> ";
 		$ccontenido .= "</div>";
+	//	$ccontenido .= "<input type=\"submit\" id=\"Btnsubmit\" name=\"Btnsubmit\" value=\"\" class=\"Btnsubmit\">";
 		
 	}else{
 		
 	}
 	return $ccontenido;
+}
+
+
+function mostrarDatosPago(){
+	$ccontenido = "";
+	$carrito = $_SESSION["carrito"];
+	$usuario = $_SESSION["cidusuario"];
+	
+if(count($carrito)!=0){
+		$cantidadTotal = "";
+		$precioTotal = "";
+		foreach ($carrito as $index => $producto){
+			$cantidadTotal += $producto["cantidad"];
+			$precioTotal += $producto["total"];
+		}
+		srand (time());
+		$folio = rand(1,100);
+		$ccontenido .= "<tr>";
+		$ccontenido .= "<td>ID de compra: </td>";
+		$ccontenido .= "<td><input type=\"text\" id=\"id_compra\" value=\".$folio.\" readonly></td>";
+		$ccontenido .= "</tr>";
+		$ccontenido .= "<tr>";
+		$ccontenido .= "<td>Nombre:</td>";
+		$ccontenido .= "<td><input type=\"text\" id=\"nombre\" value=\"".$usuario."\" readonly></></td>";
+		$ccontenido .= "</tr>";
+		$ccontenido .= "<tr>";
+		$ccontenido .= "<td>N&uacute;mero de tarjeta:</td>";
+		$ccontenido .= "<td><input type=\"text\" id=\"num_tarjeta\" ></></td>";
+		$ccontenido .= "</tr>";
+		$ccontenido .= "<tr>";
+		$ccontenido .= "<td>Direcci&oacute;n:</td>";
+		$ccontenido .= "<td><input type=\"text\" id=\"direccion\"></></td>";
+		$ccontenido .= "</tr>";
+		$ccontenido .= "<tr>";
+		$ccontenido .= "<td>Cantidad a de articulos:</td>";
+		$ccontenido .= "<td><input type=\"text\" id=\"cantidad\" value=\"".$cantidadTotal."\" readonly></td>";
+		$ccontenido .= "</tr>";
+		$ccontenido .= "<tr>";
+		$ccontenido .= "<td>Cantidad a pagar: $</td>";
+		$ccontenido .= "<td><input type=\"text\" id=\"total\" value=\"".$precioTotal."\" readonly></td>";
+		$ccontenido .= "</tr>";		
+
+	}
+	return $ccontenido;
+	
 }
 ?>

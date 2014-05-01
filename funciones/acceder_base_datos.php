@@ -57,6 +57,7 @@ function insertarDatos($pconector, $cquery){
      $lentrada_creada = true;
    }
  }
+ 
      
  return $lentrada_creada;
 }

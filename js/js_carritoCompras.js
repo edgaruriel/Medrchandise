@@ -1,19 +1,38 @@
  window.onload = function() {
 	 var valor = document.getElementById("idTodos").value;
-	 
-if(valor.length=!0){
+	 //alert("id todos: " + valor.length);
+if(valor.length != 0){
+	var comprar =	document.getElementById("btnComprar");
+	comprar.onclick = comprarProductos;
 	 var ArrayId = valor.split("-");
 		//alert("Arreglo " + ids);
 		//alert("tamaño del array:" + ArrayId.length);
 		for(var i=0; i<ArrayId.length-1; i++){
 		//	alert("Alerta " +document.getElementsByName("cantidad"+ArrayId[i]).value);
 			//document.getElementsByTagName("cantidad"+ArrayId[i]).onkeypress = validarNumero(event);
-		//	document.getElementById("cantidad"+ArrayId[i]).onchange = actualizarSubtotal(this.value);
+/*		var elemento1 =	document.getElementById("cantidad"+ArrayId[i]);
+		var elemento2 =	document.getElementById("cantidad"+ArrayId[i]);
+		elemento1.onchange = funcionOnchange;
+		elemento2.onkeypress = funcionOnkeypress; */ 
+		
 		}
 }else{
 	alert("No tiene productos");
-}	 
+}
 	
+ }
+ 
+ function comprarProductos(){
+	// alert("hey");
+	// document.getElementById("formCarrito").submit();
+	 document.getElementById('Btnsubmit').click();
+ }
+ 
+ function funcionOnchange(){
+	// document.getElementById('').onchange = actualizarSubtotal(this);
+ }
+ function funcionOnkeypress(){
+	// document.getElementById('').onkeypress = "return validarNumero(event)"; 
  }
 
  function validarNumero(evt){
@@ -40,7 +59,8 @@ function actualizarSubtotal(value){
 		}
 	}
 	var precioBase = ArrayPrecio[Bandera];
-	var resultado = value.value * precioBase;	
+	var resultado = value.value * precioBase;
+	
 	document.getElementById("subtotal" + ArrayIndex[1]).value = resultado;
 	actualizarResumen();
 	

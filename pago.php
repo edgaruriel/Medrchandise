@@ -1,6 +1,7 @@
 <?php
 include_once("funciones/menu_header.php");
 include_once("./funciones/mantener_sesion.php");
+include_once("funciones/carritoCompras/mostrarProCarrito.php");
 validarSesion();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -12,6 +13,7 @@ validarSesion();
 	<link rel="stylesheet" type="text/css" href="css/estilos_pago.css">
 	<link href="css/estilos_input_text.css" rel="stylesheet" type="text/css" />
 	<link href="css/estilos_botones.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/js_pago.js"></script>
 	<title>Agregar Oferta</title>
 </head>
 <body>
@@ -39,37 +41,20 @@ validarSesion();
 		<div id="div_cuerpo">
 			<div id="div_cuerpo_superior">
 				<div id="cabecera">
-		       <h1> Agregar Oferta</h1>
+		       <h1> Pago</h1>
 		        </div>	
 				
 			</div>
 			<div id="div_contenido">
-				<form id="formulario">
+				<form id="formulario" action="funciones/carritoCompras/agregarProdCarrito.php" method="post">
 					<table>
-                        <tr>
-							<td>ID de compra: </td>
-							<td><input type="text" id="id_compra" value="112233" disabled="true"></td>
-						</tr>
-						<tr>
-							<td>Nombre:</td>
-							<td><input type="text" id="nombre" value="Pepito" disabled="true"></></td>
-						</tr>
-						<tr>
-							<td>N&uacute;mero de tarjeta:</td>
-							<td><input type="text" id="num_tarjeta" value="111234566" disabled="true"></></td>
-						</tr>
-                        <tr>
-							<td>Direcci&oacute;n:</td>
-							<td><input type="text" id="direccion" value="Calle 60"></></td>
-						</tr>
-						<tr>
-							<td>Cantidad a pagar:</td>
-							<td><input type="text" id="cantidad" value="$3000" disabled="true"></td>
-						</tr>
+					<?php 
+				echo mostrarDatosPago();
+					?>
 					</table>
 					<hr color="#82c396">
-					<a class="boton" href="#" id="btn_pagar">Pagar</a>
-					<input type="file" id="file_img">
+					<a class="boton" href="#" id="Btnpagar">Pagar</a>
+					<input type="submit" id="Btnsubmit" name="Btnsubmit"  value="pago">
 				</form>		
 			</div>
 			
