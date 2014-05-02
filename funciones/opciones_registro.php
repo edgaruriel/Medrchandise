@@ -149,7 +149,7 @@ function recuperarInfoUsuario($cid_usuario){
  seleccionarBaseDatos($pconexion);
  
  $cquery = "SELECT id_usuario, nombre, apellido, correo, fecha_nacimiento, direccion, telefono, estado, ciudad, codigo_postal, id_rol, nick, contrasena FROM
-usuario"; 
+usuario";
  $cquery .= " WHERE (id_usuario = $cid_usuario)";
  $adatos = extraerRegistro($pconexion, $cquery);
  cerrarConexion($pconexion);

@@ -24,7 +24,6 @@ function validacion() {
 	estado();
 	ciudad();
 	cp();
-	aceptcondiciones();
     validarcontrasenas();
 	
 	for (var i in camposValidos){
@@ -147,9 +146,9 @@ function validarcontrasenas(){
     valor = document.getElementById("confcontrasena").value;
     if(valor!=valorc){
         alert('Las contrase\u00f1as no coinciden');
-        camposValidos[12]=false;
+        camposValidos[11]=false;
     }else{
-        camposValidos[12]=true;
+        camposValidos[11]=true;
     }
 }
 
@@ -199,14 +198,4 @@ valor = document.getElementById("cp").value;
 		camposValidos[10]=true;                                                  
 	}else{
 	camposValidos[10]=true;}
-}
-
-function aceptcondiciones(){
-elemento = document.getElementById("aceptcondiciones");
-	if( !elemento.checked ) {
-		camposValidos[11]=false;
-		alert('Acepta las condiciones');
-	}else{
-		camposValidos[11]=true;
-		}
 }
