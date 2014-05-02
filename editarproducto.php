@@ -1,6 +1,10 @@
 <?php
+include_once("config.inc.php"); 
 include_once("funciones/menu_header.php");
 include_once("./funciones/mantener_sesion.php");
+include_once("./funciones/acceder_base_datos.php");
+include_once("./funciones/administrar_productos.php");
+$adatos = recuperarInfoProducto($_GET["cid_producto"]);
 validarSesion();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -45,23 +49,24 @@ validarSesion();
 				
 			</div>
 			<div id="div_contenido">
-				<form id="formulario">
+				<form id="formulario" method="post" action="<?php echo editarProducto(); ?>">
+                    <input type="hidden" name="hdn_idproducto" value="<?php echo $adatos["id_producto"]; ?>">
 					<table>
 						<tr>
 							<td>Nombre:</td>
-							<td><input type="text" id="nombre" value="Estetoscopio"></td>
+							<td><input type="text" id="nombre" name="nombre" value="<?php echo $adatos["nombre"]; ?>"></td>
 						</tr>
 						<tr>
 							<td> Descripci&oacute;n:</td>
-							<td><TEXTAREA id="descripcion" cols="50" rows="5" >Estetoscopio de super alta calidad hecho en China</TEXTAREA></td>
+							<td><TEXTAREA id="descripcion" name="descripcion" cols="50" rows="5" value="<?php echo $adatos["descripcion"]; ?>"></TEXTAREA></td>
 						</tr>
 						<tr>
 							<td>Cantidad:</td>
-							<td><input type="text" id="cantidad" value="50"></td>
+							<td><input type="text" id="cantidad" name="cantidad" value="<?php echo $adatos["cantidad_existencia"]; ?>"></td>
 						</tr>
 						<tr>
 							<td>Precio:</td>
-							<td><input type="text" id="precio" value="1200"></td>
+							<td><input type="text" id="precio" name="precio" value="<?php echo $adatos["precio"]; ?>"></td>
 						</tr>
 						<tr>
 							<td>Imagen: </td>
@@ -69,7 +74,7 @@ validarSesion();
 						</tr>
 					</table>
 					<hr color="#82c396">
-					<a id="btn_guardar" class="boton" href="catalogoProductos.php">Guardar</a>
+					<a id="btn_guardar" name="btn_grabar" type="submit" class="boton" value="Guardar">Guardar</a>
 					<input type="file" id="file_img">
 				</form>
 	

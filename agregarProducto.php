@@ -1,6 +1,7 @@
 <?php
 include_once("funciones/menu_header.php");
 include_once("./funciones/mantener_sesion.php");
+include_once("./funciones/administrar_productos.php");
 validarSesion();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -45,23 +46,24 @@ validarSesion();
 				
 			</div>
 			<div id="div_contenido">
-				<form id="formulario">
+				<form id="formulario" method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+                    <p align="center" class="estado"><?php echo agregarProducto(); ?></p>
 					<table>
 						<tr>
 							<td>Nombre:</td>
-							<td><input type="text" id="nombre"></td>
+							<td><input name="nombre" type="text" id="nombre" value="<?php echo (isset($_POST["nombre"]))?$_POST["nombre"]:""; ?>"></td>
 						</tr>
 						<tr>
 							<td> Descripci&oacute;n:</td>
-							<td><TEXTAREA id="descripcion" cols="50" rows="5" ></TEXTAREA></td>
+							<td><TEXTAREA name="descripcion" id="descripcion" cols="50" rows="5" value="<?php echo (isset($_POST["descripcion"]))?$_POST["descripcion"]:""; ?>"></TEXTAREA></td>
 						</tr>
 						<tr>
 							<td>Cantidad:</td>
-							<td><input type="text" id="cantidad"></td>
+							<td><input name="cantidad" type="text" id="cantidad" value="<?php echo (isset($_POST["cantidad"]))?$_POST["cantidad"]:""; ?>"></td>
 						</tr>
 						<tr>
 							<td>Precio:</td>
-							<td><input type="text" id="precio"></td>
+							<td><input name="precio" type="text" id="precio" value="<?php echo (isset($_POST["precio"]))?$_POST["precio"]:""; ?>"></td>
 						</tr>
 						<tr>
 							<td>Imagen: </td>
@@ -69,7 +71,7 @@ validarSesion();
 						</tr>
 					</table>
 					<hr color="#82c396">
-					<a id="btn_guardar" class="boton" href="catalogoProductos.php">Guardar</a>
+					<a id="btn_guardar" class="boton" type="submit" value="Guardar">Guardar</a>
 					<input type="file" id="file_img">
 				</form>
 	
