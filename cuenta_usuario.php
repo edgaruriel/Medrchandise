@@ -5,7 +5,7 @@ include_once("config.inc.php");
 include_once("./funciones/acceder_base_datos.php");
 include_once("./funciones/mantener_sesion.php");
 validarSesion();
-$adatos = recuperarInfoUsuario($_GET["cid_usuario"]); 
+$adatos = recuperarInfoUsuario($_GET["cid_usuario"]/**$_SESSION["cidusuario"]**/); 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

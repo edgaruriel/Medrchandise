@@ -1,7 +1,11 @@
 <?php
+include_once("funciones/mantener_sesion.php");
 function opciones_usuario($adatos){
     $opciones = "";
- if(isset($_SESSION["cidusuario"]) && ($_SESSION["cidusuario"] == "admin")){
+ //if(isset($_SESSION["cidusuario"]) && ($_SESSION["cidusuario"] == "admin")){
+	if(isset($_SESSION["cidusuario"])){
+		$rolArray = obtenerInfoSesion();
+		if($rolArray[0] == 1){
      $opciones .= "Tipo de usuario:<br>";
      $opciones .= "<select id='tipo_usuario' name='tipo_usuario'>";
      if($adatos!=null){
@@ -17,14 +21,16 @@ function opciones_usuario($adatos){
          $opciones .= "<option value='1'>Administrador</option>";
      }
      $opciones .= "</select>";
- }else{
-     
-     if(isset($_SESSION["cidusuario"]) && ($_SESSION["cidusuario"] == "cliente")){
+ }
+ //if(isset($_SESSION["cidusuario"]) && ($_SESSION["cidusuario"] == "cliente")){
+ elseif($rolArray[0] == 2){
+ 
          $opciones .= "<input type='hidden' name='tipo_usuario' value='2'>";
-     }else{
+     }
+ }else{
         $opciones .= "<input type='hidden' name='tipo_usuario' value='2'>";
      }
- }
+ 
     return $opciones;
 }
 
