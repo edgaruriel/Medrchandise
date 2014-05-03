@@ -47,13 +47,13 @@ include_once("./funciones/acceder_base_datos.php");
                         <?php echo agregarUsuario();?>
                         <br>
                     *Nombre: <br>
-                    <input type="text" id="nombre" name="nombre" class="campos">
+                    <input type="text" id="nombre" name="nombre" class="campos"><p hidden="hidden" style="color:red" id="errorNombre">Ingrese su nombre</p>
                     <br>
                     Apellido(s): <br>
-                    <input type="text" id="apellido" name="apellido" class="campos">
+                    <input type="text" id="apellido" name="apellido" class="campos"><p hidden="hidden" style="color:red" id="errorApellido">Ingrese su apellido</p>
                     <br>
                     *Nombre de usuario: <br>
-                    <input type="text" id="nombreusuario" name="nombreusuario" class="campos">
+                    <input type="text" id="nombreusuario" name="nombreusuario" class="campos"><p hidden="hidden" style="color:red" id="errorNombreUsuario">Ingrese un nombre de usuario</p>
                     <br>
                     *Fecha de nacimiento
                     <br>
@@ -188,32 +188,32 @@ include_once("./funciones/acceder_base_datos.php");
                         <option value='1936'>1936</option>
                         <option value='1935'>1935</option>
                         <option value='1934'>1934</option>
-                                </select><br>
+                                </select><p hidden="hidden" style="color:red" id="errorFecha">Ingrese su fecha de nacimiento</p><br>
                     *Correo:<br>
-                    <input type="text" id="correo" name="correo" class="campos">
+                    <input type="text" id="correo" name="correo" class="campos"><p hidden="hidden" style="color:red" id="errorCorreo">Ingrese su correo</p>
                     <br>
                     *Contrase&ntilde;a:<br>
-                    <input type="password" id="contrasena" name="contrasena" class="campos">
+                    <input type="password" id="contrasena" name="contrasena" class="campos"><p hidden="hidden" style="color:red" id="errorContra">Ingrese una contrase&ntilde;a</p>
                     <br>
                     *Confirmar contrase&ntilde;a:<br>
-                    <input type="password" id="confcontrasena" name="confcontrasena" class="campos">
+                    <input type="password" id="confcontrasena" name="confcontrasena" class="campos"><p hidden="hidden" style="color:red" id="errorConf">No coinciden las contrase&ntilde;as</p>
                     <br>
                     Direcci&oacute;n: <br>
-                    <input type="text" id="direccion" name="direccion" class="campos">
+                    <input type="text" id="direccion" name="direccion" class="campos"><p hidden="hidden" style="color:red" id="errorDireccion">Ingrese su direcci&oacute;n</p>
                     <br>
                     Tel&eacute;fono:
                     <br>
-                    <input type="text" id="telefono" name="telefono" class="campos">
+                    <input type="text" id="telefono" name="telefono" class="campos"><p hidden="hidden" style="color:red" id="errorTelefono">Ingrese su tel&eacute;fono</p>
                     <br>
                     Estado: <br>
-                    <input type="text" id="estado" name="estado" class="campos">
+                    <input type="text" id="estado" name="estado" class="campos"><p hidden="hidden" style="color:red" id="errorEstado">Ingrese su estado</p>
                     <br>
                     Ciudad/Municipio : <br>
-                    <input type="text" id="ciudad" name="ciudad" class="campos">
+                    <input type="text" id="ciudad" name="ciudad" class="campos"><p hidden="hidden" style="color:red" id="errorCiudad">Ingrese su ciudad</p>
                     <br>
                     C.P.: 
                     <br>
-                    <input type="text" id="cp" name="cp" class="campos">
+                    <input type="text" id="cp" name="cp" class="campos"><p hidden="hidden" style="color:red" id="errorCodigo">Ingrese su c&oacute;digo postal</p>
                     <br>
                         <?php
                             $adatos=null;
@@ -222,7 +222,7 @@ include_once("./funciones/acceder_base_datos.php");
                     <br>
                     <br>
                     <input type="checkbox" id="aceptcondiciones" name="aceptcondiciones" value="acepto"  class="campos">
-                    <a  href="terminosCondiciones.php">*Acepto t&eacute;rminos y condiciones.</a>
+                    <a  href="terminosCondiciones.php">*Acepto t&eacute;rminos y condiciones.</a><p hidden="hidden" style="color:red" id="errorCondiciones">Acepte las condiciones</p>
                     <br>
                     <br>
                     <hr color="#82c396">

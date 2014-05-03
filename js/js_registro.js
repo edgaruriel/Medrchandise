@@ -75,10 +75,11 @@ function permite(elEvento, permitidos) {
 function nombre(){
 	valor = document.getElementById("nombre").value;
 	if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
-		alert('Debes de proporcionar por lo menos tu nombre');
+		document.getElementById("errorNombre").style.display='inline';
 		camposValidos[0]=false;
 	}//end if
 	else{
+        document.getElementById("errorNombre").style.display='none';
 	camposValidos[0]=true;}
 }//end function
 
@@ -98,11 +99,12 @@ function fecha(){
 	valor = new Date(ano, mes, dia);
 	if( isNaN(valor) || ano==0 || dia ==0 ) {
 		camposValidos[2]=false;
-		alert('Danos tu fecha');
+		document.getElementById("errorFecha").style.display='inline';
 	}else if (ano > 1996){
 		alert('Debes de tener 18 años para poder registrarte');
 		camposValidos[2]=false;
 	}else{
+        document.getElementById("errorFecha").style.display='none';
 		camposValidos[2]=true;
 	}
 
@@ -111,7 +113,7 @@ function fecha(){
 function correo(){
 valor = document.getElementById("correo").value;
 	if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
-		alert('Debes proporcionarnos una cuenta de e-mail para poder comunicarnos contigo');
+		document.getElementById("errorCorreo").style.display='inline';
 		camposValidos[3]=false;
 	}
 	else if( !(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(valor)) ) {
@@ -119,23 +121,23 @@ valor = document.getElementById("correo").value;
 		camposValidos[3]=false;
 	}else{
 	camposValidos[3]=true;
+        document.getElementById("errorCorreo").style.display='none';
 	}
 }
 
 function contrasena(){
 valor = document.getElementById("contrasena").value;
 	if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
-		alert('Debes de tener una cotrase\u00f1a');
+		document.getElementById("errorContra").style.display='inline';
 		camposValidos[4]=false;
 	}else{
-	
+	document.getElementById("errorContra").style.display='none';
 	camposValidos[4]=true;}
 }
 
 function confcontrasena(){
 valor = document.getElementById("confcontrasena").value;
 	if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
-		alert('No se ha confirmado la constrase\u00f1a');
 		camposValidos[5]=false;
 	}else{
 	
@@ -146,9 +148,10 @@ function validarcontrasenas(){
     valorc = document.getElementById("contrasena").value;
     valor = document.getElementById("confcontrasena").value;
     if(valor!=valorc){
-        alert('Las contrase\u00f1as no coinciden');
+        document.getElementById("errorConf").style.display='inline';
         camposValidos[12]=false;
     }else{
+        document.getElementById("errorConf").style.display='none';
         camposValidos[12]=true;
     }
 }
@@ -205,8 +208,9 @@ function aceptcondiciones(){
 elemento = document.getElementById("aceptcondiciones");
 	if( !elemento.checked ) {
 		camposValidos[11]=false;
-		alert('Acepta las condiciones');
+		document.getElementById("errorCondiciones").style.display='inline';
 	}else{
 		camposValidos[11]=true;
+        document.getElementById("errorCondiciones").style.display='none';
 		}
 }

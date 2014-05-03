@@ -50,7 +50,6 @@ $adatos = recuperarInfoUsuario($_GET["cid_usuario"]/**$_SESSION["cidusuario"]**/
                         <input type="hidden" name="hdn_idusuario" value="<?php echo $adatos["id_usuario"]; ?>">
                         <br>
                 <?php list($year,$month,$day) = split("-",$adatos["fecha_nacimiento"]);
-                        $st_year = 2010; //Starting Year
     $month_names = array("Enero", "Febrero", "Marzo","Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");?>
                         
                     *Nombre: <br>
