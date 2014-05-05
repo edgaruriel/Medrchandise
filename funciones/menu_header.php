@@ -45,6 +45,10 @@ function listarMenu(){
  	$menu .= "<a class=\"menu\" href=\"contacto.php\">";
  	$menu .= "Contacto";
  	$menu .= "</a>";
+	
+	$menu .= "<a class=\"menu\" href=\"AcercaDe.php\">";
+ 	$menu .= "Con&oacute;cenos";
+ 	$menu .= "</a>";
  				
  	}else{
  	$menu .= "<a class=\"menu\" href=\"index.php\">";
@@ -61,6 +65,10 @@ function listarMenu(){
  	
  	$menu .= "<a class=\"menu\" href=\"contacto.php\">";
  	$menu .= "Contacto";
+ 	$menu .= "</a>";
+	
+	$menu .= "<a class=\"menu\" href=\"AcercaDe.php\">";
+ 	$menu .= "Con&oacute;cenos";
  	$menu .= "</a>";
  	}
  }

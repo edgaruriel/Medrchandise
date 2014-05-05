@@ -49,6 +49,15 @@ Tenemos una magnífica relación con nuestros proveedores, lo que por años nos ha 
         <p>
         Entendemos las necesidades del profesional de la medicina, así como de los pacientes que necesitan tener productos de calidad y de vanguardia, precios competitivos con abasto oportuno y confiable. Por lo que nuestro compromiso es mantener los estándares de calidad en servicio y atención que usted merece.
         </p>
+        <h3>Misi&oacute;n</h3>
+        <p>Proporcionar un mercado electrónico mundial en el que prácticamente cualquier persona pueda comerciar con casi cualquier producto, creando así oportunidades económicas por todo el mundo</p>
+        <h3>Visi&oacute;n</h3>
+        <UL type = disk >
+		<LI>Una tienda con marcas l&iacute;deres y confiables para nuestros consumidores.</LI>
+		<LI>El proveedor preferido de nuestros clientes.</LI>
+		<LI>Una tienda innovadora, que mira hacia el futuro.</LI>
+		<LI>Una tienda financieramente s&oacute;lida.</LI>
+		</UL>
         <br>
        Gracias por su preferencia!<br>
        <center><img src="http://www.despertardetamaulipas.com/fotos/7_10_medicosMEDICOS_2.jpg"></center>
