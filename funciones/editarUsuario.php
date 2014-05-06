@@ -2,7 +2,7 @@
 include_once("../config.inc.php"); 
 include_once("acceder_base_datos.php");
 
-     if ( isset($_POST["btn_registrarse"]) && $_POST["btn_registrarse"] == "Registrarse"){
+     if ( isset($_POST["btn_registrarse"]) && $_POST["btn_registrarse"] == "Actualizar"){
  
     $pconexion = abrirConexion();
    seleccionarBaseDatos($pconexion);
@@ -41,7 +41,7 @@ include_once("acceder_base_datos.php");
  
    if ( editarDatos($pconexion, $cquery) ){
 	   
-     $curl = "Location:".$GLOBALS["raiz_sitio"]."catalogoClientes.php";  
+     $curl = "Location:".$GLOBALS["raiz_sitio"];  
 	 }
    else{
 	   

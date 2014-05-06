@@ -24,7 +24,6 @@ function validacion() {
 	estado();
 	ciudad();
 	cp();
-	aceptcondiciones();
     validarcontrasenas();
 	
 	for (var i in camposValidos){
@@ -75,11 +74,10 @@ function permite(elEvento, permitidos) {
 function nombre(){
 	valor = document.getElementById("nombre").value;
 	if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
-		document.getElementById("errorNombre").style.display='inline';
+		alert('Debes de proporcionar por lo menos tu nombre');
 		camposValidos[0]=false;
 	}//end if
 	else{
-        document.getElementById("errorNombre").style.display='none';
 	camposValidos[0]=true;}
 }//end function
 
@@ -99,12 +97,11 @@ function fecha(){
 	valor = new Date(ano, mes, dia);
 	if( isNaN(valor) || ano==0 || dia ==0 ) {
 		camposValidos[2]=false;
-		document.getElementById("errorFecha").style.display='inline';
+		alert('Danos tu fecha');
 	}else if (ano > 1996){
 		alert('Debes de tener 18 años para poder registrarte');
 		camposValidos[2]=false;
 	}else{
-        document.getElementById("errorFecha").style.display='none';
 		camposValidos[2]=true;
 	}
 
@@ -113,7 +110,7 @@ function fecha(){
 function correo(){
 valor = document.getElementById("correo").value;
 	if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
-		document.getElementById("errorCorreo").style.display='inline';
+		alert('Debes proporcionarnos una cuenta de e-mail para poder comunicarnos contigo');
 		camposValidos[3]=false;
 	}
 	else if( !(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(valor)) ) {
@@ -121,23 +118,23 @@ valor = document.getElementById("correo").value;
 		camposValidos[3]=false;
 	}else{
 	camposValidos[3]=true;
-        document.getElementById("errorCorreo").style.display='none';
 	}
 }
 
 function contrasena(){
 valor = document.getElementById("contrasena").value;
 	if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
-		document.getElementById("errorContra").style.display='inline';
+		alert('Debes de tener una cotrase\u00f1a');
 		camposValidos[4]=false;
 	}else{
-	document.getElementById("errorContra").style.display='none';
+	
 	camposValidos[4]=true;}
 }
 
 function confcontrasena(){
 valor = document.getElementById("confcontrasena").value;
 	if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
+		alert('No se ha confirmado la constrase\u00f1a');
 		camposValidos[5]=false;
 	}else{
 	
@@ -148,11 +145,10 @@ function validarcontrasenas(){
     valorc = document.getElementById("contrasena").value;
     valor = document.getElementById("confcontrasena").value;
     if(valor!=valorc){
-        document.getElementById("errorConf").style.display='inline';
-        camposValidos[12]=false;
+        alert('Las contrase\u00f1as no coinciden');
+        camposValidos[11]=false;
     }else{
-        document.getElementById("errorConf").style.display='none';
-        camposValidos[12]=true;
+        camposValidos[11]=true;
     }
 }
 
@@ -202,15 +198,4 @@ valor = document.getElementById("cp").value;
 		camposValidos[10]=true;                                                  
 	}else{
 	camposValidos[10]=true;}
-}
-
-function aceptcondiciones(){
-elemento = document.getElementById("aceptcondiciones");
-	if( !elemento.checked ) {
-		camposValidos[11]=false;
-		document.getElementById("errorCondiciones").style.display='inline';
-	}else{
-		camposValidos[11]=true;
-        document.getElementById("errorCondiciones").style.display='none';
-		}
 }
