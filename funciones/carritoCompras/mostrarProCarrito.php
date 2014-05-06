@@ -111,7 +111,7 @@ function resumenCarrito(){
 function mostrarDatosPago(){
 	$ccontenido = "";
 	$carrito = $_SESSION["carrito"];
-	$usuario = $_SESSION["cidusuario"];
+	$usuario = obtenerInfoSesion();
 	
 if(count($carrito)!=0){
 		$cantidadTotal = "";
@@ -128,7 +128,7 @@ if(count($carrito)!=0){
 		$ccontenido .= "</tr>";
 		$ccontenido .= "<tr>";
 		$ccontenido .= "<td>Nombre:</td>";
-		$ccontenido .= "<td><input type=\"text\" id=\"nombre\" value=\"".$usuario."\" readonly></></td>";
+		$ccontenido .= "<td><input type=\"text\" id=\"nombre\" value=\"".$usuario[3]." ".$usuario[4]."\" readonly></></td>";
 		$ccontenido .= "</tr>";
 		$ccontenido .= "<tr>";
 		$ccontenido .= "<td>N&uacute;mero de tarjeta:</td>";
@@ -136,7 +136,7 @@ if(count($carrito)!=0){
 		$ccontenido .= "</tr>";
 		$ccontenido .= "<tr>";
 		$ccontenido .= "<td>Direcci&oacute;n:</td>";
-		$ccontenido .= "<td><input type=\"text\" id=\"direccion\"></></td>";
+		$ccontenido .= "<td><input type=\"text\" id=\"direccion\" value=\"".$usuario[5]."\"></></td>";
 		$ccontenido .= "</tr>";
 		$ccontenido .= "<tr>";
 		$ccontenido .= "<td>Cantidad a de articulos:</td>";

@@ -17,7 +17,7 @@ if(valor.length != 0){
 		
 		}
 }else{
-	alert("No tiene productos");
+	//alert("No tiene productos");
 }
 	
  }
