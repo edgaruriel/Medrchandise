@@ -14,7 +14,7 @@ include_once("funciones/menu_header.php");
 <title>Medrchandise</title>
 </head>
 <body>
-    <div id="cintilla">
+	<div id="cintilla">
     </div>
 	<div id=contenedor>
 		<!--Inicio del header -->
@@ -40,7 +40,6 @@ include_once("funciones/menu_header.php");
         <h2>Acerca de Nosotros</h2>
         </div>
         <div id="contenido_acercaDe">
-          
           <h3>Concepto</h3>
           <p>
           La tienda Medrchandise, es una tienda que ofrece por primera vez al médico y al público general la venta directa de: productos médicos, material de curación, instrumental, muebles y todo lo relacionado con el cuidado y atención de la salud; a través de un servicio autónomo, el cual le permite al comprador estar en contacto directo con el producto a adquirir y con ello hacer una selección propia a través de conocer y comparar el producto que busca.
