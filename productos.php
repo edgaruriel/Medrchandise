@@ -13,6 +13,7 @@ include_once("funciones/listar_productos.php");
 <link href="css/estilos_menu_categorias.css" rel="stylesheet" type="text/css" />
 <link href="css/estilos_input_text.css" rel="stylesheet" type="text/css" />
 <link href="css/estilos_productos.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="funciones/detalles_ventana_emergente.js"></script>
 <title>Medrchandise</title>
 </head>
 <body>

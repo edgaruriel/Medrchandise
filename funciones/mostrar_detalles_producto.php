@@ -29,13 +29,12 @@ function listarProductos(){
                 $cprodutos .=            "<div id=\"precioDetalles\">";
                 $cprodutos .=                "<div id=\"precio\">".$adatos["precio"].".00 MXN</div>";
                 $cprodutos .=                "<div id=\"detalles\">";
-                $cprodutos .=                "<a href=\"javascript:mostrar_ventana('".$adatos["nombre"]."','".$adatos["ruta"]."','".$adatos["descripcion"]."','".$adatos["precio"]."')\" title=\"Detalles\">Ver M&aacute;s [+]</a>";
+                $cprodutos .=                "<a href=\"javascript:mostrar_ventana('".$adatos["ruta"]."','".$adatos["descripcion"]."')\" title=\"AmpliarImagen\">Ver M&aacute;s [+]</a>";
                 $cprodutos .=                "</div>";
                 $cprodutos .=            "</div>";
                 $cprodutos .=        "</div>";
                 $cprodutos .=   "</td>";
                 
-
                 if($i == 2){
                 	$cprodutos .= 	"</tr>";
                 	$i = 0;
