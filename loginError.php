@@ -51,6 +51,8 @@ include_once("./funciones/acceder_base_datos.php");
                     	</tr>
                         <tr>
                        	 <td>
+                         <br>
+            <p id="mensaje">Nombre de usuario o contrase&ntilde;a incorrecta</p>
                         	<p class="texto_cuenta">Usuario:</p>
                        	 </td>
                     	</tr>
@@ -81,6 +83,7 @@ include_once("./funciones/acceder_base_datos.php");
                         <tr>
                         	<td>
                         	<input class="boton" type="submit" id="btn_ingresar" name="btn_ingresar" value="Aceptar">
+                            
                        	 </td>
                     	</tr>
                     </table>

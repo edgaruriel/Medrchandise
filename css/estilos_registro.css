@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 #cont_form{
-height: 680px;
+height: auto/*680px*/;
 width:400px;
 position: relative;
     top: 150px;

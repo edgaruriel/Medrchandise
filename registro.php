@@ -49,12 +49,14 @@ include_once("./funciones/acceder_base_datos.php");
                     *Nombre: <br>
                     <input type="text" id="nombre" name="nombre" class="campos">
                     <br>
+                    <p id="mnombre"></p>
                     Apellido(s): <br>
                     <input type="text" id="apellido" name="apellido" class="campos">
                     <br>
                     *Nombre de usuario: <br>
                     <input type="text" id="nombreusuario" name="nombreusuario" class="campos">
                     <br>
+                    <p id="musuario"></p>
                     *Fecha de nacimiento
                     <br>
                     <select id="mes" name="mes" style='width:100px;' class="campos">
@@ -189,15 +191,19 @@ include_once("./funciones/acceder_base_datos.php");
                         <option value='1935'>1935</option>
                         <option value='1934'>1934</option>
                                 </select><br>
+                                <p id="mfecha"></p>
                     *Correo:<br>
                     <input type="text" id="correo" name="correo" class="campos">
                     <br>
+                    <p id="mcorreo"></p>
                     *Contrase&ntilde;a:<br>
                     <input type="password" id="contrasena" name="contrasena" class="campos">
                     <br>
+                    <p id="mcontrasena"></p>
                     *Confirmar contrase&ntilde;a:<br>
                     <input type="password" id="confcontrasena" name="confcontrasena" class="campos">
                     <br>
+                    <p id="mconfcontrasema"></p>
                     Direcci&oacute;n: <br>
                     <input type="text" id="direccion" name="direccion" class="campos">
                     <br>
@@ -205,6 +211,7 @@ include_once("./funciones/acceder_base_datos.php");
                     <br>
                     <input type="text" id="telefono" name="telefono" class="campos">
                     <br>
+                    <p id="mtelefono"></p>
                     Estado: <br>
                     <input type="text" id="estado" name="estado" class="campos">
                     <br>

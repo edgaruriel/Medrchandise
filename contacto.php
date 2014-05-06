@@ -1,5 +1,6 @@
 <?php
 include_once("funciones/menu_header.php");
+include_once("funciones/mail.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -36,6 +37,7 @@ include_once("funciones/menu_header.php");
         <div id="cuerpo">
             <div id="div_cuerpo">
             <div id="forma">
+            <form method="post" action="<?php echo $_SERVER["PHP_SELF"];?>">
                 <table>
                     <tr>
                         <td class="celda_texto">
@@ -68,10 +70,11 @@ include_once("funciones/menu_header.php");
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <a id="btn_enviar" class="boton" href="">Enviar</a>
+                            <input class="boton" type="submit" id="btn_enviar" name="btn_enviar" value="Enviar">
                         </td>
                     </tr>
                 </table>
+                </form>
             </div>
                 </div>
         </div>

@@ -3,7 +3,7 @@ include_once("../funciones/mantener_sesion.php");
 include_once("../config.inc.php"); 
 include_once("../funciones/acceder_base_datos.php");
      
- $cdestino = "Location:../index.php";
+ $cdestino = "Location:../login.php";
  if ( (isset($_POST["btn_ingresar"])) && ($_POST["btn_ingresar"]=="Aceptar") ){
 	 
 	$pconexion = abrirConexion();
@@ -34,6 +34,7 @@ include_once("../funciones/acceder_base_datos.php");
 				echo "Entro en admin";
 	  		 	iniciarSesion($rolArray[1]);
 	   			$cdestino = "Location:../index.php";
+				
 	   		}
 			elseif($rolArray[0]==2){
 				//usuario registrado
@@ -45,13 +46,14 @@ include_once("../funciones/acceder_base_datos.php");
 	   			$_SESSION["carrito"] = $carrito;
 	    
 	    		$cdestino = "Location:../index.php";
+				
 				}
 		}
 		else{
-			
-			echo "Usuario o pass incorrectos";
+			$cdestino = "Location:../loginError.php";		
 			}
 	}
+	else{$cdestino = "Location:../loginError.php";}
  }
 		
 		
@@ -80,8 +82,8 @@ include_once("../funciones/acceder_base_datos.php");
    
  }else{
  	echo "No entro";
- }*/
- 
+ }
+ */
 
  
  header($cdestino);
