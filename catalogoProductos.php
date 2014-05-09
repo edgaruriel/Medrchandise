@@ -1,5 +1,8 @@
 <?php
+include_once("config.inc.php"); 
 include_once("funciones/menu_header.php");
+include_once("./funciones/acceder_base_datos.php");
+include_once("./funciones/listarProductosEditar.php");
 include_once("./funciones/mantener_sesion.php");
 validarSesion();
 ?>
@@ -48,94 +51,9 @@ validarSesion();
 						<td class="tabla_textotitulo">Imagen</td>
 						<td class="tabla_textotitulo">Acciones</td>
 					</tr>
-					<tr>
-						<td colspan="2" class="tabla_textocontenido">ESTETOSCOPIO</td>
-						<td class="tabla_textocontenido">$200.00</td>
-						<td class="tabla_textocontenido"><img src="imagen/fotoproducto.jpg"></td>
-						<td class="tabla_textocontenido">
-							 <ul >			
-				  				<li class="accion"><a href="editarproducto.php"><img src="imagen/fotoeditar.jpg"></a></li>
-				                <li class="accion"><a href="#"><img src="imagen/fotoborrar.jpg"></a></li>				  				
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2" class="tabla_textocontenido">ESTETOSCOPIO</td>
-						<td class="tabla_textocontenido">$200.00</td>
-						<td class="tabla_textocontenido"><img src="imagen/fotoproducto.jpg"></td>
-						<td class="tabla_textocontenido">
-							 <ul >			
-				  				<li class="accion"><a href="#"><img src="imagen/fotoeditar.jpg"></a></li>
-				                <li class="accion"><a href="#"><img src="imagen/fotoborrar.jpg"></a></li>				  				
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2" class="tabla_textocontenido">ESTETOSCOPIO</td>
-						<td class="tabla_textocontenido">$200.00</td>
-						<td class="tabla_textocontenido"><img src="imagen/fotoproducto.jpg"></td>
-						<td class="tabla_textocontenido">
-							 <ul >			
-				  				<li class="accion"><a href="#"><img src="imagen/fotoeditar.jpg"></a></li>
-				                <li class="accion"><a href="#"><img src="imagen/fotoborrar.jpg"></a></li>				  				
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2" class="tabla_textocontenido">ESTETOSCOPIO</td>
-						<td class="tabla_textocontenido">$200.00</td>
-						<td class="tabla_textocontenido"><img src="imagen/fotoproducto.jpg"></td>
-						<td class="tabla_textocontenido">
-							 <ul >			
-				  				<li class="accion"><a href="#"><img src="imagen/fotoeditar.jpg"></a></li>
-				                <li class="accion"><a href="#"><img src="imagen/fotoborrar.jpg"></a></li>				  				
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2" class="tabla_textocontenido">ESTETOSCOPIO</td>
-						<td class="tabla_textocontenido">$200.00</td>
-						<td class="tabla_textocontenido"><img src="imagen/fotoproducto.jpg"></td>
-						<td class="tabla_textocontenido">
-							 <ul >			
-				  				<li class="accion"><a href="#"><img src="imagen/fotoeditar.jpg"></a></li>
-				                <li class="accion"><a href="#"><img src="imagen/fotoborrar.jpg"></a></li>				  				
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2" class="tabla_textocontenido">ESTETOSCOPIO</td>
-						<td class="tabla_textocontenido">$200.00</td>
-						<td class="tabla_textocontenido"><img src="imagen/fotoproducto.jpg"></td>
-						<td class="tabla_textocontenido">
-							 <ul >			
-				  				<li class="accion"><a href="#"><img src="imagen/fotoeditar.jpg"></a></li>
-				                <li class="accion"><a href="#"><img src="imagen/fotoborrar.jpg"></a></li>				  				
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2" class="tabla_textocontenido">ESTETOSCOPIO</td>
-						<td class="tabla_textocontenido">$200.00</td>
-						<td class="tabla_textocontenido"><img src="imagen/fotoproducto.jpg"></td>
-						<td class="tabla_textocontenido">
-							 <ul >			
-				  				<li class="accion"><a href="#"><img src="imagen/fotoeditar.jpg"></a></li>
-				                <li class="accion"><a href="#"><img src="imagen/fotoborrar.jpg"></a></li>				  				
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2" class="tabla_textocontenido">ESTETOSCOPIO</td>
-						<td class="tabla_textocontenido">$200.00</td>
-						<td class="tabla_textocontenido"><img src="imagen/fotoproducto.jpg"></td>
-						<td class="tabla_textocontenido">
-							 <ul >			
-				  				<li class="accion"><a href="#"><img src="imagen/fotoeditar.jpg"></a></li>
-				                <li class="accion"><a href="#"><img src="imagen/fotoborrar.jpg"></a></li>				  				
-							</ul>
-						</td>
-					</tr>
+					<?php 
+                        echo listarProductosEditar();
+                    ?>
 				</table>
 				
 			</div>
