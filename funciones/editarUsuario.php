@@ -1,6 +1,7 @@
 <?php
 include_once("../config.inc.php"); 
 include_once("acceder_base_datos.php");
+include_once("mantener_sesion.php");
 
      if ( isset($_POST["btn_registrarse"]) && $_POST["btn_registrarse"] == "Actualizar"){
  
@@ -40,8 +41,17 @@ include_once("acceder_base_datos.php");
    $cquery .= " WHERE (id_usuario = $cid_usuario)";
  
    if ( editarDatos($pconexion, $cquery) ){
-	   
-     $curl = "Location:".$GLOBALS["raiz_sitio"];  
+       session_start();
+	   if(isset($_SESSION["cidusuario"])){
+            $rolArray = obtenerInfoSesion();
+             if($rolArray[0] == 1){
+                echo "<script type='text/javascript'>window.alert('Registro exitoso')</script>";
+             $curl = "Location:".$GLOBALS["raiz_sitio"]."catalogoClientes.php"; 
+             }else{
+                 echo "<script type='text/javascript'>window.alert('Registro exitoso')</script>";
+                 $curl = "Location:".$GLOBALS["raiz_sitio"]; 
+             }   
+       }
 	 }
    else{
 	   

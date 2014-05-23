@@ -59,7 +59,7 @@ $adatos = recuperarInfoUsuario($_GET["cid_usuario"]/**$_SESSION["cidusuario"]**/
                     <input type="text" id="apellido" name="apellido" class="campos"  value="<?php echo $adatos["apellido"];?>">
                     <br>
                     *Nombre de usuario: <br>
-                    <input type="text" id="nombreusuario" name="nombreusuario" class="campos"  value="<?php echo $adatos["nick"];?>">
+                    <input type="text" id="nombreusuario" name="nombreusuario" class="campos"  value="<?php echo $adatos["nick"];?>" readonly>
                     <br>
                     *Fecha de nacimiento
                     <br>
@@ -128,7 +128,12 @@ $adatos = recuperarInfoUsuario($_GET["cid_usuario"]/**$_SESSION["cidusuario"]**/
                     <br>
                     <br>
                     <hr color="#82c396">
-                    <input type="submit" value="Actualizar" class="boton" id="btn_registrarse" name="btn_registrarse">
+                    <table>
+                        <tr>
+                            <td><input type="submit" value="Actualizar" class="boton" id="btn_registrarse" name="btn_registrarse"></td>
+                            <td><input type="button" class="boton" name="Cancelar" value="Cancelar" onClick="location.href='../Medrchandise/index.php'"></td>
+                        </tr>    
+                    </table>
                     <!-- <a href="" class="boton" id="btn_registrarse">Registrarse</a> -->
                     </form>
 				</div>

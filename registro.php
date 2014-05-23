@@ -47,10 +47,10 @@ include_once("./funciones/acceder_base_datos.php");
                         <?php echo agregarUsuario();?>
                         <br>
                     *Nombre: <br>
-                    <input type="text" id="nombre" name="nombre" class="campos"><p hidden="hidden" style="color:red" id="errorNombre">Ingrese su nombre</p>
+                    <input type="text" id="nombre" name="nombre" class="campos"><div hidden="hidden" style="color:red" id="errorNombre">Ingrese su nombre</div>
                     <br>
                     Apellido(s): <br>
-                    <input type="text" id="apellido" name="apellido" class="campos"><p hidden="hidden" style="color:red" id="errorApellido">Ingrese su apellido</p>
+                    <input type="text" id="apellido" name="apellido" class="campos"><div hidden="hidden" style="color:red" id="errorApellido">Ingrese su apellido</div>
                     <br>
                     *Nombre de usuario: <br>
                     <input type="text" id="nombreusuario" name="nombreusuario" class="campos"><p hidden="hidden" style="color:red" id="errorNombreUsuario">Ingrese un nombre de usuario</p>
@@ -226,7 +226,12 @@ include_once("./funciones/acceder_base_datos.php");
                     <br>
                     <br>
                     <hr color="#82c396">
-                    <input type="submit" value="Registrarse" class="boton" id="btn_registrarse" name="btn_registrarse">
+                    <table>
+                        <tr>
+                            <td><input type="submit" value="Registrarse" class="boton" id="btn_registrarse" name="btn_registrarse"></td>
+                            <td><input type="button" class="boton" name="Cancelar" value="Cancelar" onClick="location.href='../Medrchandise/index.php'"></td>
+                        </tr>    
+                    </table>
                     <!-- <a href="" class="boton" id="btn_registrarse">Registrarse</a> -->
                     </form>
 				</div>
