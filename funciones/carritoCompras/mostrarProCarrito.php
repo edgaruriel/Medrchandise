@@ -51,7 +51,7 @@ function listarProCarrito(){
 		// 	 $ccontenido .= "</tr>";
 		// 	 $ccontenido .= "<tr>";
 		 	 	  $ccontenido .= "<td class=\"tabla_textocontenido\">";
-			 	  $ccontenido .= " <a class=\"eliminar_prod\" href=\"funciones/carritoCompras/eliminarProCarrito.php?ID=".$producto["id"]."\">Eliminar</a>";
+			 	  $ccontenido .= " <a class=\"eliminar_prod\" href=\"funciones/carritoCompras/eliminarProCarrito.php?ID=".$producto["id"]."&&Tipo=unElemento\">Eliminar</a>";
 			 	  $ccontenido .= "</td>";
 		 	 $ccontenido .= "</tr>";
 		 	 $idProductos .= $producto["id"]."-";
@@ -111,7 +111,8 @@ function resumenCarrito(){
 function mostrarDatosPago(){
 	$ccontenido = "";
 	$carrito = $_SESSION["carrito"];
-	$usuario = $_SESSION["cidusuario"];
+	//$usuario = $_SESSION["cidusuario"];
+	$usuario = obtenerInfoSesion();
 	
 if(count($carrito)!=0){
 		$cantidadTotal = "";
@@ -128,15 +129,15 @@ if(count($carrito)!=0){
 		$ccontenido .= "</tr>";
 		$ccontenido .= "<tr>";
 		$ccontenido .= "<td>Nombre:</td>";
-		$ccontenido .= "<td><input type=\"text\" id=\"nombre\" value=\"".$usuario."\" readonly></></td>";
+		$ccontenido .= "<td><input type=\"text\" id=\"nombre\" value=\"".$usuario[3]." ".$usuario[4]."\" readonly></></td>";
 		$ccontenido .= "</tr>";
 		$ccontenido .= "<tr>";
 		$ccontenido .= "<td>N&uacute;mero de tarjeta:</td>";
-		$ccontenido .= "<td><input type=\"text\" id=\"num_tarjeta\" ></></td>";
+		$ccontenido .= "<td><input type=\"text\" id=\"num_tarjeta\" onkeypress=\"return validarNumero(event)\"></td>";
 		$ccontenido .= "</tr>";
 		$ccontenido .= "<tr>";
 		$ccontenido .= "<td>Direcci&oacute;n:</td>";
-		$ccontenido .= "<td><input type=\"text\" id=\"direccion\"></></td>";
+		$ccontenido .= "<td><input type=\"text\" id=\"direccion\" value=\"".$usuario[5]."\" readonly></td>";
 		$ccontenido .= "</tr>";
 		$ccontenido .= "<tr>";
 		$ccontenido .= "<td>Cantidad a de articulos:</td>";
