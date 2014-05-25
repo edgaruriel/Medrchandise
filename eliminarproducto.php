@@ -19,6 +19,7 @@ validarSesion();
 	<link href="css/estilos_botones.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="css/estilos_editarproducto.css">
 	<script language="JavaScript" src="js/js_editarproducto.js" type="text/javascript"></script>
+
 	<title>Editar Productos</title>
 </head>
 <body>
@@ -50,33 +51,32 @@ validarSesion();
 		        </div>
 			</div>
 			<div id="div_contenido">
-				<form id="formulario" method="post" action="./funciones/editarProducto.php">
+				<form id="formulario" method="post" action="./funciones/eliminarProducto.php">
                     <input type="hidden" name="hdn_idproducto" value="<?php echo $adatos["id_producto"]; ?>">
-                    <input type="hidden" name="hdn_subcategorias" value="<?php echo obtenerSubcategorias(); ?>">
 					<table>
+                        <tr>
+                            <td>ID:</td>
+                            <td><?php echo $adatos["id_producto"]; ?></td>
+                        </tr>
 						<tr>
 							<td>Nombre:</td>
-							<td><input type="text" id="nombre" name="nombre" value="<?php echo $adatos["nombre"]; ?>"></td>
+							<td><?php echo $adatos["nombre"]; ?></td>
 						</tr>
 						<tr>
 							<td> Descripci&oacute;n:</td>
-							<td><TEXTAREA id="descripcion" name="descripcion" cols="50" rows="5" value="<?php echo $adatos["descripcion"]; ?>"></TEXTAREA></td>
+							<td><?php echo $adatos["descripcion"]; ?></td>
 						</tr>
 						<tr>
 							<td>Cantidad:</td>
-							<td><input type="text" id="cantidad" name="cantidad" value="<?php echo $adatos["cantidad_existencia"]; ?>"></td>
+							<td><?php echo $adatos["cantidad_existencia"]; ?></td>
 						</tr>
 						<tr>
 							<td>Precio:</td>
-							<td><input type="text" id="precio" name="precio" value="<?php echo $adatos["precio"]; ?>"></td>
+							<td><?php echo $adatos["precio"]; ?></td>
 						</tr>
                         <tr>
                             <td>Disponibilidad:</td>
-                            <td>
-                                <select name="cmb_iddisponibilidad" id="cmb_iddisponibilidad">
-                                    <?php echo listarDisponibilidad(); ?>
-                                </select>
-                            </td>
+                            <td><?php echo $nomDis["estados_disponibilidad"]; ?></td>
                         </tr>
 <!--
                         <tr>
@@ -92,20 +92,14 @@ validarSesion();
                         <tr>
                             <td>Subcategoria:</td>
                             <td>
-                                <select name="cmb_idsubcategoria" id="cmb_idsubcategoria">
-                                    <?php echo listarSubcategorias(); ?>
-                                </select>
+                                <?php echo $nomSub["nombre_subcategoria"]; ?>
                             </td>
                         </tr>
-						<tr>
-							<td>Imagen: </td>
-							<td><a id="examinar_imagen" name="imagen" class="boton" href="">Examinar</a></td>
-						</tr>
 					</table>
 					<hr color="#82c396">
                     <table>
                         <tr>
-                            <td><input id="btn_guardar" name="btn_guardar" type="submit" class="boton" value="Guardar"></td>
+                            <td><input id="btn_eliminar" name="btn_eliminar" type="submit" class="boton" value="Eliminar"></td>
                             <td><a id="btn_cancelar" class="boton" value="Cancelar" href="catalogoProductos.php">Cancelar</a></td>
                         </tr>
                     </table>
