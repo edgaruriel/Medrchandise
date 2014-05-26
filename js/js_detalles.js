@@ -30,3 +30,9 @@ function CalcularTotal() {
     }   
     total.value = cantidad.value * precio.value;
 }
+
+function Cerrar(){
+	//alert("HEYY");
+	document.getElementById("btn_agregarProdCarrito").submit();
+	//window.close();
+}

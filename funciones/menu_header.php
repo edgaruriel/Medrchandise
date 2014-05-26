@@ -16,14 +16,6 @@ function listarMenu(){
 	$menu .= "Productos";
  	$menu .= "</a>";
  	
- 	$menu .= "<a  class=\"menu\" href=\"ofertas.php\">";
- 	$menu .= "Ofertas";
- 	$menu .= "</a>";
- 	 	
- 	$menu .= "<a class=\"menu\" href=\"catalogoOfertas.php\">";
- 	$menu .= "Administrar Ofertas";
- 	$menu .= "</a>";
- 	
  	$menu .= "<a class=\"menu\" href=\"catalogoProductos.php\">";
  	$menu .= "Administrar productos";
  	$menu .= "</a>";
@@ -46,9 +38,7 @@ function listarMenu(){
 	$menu .= "Productos";
  	$menu .= "</a>";
  	
- 	$menu .= "<a  class=\"menu\" href=\"ofertas.php\">";
- 	$menu .= "Ofertas";
- 	$menu .= "</a>";
+ 	
  	
  	$menu .= "<a class=\"menu\" href=\"contacto.php\">";
  	$menu .= "Contacto";
@@ -68,9 +58,7 @@ function listarMenu(){
 	$menu .= "Productos";
  	$menu .= "</a>";
  	
- 	$menu .= "<a  class=\"menu\" href=\"ofertas.php\">";
- 	$menu .= "Ofertas";
- 	$menu .= "</a>";
+ 	
  	
  	$menu .= "<a class=\"menu\" href=\"contacto.php\">";
  	$menu .= "Contacto";

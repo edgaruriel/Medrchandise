@@ -30,7 +30,7 @@ function mostrar_ventana(id,nombre,imagen, descripcion,precio) {
     ventana.document.write("                        Cantidad: <input type=\"text\" id=\"pro_cantidad\" name=\"pro_cantidad\" onblur=\"CalcularTotal()\"><br>");
     ventana.document.write("                        Precio Unitario:<input type=\"text\" disabled=\"disabled\" value=\""+precio+"\" id=\"pro_precio\">MXN<br>");
     ventana.document.write("                        Total: <input type=\"text\" disabled=\"disabled\" id=\"pro_total\" name=\"pro_total\" value=\"0\">MXN<br><input id=\"pro_id\" name=\"pro_id\" type=\"hidden\" value=\""+id+"\">");
-    ventana.document.write("                        <input class=\"boton\" type=\"submit\" value=\"agregar\" id=\"btn_agregarProdCarrito\" name=\"btn_agregarProdCarrito\">");
+    ventana.document.write("                        <input class=\"boton\" type=\"submit\"  value=\"agregar\" id=\"btn_agregarProdCarrito\" name=\"btn_agregarProdCarrito\">");
     ventana.document.write("                    </form>");
     ventana.document.write("                </div>");
 	ventana.document.write("	      </div>");
@@ -38,3 +38,4 @@ function mostrar_ventana(id,nombre,imagen, descripcion,precio) {
     ventana.document.close();
     ventana.focus();
 }
+
