@@ -50,28 +50,27 @@ validarSesion();
 			<div id="div_contenido">
 				<form id="formulario" name="formulario" method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
 				<p align="center" class="estado"><?php echo agregarProducto(); ?></p>
-					<table>
+					<table id="table_producto">
 						<tr>
-							<td>Nombre:</td>
+							<td>*Nombre:</td>
 							<td><input type="text" id="nombre" name="nombre" value="<?php echo (isset($_POST["nombre"]))?$_POST["nombre"]:""; ?>"></td>
 						</tr>
 						<tr>
 							<td> Descripci&oacute;n:</td>
-							<td><TEXTAREA id="descripcion" name="descripcion" cols="50" rows="5" value="<?php echo (isset($_POST["descripcion"]))?$_POST["descripcion"]:""; ?>"></TEXTAREA></td>
+							<td><TEXTAREA id="descripcion" name="descripcion" cols="50" rows="5" ><?php echo (isset($_POST["descripcion"]))?$_POST["descripcion"]:""; ?></TEXTAREA></td>
 						</tr>
 						<tr>
-							<td>Cantidad:</td>
+							<td>*Cantidad:</td>
 							<td><input type="text" id="cantidad" name="cantidad" value="<?php echo (isset($_POST["cantidad"]))?$_POST["cantidad"]:""; ?>"></td>
 						</tr>
 						<tr>
-							<td>Precio:</td>
+							<td>*Precio:</td>
 							<td><input type="text" id="precio" name="precio" value="<?php echo (isset($_POST["precio"]))?$_POST["precio"]:""; ?>"></td>
 						</tr>
                         <tr>
-                            <td>Disponibilidad:</td>
+                            <td>*Disponibilidad:</td>
                             <td>
 								<select name="cmb_iddisponibilidad" id="cmb_iddisponibilidad">
-									<option value="0"></option>
 									<?php echo listarDisponibilidad(); ?>
 								</select>
 							</td>
@@ -81,17 +80,15 @@ validarSesion();
                             <td>Categoria:</td>
                             <td>
                                 <select name="cmb_idcategorias" id="cmb_idcategorias">
-                                    <option value="0"></option>
                                     <?php echo listarCategorias(); ?>
                                 </select>
                             </td>
                         </tr>
 -->
                         <tr>
-                            <td>Subcategoria:</td>
+                            <td>*Subcategoria:</td>
                             <td>
                                 <select name="cmb_idsubcategoria" id="cmb_idsubcategoria">
-                                    <option value="0"></option>
                                     <?php echo listarSubcategorias(); ?>
                                 </select>
                             </td>

@@ -5,8 +5,8 @@ include_once("./funciones/acceder_base_datos.php");
 include_once("./funciones/administrar_productos.php");
 include_once("./funciones/mantener_sesion.php");
 $adatos = recuperarInfoProducto($_GET["cid_producto"]);
-$nomDis = recuperarInfoNombre($_GET["cid_producto"],"id_estados_disponibilidad","estados_disponibilidad");
-$nomSub = recuperarInfoNombre($_GET["cid_producto"],"id_subcategoria","subcategoria");
+$nomDis = recuperarInfoNombre($adatos["id_producto"],"id_estados_disponibilidad","estados_disponibilidad");
+$nomSub = recuperarInfoNombre($adatos["id_producto"],"id_subcategoria","subcategoria");
 validarSesion();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -55,23 +55,23 @@ validarSesion();
                     <input type="hidden" name="hdn_subcategorias" value="<?php echo obtenerSubcategorias(); ?>">
 					<table>
 						<tr>
-							<td>Nombre:</td>
+							<td>*Nombre:</td>
 							<td><input type="text" id="nombre" name="nombre" value="<?php echo $adatos["nombre"]; ?>"></td>
 						</tr>
 						<tr>
-							<td> Descripci&oacute;n:</td>
-							<td><TEXTAREA id="descripcion" name="descripcion" cols="50" rows="5" value="<?php echo $adatos["descripcion"]; ?>"></TEXTAREA></td>
+							<td>Descripci&oacute;n:</td>
+							<td><TEXTAREA id="descripcion" name="descripcion" cols="50" rows="5" ><?php echo $adatos["descripcion"]; ?></TEXTAREA></td>
 						</tr>
 						<tr>
-							<td>Cantidad:</td>
+							<td>*Cantidad:</td>
 							<td><input type="text" id="cantidad" name="cantidad" value="<?php echo $adatos["cantidad_existencia"]; ?>"></td>
 						</tr>
 						<tr>
-							<td>Precio:</td>
+							<td>*Precio:</td>
 							<td><input type="text" id="precio" name="precio" value="<?php echo $adatos["precio"]; ?>"></td>
 						</tr>
                         <tr>
-                            <td>Disponibilidad:</td>
+                            <td>*Disponibilidad:</td>
                             <td>
                                 <select name="cmb_iddisponibilidad" id="cmb_iddisponibilidad">
                                     <?php echo listarDisponibilidad(); ?>
@@ -90,7 +90,7 @@ validarSesion();
                         </tr>
 -->
                         <tr>
-                            <td>Subcategoria:</td>
+                            <td>*Subcategoria:</td>
                             <td>
                                 <select name="cmb_idsubcategoria" id="cmb_idsubcategoria">
                                     <?php echo listarSubcategorias(); ?>

@@ -39,29 +39,37 @@ function agregarProducto(){
         $cdisponibilidad = $_POST["cmb_iddisponibilidad"];
         $csubcategoria = $_POST["cmb_idsubcategoria"];
         
-        $pconexion = abrirConexion();
-        seleccionarBaseDatos($pconexion);
-        
-        $cquery = "SELECT nombre FROM producto";
-        $cquery .= " WHERE nombre = '$cnombre'";
-        
-        if ( !existeRegistro($pconexion, $cquery) ){
-            $cquery = "INSERT INTO producto";
-            $cquery .= " (nombre, descripcion, precio, cantidad_existencia, id_estados_disponibilidad, id_subcategoria, descuento, id_ofertas)";
-            $cquery .= " VALUES ('$cnombre', '$cdescripcion', $cprecio, $ccantidad, $cdisponibilidad, $csubcategoria, 0, 1)";
-            if (insertarDatos($pconexion, $cquery) ){
-                //$cquery = "INSERT INTO fotos";
-                
-                $cmensaje = "Producto registrado";
-            }
-            else{
-                $cmensaje = "No fue posible registrar el producto en el catálogo";	 
-            }
+        if( strcasecmp($cnombre,'')==0 && empty($ccantidad) && empty($cprecio)){
+            $cmensaje = "Faltan campos por llenar";
         }
         else{
-            $cmensaje = "Ya existe un producto con el nombre: $cnombre";
+            $pconexion = abrirConexion();
+            seleccionarBaseDatos($pconexion);
+            if(ctype_digit($cprecio) && ctype_digit($ccantidad)){
+                $cquery = "SELECT nombre FROM producto";
+                $cquery .= " WHERE nombre = '$cnombre'";
+
+                if ( !existeRegistro($pconexion, $cquery) ){
+                    $cquery = "INSERT INTO producto";
+                    $cquery .= " (nombre, descripcion, precio, cantidad_existencia, id_estados_disponibilidad, id_subcategoria, descuento, id_ofertas)";
+                    $cquery .= " VALUES ('$cnombre', '$cdescripcion', $cprecio, $ccantidad, $cdisponibilidad, $csubcategoria, 0, 1)";
+                    if (insertarDatos($pconexion, $cquery) ){
+                        //$cquery = "INSERT INTO fotos";
+                        $cmensaje = "Producto registrado";
+                    }
+                    else{
+                        $cmensaje = "No fue posible registrar el producto en el catálogo";	 
+                    }
+                }
+                else{
+                    $cmensaje = "Ya existe un producto con el nombre: $cnombre";
+                }
+                cerrarConexion($pconexion);
+            }
+            else{
+                $cmensaje = "Los campos CANTIDAD y PRECIO deben ser numeros";
+            }
         }
-        cerrarConexion($pconexion);
     }
     
     return $cmensaje;
