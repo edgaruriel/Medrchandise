@@ -53,8 +53,14 @@ validarSesion();
 					?>
 					</table>
 					<hr color="#82c396">
-					<a class="boton" href="#" id="Btnpagar">Pagar</a>
+					<table>
+						<tr>
+							<td><a id="confirmCancelar" class="boton" href="#" id="Btncancelar">Cancelar</a></td>
+							<td><a class="boton" href="#" id="Btnpagar">Pagar</a></td>
+						</tr>
+					</table>							
 					<input type="submit" id="Btnsubmit" name="Btnsubmit"  value="pago">
+					<a id="Btncancelar" id="Btncancelar" href="funciones/carritoCompras/eliminarProCarrito.php?Tipo=todo"></a>
 				</form>		
 			</div>
 			

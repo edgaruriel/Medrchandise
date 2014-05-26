@@ -1,21 +1,7 @@
 <?php
 include_once("funciones/mantener_sesion.php");
-
-//$rolArray = obtenerInfoSesion();
-
 session_start();
-
-
 function listarMenu(){
-	
-	/**$pconexion = abrirConexion();
-   	seleccionarBaseDatos($pconexion);
-	$idusuario = $_SESSION["cidusuario"];
-	
-	$dquery="SELECT usuario.id_rol FROM usuario WHERE usuario.id_usuario = '$idusuario'";
-			$rolArray=extraerRegistro($pconexion,$dquery);**/
-	
-	
  $menu = "";
  //if(isset($_SESSION["cidusuario"]) && ($_SESSION["cidusuario"] == "admin")){
 	 if(isset($_SESSION["cidusuario"])){
@@ -67,6 +53,10 @@ function listarMenu(){
  	$menu .= "<a class=\"menu\" href=\"contacto.php\">";
  	$menu .= "Contacto";
  	$menu .= "</a>";
+ 	
+ 	$menu .= "<a class=\"menu\" href=\"AcercaDe.php\">";
+ 	$menu .= "Con&oacute;cenos";
+ 	$menu .= "</a>";
  				
  	}
 	}else{
@@ -84,6 +74,10 @@ function listarMenu(){
  	
  	$menu .= "<a class=\"menu\" href=\"contacto.php\">";
  	$menu .= "Contacto";
+ 	$menu .= "</a>";
+ 	
+ 	$menu .= "<a class=\"menu\" href=\"AcercaDe.php\">";
+ 	$menu .= "Con&oacute;cenos";
  	$menu .= "</a>";
  	}
  
@@ -140,4 +134,4 @@ function listarPanel(){
 return 	$panel; 
 }
 
-?>
+ ?>

@@ -135,11 +135,30 @@ $cdestino = "Location:../../index.php";
 				if(!insertarDatos($pconexion, $equery)){
 					$cmensaje = "No fue posible registrar el carrito tiene productos";
 					break;
-				}else{
-				}			
-			}		
+				}
+
+			$dquery="SELECT producto.cantidad_existencia FROM producto WHERE producto.id_producto = '$idProducto'";
+			$productoArray=extraerRegistro($pconexion,$dquery);	
+
+			$nuevaCantidad = $productoArray[0] - $cantidadProducto;
+			if($nuevaCantidad < 0){
+				$nuevaCantidad = 0;
+			}
+			
+			$uquery = "UPDATE producto";
+			$uquery .= " SET cantidad_existencia = '$nuevaCantidad'";
+			$uquery .= " WHERE (id_producto = $idProducto)";
+			
+				if (!editarDatos($pconexion, $uquery) ){
+					$cmensaje = "No fue posible actualizar el producto";
+					break;
+				}
+			}
 		 	//$cmensaje = "Registrado carrito tiene productos";	     	
-	    // 	$cquery2 = "SELECT * ";	     	
+	    // 	$cquery2 = "SELECT * ";	    
+	    unset($_SESSION["carrito"]);
+	    $nuevoCarrito = array();
+	    $_SESSION["carrito"] = $nuevoCarrito; 	
 	   	}
 	  	 else{
 	     $cmensaje = "No fue posible registrar el usuario";	 

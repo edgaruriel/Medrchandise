@@ -69,6 +69,19 @@ function agregarUsuario(){
        
 	   if (insertarDatos($pconexion, $cquery) ){
 	     $cmensaje = "Usuario registrado";
+           session_start();
+           if(isset($_SESSION["cidusuario"])){
+                $rolArray = obtenerInfoSesion();
+                 if($rolArray[0] == 1){
+                     echo "<script type='text/javascript'>window.alert('Registro exitoso')</script>";
+                    $curl = "Location:".$GLOBALS["raiz_sitio"]."catalogoClientes.php"; 
+                 }else{
+                    $curl = "Location:".$GLOBALS["raiz_sitio"]."index.php"; 
+                 }  
+           }else{
+               echo "<script type='text/javascript'>window.alert('Registro exitoso')</script>";
+               $curl = "Location:".$GLOBALS["raiz_sitio"]."login.php";
+           }
 	   }
 	   else{
 	     $cmensaje = "No fue posible registrar el usuario";	 
@@ -78,7 +91,10 @@ function agregarUsuario(){
      $cmensaje = "Ya existe un usuario con el nombre de usuario: $cnombreusuario";
    }	 
    cerrarConexion($pconexion);
- 
+     if(isset($curl)){
+            header($curl);
+            exit();   
+     }
  }
 
  return $cmensaje;

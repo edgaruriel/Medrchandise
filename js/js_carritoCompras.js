@@ -17,7 +17,7 @@ if(valor.length != 0){
 		
 		}
 }else{
-	alert("No tiene productos");
+	//alert("No tiene productos");
 }
 	
  }
@@ -39,7 +39,6 @@ if(valor.length != 0){
 	 var charCode = (evt.which) ? evt.which : event.keyCode
 	         if (charCode > 31 && (charCode < 48 || charCode > 57))
 	            return false;
-	 
 	 return true;
  }
 
