@@ -31,7 +31,7 @@
  
  function cancelarProductos(){
 	var resultado = confirm("¿Está seguro que desea cancelar su compra?. Se eliminaran todos los productos su carrito");
-	alert(resultado);
+	//alert(resultado);
 	if(resultado == true){
 		window.location="funciones/carritoCompras/eliminarProCarrito.php?Tipo=todo";
 		 //document.getElementById('Btncancelar').click();
