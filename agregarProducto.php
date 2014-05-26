@@ -75,16 +75,6 @@ validarSesion();
 								</select>
 							</td>
                         </tr>
-<!--
-                        <tr>
-                            <td>Categoria:</td>
-                            <td>
-                                <select name="cmb_idcategorias" id="cmb_idcategorias">
-                                    <?php echo listarCategorias(); ?>
-                                </select>
-                            </td>
-                        </tr>
--->
                         <tr>
                             <td>*Subcategoria:</td>
                             <td>
@@ -95,7 +85,7 @@ validarSesion();
                         </tr>
 						<tr>
 							<td>Imagen:</td>
-							<td><input id="imagen" name="imagen" type="file" class="boton" value="Examinar" ></td>
+							<td><a id="examinar_imagen" name="examinar_imagen" class="boton" >Examinar</a></td>
 						</tr>
 					</table>
 					<hr color="#82c396">

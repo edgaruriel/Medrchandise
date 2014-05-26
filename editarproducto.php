@@ -52,7 +52,7 @@ validarSesion();
 			<div id="div_contenido">
 				<form id="formulario" method="post" action="./funciones/editarProducto.php">
                     <input type="hidden" name="hdn_idproducto" value="<?php echo $adatos["id_producto"]; ?>">
-                    <input type="hidden" name="hdn_subcategorias" value="<?php echo obtenerSubcategorias(); ?>">
+
 					<table>
 						<tr>
 							<td>*Nombre:</td>
@@ -78,17 +78,6 @@ validarSesion();
                                 </select>
                             </td>
                         </tr>
-<!--
-                        <tr>
-                            <td>Categoria:</td>
-                            <td>
-                                <select name="cmb_idcategorias" id="cmb_idcategorias">
-                                    <option value="0"></option>
-                                    <?php echo listarCategorias(); ?>
-                                </select>
-                            </td>
-                        </tr>
--->
                         <tr>
                             <td>*Subcategoria:</td>
                             <td>

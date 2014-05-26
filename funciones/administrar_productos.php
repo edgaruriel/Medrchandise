@@ -54,54 +54,71 @@ function agregarProducto(){
                     $cquery .= " (nombre, descripcion, precio, cantidad_existencia, id_estados_disponibilidad, id_subcategoria, descuento, id_ofertas)";
                     $cquery .= " VALUES ('$cnombre', '$cdescripcion', $cprecio, $ccantidad, $cdisponibilidad, $csubcategoria, 0, 1)";
                     if (insertarDatos($pconexion, $cquery) ){
-                        $adatos = array();
-                        $cquery = "SELECT * FROM producto WHERE (nombre = '$cnombre')";
-                        $adatos = extraerRegistro($pconexion, $cquery);
-                        $idproducto = $adatos["id_producto"];
-                        if($_FILES["imagen"]["error"]>0){
-                            $cquery = "DELETE FROM producto"; 
-                            $cquery .=" WHERE (id_producto = $idproducto)";
-                            if ( editarDatos($pconexion, $cquery) )
-                                $cmensaje = "Ha ocurrido un error al cargar el archivo";
-                            else
-                                $cmensaje = "El producto no se registro correctamente";
-                        }
-                        else{
-                            $apermitidos = array("image/jpg","image/jpeg","image/gif","image/png");
-                            if(in_array($_FILES['imagen']['type'],$apermitidos)){
-                                $sdirectorio = '/imagenesProductos/';
-                                $sarchivo = '/imagenesProductos/' . $_FILES['imagen']['name'];
-                                $nombrearchivo = $_FILES['imagen']['name'];
-                                if(!file_exists($sarchivo)){
-                                    $resultado = @move_uploaded_file($_FILE['imagen']['tmp_name'], $sarchivo);
-                                    if($resultado){
-                                        $inombre = $_FILES['imagen']['name'];
-                                        $cquery = "INSERT INTO fotos";
-                                        $cquery.= " (ruta, id_producto) VALUES ('$inombre', $idproducto)";
-                                        if(insertarDatos($pconexion,$cquery)){
-                                            $cmensaje = "Producto registrado";
+                        if(empty($_FILES)){
+                            $adatos = array();
+                            $cquery = "SELECT * FROM producto WHERE (nombre = '$cnombre')";
+                            $adatos = extraerRegistro($pconexion, $cquery);
+                            $idproducto = $adatos["id_producto"];
+                            if($_FILES["file_img"]["error"]>0){
+                                $cquery = "DELETE FROM producto"; 
+                                $cquery .=" WHERE (id_producto = $idproducto)";
+                                if ( editarDatos($pconexion, $cquery) )
+                                    $cmensaje = "Ha ocurrido un error al cargar el archivo";
+                                else
+                                    $cmensaje = "El producto no se registro correctamente";
+                            }
+                            else{
+                                $apermitidos = array("image/jpg","image/jpeg","image/gif","image/png");
+                                if(in_array($_FILES['file_img']['type'],$apermitidos)){
+                                    $sdirectorio = '/imagenesProductos/';
+                                    $sarchivo = '/imagenesProductos/' . $_FILES['file_img']['name'];
+                                    $nombrearchivo = $_FILES['file_img']['name'];
+                                    if(!file_exists($sarchivo)){
+                                        $resultado = @move_uploaded_file($_FILE['file_img']['tmp_name'], $sarchivo);
+                                        if($resultado){
+                                            $inombre = $_FILES['file_img']['name'];
+                                            $cquery = "INSERT INTO fotos";
+                                            $cquery.= " (ruta, id_producto) VALUES ('$inombre', $idproducto)";
+                                            if(insertarDatos($pconexion,$cquery)){
+                                                $cmensaje = "Producto registrado";
+                                            }
+                                            else{
+                                                $cquery = "DELETE FROM producto"; 
+                                                $cquery .=" WHERE (id_producto = $idproducto)";
+                                                if ( editarDatos($pconexion, $cquery) ){
+                                                    $cmensaje = "El producto no se pudo registrar correctamente debido a la imagen";
+                                                }
+                                                else{
+                                                    $cmensaje = "El producto no se registro correctamente";
+                                                }
+                                            }
                                         }
                                         else{
                                             $cquery = "DELETE FROM producto"; 
                                             $cquery .=" WHERE (id_producto = $idproducto)";
-                                            if ( editarDatos($pconexion, $cquery) ){
-                                                $cmensaje = "El producto no se pudo registrar correctamente debido a la imagen";
-                                            }
-                                            else{
+                                            if ( editarDatos($pconexion, $cquery) )
+                                                $cmensaje = "Error al mover imagen";
+                                            else
                                                 $cmensaje = "El producto no se registro correctamente";
-                                            }
                                         }
                                     }
                                     else{
-                                        $cmensaje = "Error al mover imagen";
+                                        $cquery = "DELETE FROM producto"; 
+                                        $cquery .=" WHERE (id_producto = $idproducto)";
+                                        if ( editarDatos($pconexion, $cquery) )
+                                            $cmensaje = "El archivo ya existe";
+                                        else
+                                            $cmensaje = "El producto no se registro correctamente";
                                     }
                                 }
                                 else{
-                                    $cmensaje = "El archivo ya existe";
+                                    $cquery = "DELETE FROM producto"; 
+                                    $cquery .=" WHERE (id_producto = $idproducto)";
+                                    if ( editarDatos($pconexion, $cquery) )
+                                        $cmensaje = "El archivo seleccionado no es una imagen valida";
+                                    else
+                                        $cmensaje = "El producto no se registro correctamente";
                                 }
-                            }
-                            else{
-                                $cmensaje = "El archivo seleccionado no es una imagen valida";
                             }
                         }
                     }
