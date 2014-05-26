@@ -14,23 +14,26 @@ include_once("acceder_base_datos.php");
         $cprecio = $_POST["precio"];
         $cdisponibilidad = $_POST["cmb_iddisponibilidad"];
         $csubcategoria = $_POST["cmb_idsubcategoria"];
-        
-        $cquery = "UPDATE producto"; 
-        $cquery .=" SET nombre = '$cnombre',"; 
-        $cquery .=" descripcion = '$cdescripcion',"; 
-        $cquery .=" precio = $cprecio,";
-        $cquery .=" cantidad_existencia = $ccantidad,";
-        $cquery .=" id_estados_disponibilidad = $cdisponibilidad,";
-        $cquery .=" id_subcategoria = $csubcategoria,";
-        $cquery .=" descuento = 0,";
-        $cquery .=" id_ofertas = 1";
-        $cquery .=" WHERE (id_producto = $cid_producto)";
-        
-        if ( editarDatos($pconexion, $cquery) )
-            $curl="Location:".$GLOBALS["raiz_sitio"]."catalogoProductos.php"; 
-        else 
+        if(strcasecmp($cnombre,'')==0 && empty($ccantidad) && empty($cprecio) && ctype_digit($cprecio) && ctype_digit($ccantidad)){
+            $cquery = "UPDATE producto"; 
+            $cquery .=" SET nombre = '$cnombre',"; 
+            $cquery .=" descripcion = '$cdescripcion',"; 
+            $cquery .=" precio = $cprecio,";
+            $cquery .=" cantidad_existencia = $ccantidad,";
+            $cquery .=" id_estados_disponibilidad = $cdisponibilidad,";
+            $cquery .=" id_subcategoria = $csubcategoria,";
+            $cquery .=" descuento = 0,";
+            $cquery .=" id_ofertas = 1";
+            $cquery .=" WHERE (id_producto = $cid_producto)";
+
+            if ( editarDatos($pconexion, $cquery) )
+                $curl="Location:".$GLOBALS["raiz_sitio"]."catalogoProductos.php"; 
+            else 
+                $curl="Location:".$GLOBALS["raiz_sitio"]."editarproducto.php?cid_producto=$cid_producto";
+        }
+        else{
             $curl="Location:".$GLOBALS["raiz_sitio"]."editarproducto.php?cid_producto=$cid_producto";
-        //"editarproducto.php?cid_producto=$cid_producto"
+        }
         cerrarConexion($pconexion); 
         header($curl);
         exit(); 
