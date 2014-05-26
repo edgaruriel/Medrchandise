@@ -40,110 +40,25 @@ include_once("funciones/listar_productos.php");
 		<!--Inicio del cuerpo-->
 		<div id="div_cuerpo">
             <div>
+                <!--
                 <input type="text"  id="txt_buscar">
                 <a id="btn_buscar" class="boton" href="">Buscar</a>
-                <!--
-                <a href="carrito.html" class="boton" id="btn_numArtic">
-                    <span class="carrito">0 Art&iacute;culos</span>
-                </a>
                 -->
+                <form  method="post" action="productos.php?buscar"  id="searchform"> 
+                    <input  type="text" name="txt_buscar" id="txt_buscar"> 
+                    <input  type="submit" name="submit" id="btn_buscar" class="boton" value="Buscar"> 
+                </form>
             </div>
             <div id="categorias">
             <h1>Categor&iacute;as</h1>
                 <div>
-                    <!--
-                    <ul id="menu_cat">
-                        <li class="elem_categ"> <a href="#" class="link_catego">Categoria 1</a>
-                            <ul>
-                                <li><a href="">Subcategoria 1</a></li>
-                                <li><a href="">Subcategoria 2</a></li>
-                            </ul>
-                        </li>
-                        <li class="elem_categ"> <a href="#" class="link_catego">Categoria 1</a>
-                            <ul>
-                                <li><a href="">Subcategoria 1</a></li>
-                                <li><a href="">Subcategoria 2</a></li>
-                                <li><a href="">Subcategoria 3</a></li>
-                            </ul>
-                        </li>
-                        <li class="elem_categ"> <a href="#" class="link_catego">Categoria 1</a>
-                            <ul>
-                                <li><a href="">Subcategoria 1</a></li>
-                                <li><a href="">Subcategoria 2</a></li>
-                                <li><a href="">Subcategoria 3</a></li>
-                                <li><a href="">Subcategoria 4</a></li>
-                            </ul>
-                        </li>
-                        <li class="elem_categ"> <a href="#" class="link_catego">Categoria 1</a>
-                            <ul>
-                                <li><a href="">Subcategoria 1</a></li>
-                                <li><a href="">Subcategoria 2</a></li>
-                            </ul>
-                        </li>
-                        <li class="elem_categ"> <a href="#" class="link_catego">Categoria 1</a></li>
-                        <li class="elem_categ"> <a href="#" class="link_catego">Categoria 1</a></li>
-                        <li class="elem_categ"> <a href="#" class="link_catego">Categoria 1</a></li>
-                    </ul>
-                -->
-                <?php echo escribirMenuCat(); ?>
+                    <?php echo escribirMenuCat(); ?>
                 </div>
             </div>
 				
             <div id="productos">
                 <h1>Lista de Art&iacute;culos</h1>
                 <table>
-                <!--
-                    <tr>
-                        <td>
-                            <div id="producto">
-                                <div id="img_principal">
-                                    <img src="imagen/prod.jpg">
-                                </div>
-                                <div id="nombreProducto">
-                                    Producto 1
-                                </div>
-                                <div id="precioDetalles">
-                                    <div id="precio">$200.00 MXN</div>
-                                    <div id="detalles">
-                                    <a href="detalles.php">Ver M&aacute;s [+]</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div id="producto">
-                                <div id="img_principal">
-                                    <img src="imagen/prod.jpg">
-                                </div>
-                                <div id="nombreProducto">
-                                    Producto 1
-                                </div>
-                                <div id="precioDetalles">
-                                    <div id="precio">$200.00 MXN</div>
-                                    <div id="detalles">
-                                    <a href="detalles.php">Ver M&aacute;s [+]</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div id="producto">
-                                <div id="img_principal">
-                                    <img src="imagen/prod.jpg">
-                                </div>
-                                <div id="nombreProducto">
-                                    Producto 1
-                                </div>
-                                <div id="precioDetalles">
-                                    <div id="precio">$200.00 MXN</div>
-                                    <div id="detalles">
-                                    <a href="detalles.php">Ver M&aacute;s [+]</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                -->
                     <?php echo listarProductos(); ?>
                 </table>
             </div>
@@ -162,7 +77,7 @@ include_once("funciones/listar_productos.php");
 			<a href="https://plus.google.com/"> <img class="link_redes_sociales" alt="" src="imagen/index_32.gif"> </a>
 			</div>			
 		</div>
-		</div>
+	</div>
     <div id="div_footer">
         <div class="leyenda">
             &copy; Todos los derechos reservados - Medrchandise<br>
