@@ -2,36 +2,21 @@
 #imagen{
     float: left;
     position: absolute;
-    margin-left: 15%;
+    margin-left: 5%;
     /*border: 1px solid black;*/
      margin-top: 1%;
-}
-
-.link_catego{
-    text-decoration: none;
-}
-
-.link_catego:hover{
-    text-decoration: underline;
-    color: green;
 }
 
 #info{
     float: right;
     position: absolute;
-    margin-left: 45%;
+    margin-left: 50%;
     margin-top: 1%;
     font-family: arial;
 }
 
 #info_gral{
     margin-top: 5%;
-}
-
-#categorias{
-    float: left;
-    position: relative;
-    margin-top: 1%;
 }
 
 .linea_img{
@@ -51,12 +36,6 @@
     height: 20px;
     width: 260px;
     position: absolute;
-}
-
-#btn_buscar{
-    position: relative;
-    left: 275px;
-    top: 0px;
 }
 
 #txt_cantidad{
@@ -94,9 +73,4 @@
     margin-left: 5%;
     margin-top: 1%;
     font-size: 13px;
-}
-
-.elem_categ{
-    padding:1em;
-    border: 1px solid green;
 }

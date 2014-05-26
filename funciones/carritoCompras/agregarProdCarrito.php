@@ -3,7 +3,7 @@ include_once("../../config.inc.php");
 include_once("../acceder_base_datos.php");
 
 
-if( isset($_POST["btn_agregarProdCarrito"]) && $_POST["btn_agregarProdCarrito"] == "agregar producto"){
+if( isset($_POST["btn_agregarProdCarrito"]) && $_POST["btn_agregarProdCarrito"] == "agregar"){
 
 	$pconexion = abrirConexion();
 	seleccionarBaseDatos($pconexion);
