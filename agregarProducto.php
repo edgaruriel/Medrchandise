@@ -43,12 +43,12 @@ validarSesion();
 		<div id="div_cuerpo">
 			<div id="div_cuerpo_superior">
 				<div id="cabecera">
-		       <h1> Agregar Producto</h1>
+					<h1>Agregar Producto</h1>
 		        </div>	
 				
 			</div>
 			<div id="div_contenido">
-				<form id="formulario" name="formulario" method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+				<form id="formulario" name="formulario" method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>" enctype="multipart/form-data">
 				<p align="center" class="estado"><?php echo agregarProducto(); ?></p>
 					<table id="table_producto">
 						<tr>
@@ -95,7 +95,7 @@ validarSesion();
                         </tr>
 						<tr>
 							<td>Imagen:</td>
-							<td><a id="examinar_imagen" class="boton" href="">Examinar</a></td>
+							<td><input id="imagen" name="imagen" type="file" class="boton" value="Examinar" ></td>
 						</tr>
 					</table>
 					<hr color="#82c396">
