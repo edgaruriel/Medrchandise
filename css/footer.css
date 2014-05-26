@@ -2,7 +2,7 @@
 
 #div_footer{
     background-color: #82c396;
-    height: 60px;
+    height: 10%;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -21,13 +21,15 @@
 }
 .footer_segmento{
     width: 180px;
+    height: 9%;
     bottom: 3px;
     position: fixed;
     right: 40px;
 }
 
 .link_redes_sociales{
-width: 35px;
-height: 35px;
+width: 30%;
+height: 90%;
+margin-top: 1%;
 border: none;
 }

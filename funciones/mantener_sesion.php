@@ -22,7 +22,7 @@ function obtenerInfoSesion(){
    	seleccionarBaseDatos($pconexion);
 	$idusuario = $_SESSION["cidusuario"];
 	
-	$dquery="SELECT usuario.id_rol, usuario.nick, usuario.id_usuario FROM usuario WHERE usuario.id_usuario = '$idusuario'";
+	$dquery="SELECT usuario.id_rol, usuario.nick, usuario.id_usuario, usuario.nombre, usuario.apellido, usuario.direccion FROM usuario WHERE usuario.id_usuario = '$idusuario'";
 	$rolArray=extraerRegistro($pconexion,$dquery);
 	
 	return $rolArray;		

@@ -1,6 +1,9 @@
 <?php
+include_once("config.inc.php");
 include_once("funciones/menu_header.php");
 include_once("./funciones/mantener_sesion.php");
+include_once("./funciones/acceder_base_datos.php");
+include_once("./funciones/administrar_productos.php");
 validarSesion();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -45,36 +48,65 @@ validarSesion();
 				
 			</div>
 			<div id="div_contenido">
-				<form id="formulario">
-					<table>
+				<form id="formulario" name="formulario" method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+				<p align="center" class="estado"><?php echo agregarProducto(); ?></p>
+					<table id="table_producto">
 						<tr>
-							<td>Nombre:</td>
-							<td><input type="text" id="nombre"></td>
+							<td>*Nombre:</td>
+							<td><input type="text" id="nombre" name="nombre" value="<?php echo (isset($_POST["nombre"]))?$_POST["nombre"]:""; ?>"></td>
 						</tr>
 						<tr>
 							<td> Descripci&oacute;n:</td>
-							<td><TEXTAREA id="descripcion" cols="50" rows="5" ></TEXTAREA></td>
+							<td><TEXTAREA id="descripcion" name="descripcion" cols="50" rows="5" ><?php echo (isset($_POST["descripcion"]))?$_POST["descripcion"]:""; ?></TEXTAREA></td>
 						</tr>
 						<tr>
-							<td>Cantidad:</td>
-							<td><input type="text" id="cantidad"></td>
+							<td>*Cantidad:</td>
+							<td><input type="text" id="cantidad" name="cantidad" value="<?php echo (isset($_POST["cantidad"]))?$_POST["cantidad"]:""; ?>"></td>
 						</tr>
 						<tr>
-							<td>Precio:</td>
-							<td><input type="text" id="precio"></td>
+							<td>*Precio:</td>
+							<td><input type="text" id="precio" name="precio" value="<?php echo (isset($_POST["precio"]))?$_POST["precio"]:""; ?>"></td>
 						</tr>
+                        <tr>
+                            <td>*Disponibilidad:</td>
+                            <td>
+								<select name="cmb_iddisponibilidad" id="cmb_iddisponibilidad">
+									<?php echo listarDisponibilidad(); ?>
+								</select>
+							</td>
+                        </tr>
+<!--
+                        <tr>
+                            <td>Categoria:</td>
+                            <td>
+                                <select name="cmb_idcategorias" id="cmb_idcategorias">
+                                    <?php echo listarCategorias(); ?>
+                                </select>
+                            </td>
+                        </tr>
+-->
+                        <tr>
+                            <td>*Subcategoria:</td>
+                            <td>
+                                <select name="cmb_idsubcategoria" id="cmb_idsubcategoria">
+                                    <?php echo listarSubcategorias(); ?>
+                                </select>
+                            </td>
+                        </tr>
 						<tr>
-							<td>Imagen: </td>
+							<td>Imagen:</td>
 							<td><a id="examinar_imagen" class="boton" href="">Examinar</a></td>
 						</tr>
 					</table>
 					<hr color="#82c396">
-					<a id="btn_guardar" class="boton" href="catalogoProductos.php">Guardar</a>
+					<table>
+                        <tr>
+                            <td><input id="btn_guardar" name="btn_guardar" type="submit" class="boton" value="Guardar"></td>
+                            <td><a id="btn_cancelar" class="boton" value="Cancelar" href="catalogoProductos.php">Cancelar</a></td>
+                        </tr>
+                    </table>
 					<input type="file" id="file_img">
 				</form>
-	
-
-				
 			</div>
 			
 		</div>

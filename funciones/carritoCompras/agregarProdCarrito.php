@@ -3,7 +3,7 @@ include_once("../../config.inc.php");
 include_once("../acceder_base_datos.php");
 
 
-if( isset($_POST["btn_agregarProdCarrito"]) && $_POST["btn_agregarProdCarrito"] == "agregar producto"){
+if( isset($_POST["btn_agregarProdCarrito"]) && $_POST["btn_agregarProdCarrito"] == "agregar"){
 
 	$pconexion = abrirConexion();
 	seleccionarBaseDatos($pconexion);
@@ -11,14 +11,7 @@ if( isset($_POST["btn_agregarProdCarrito"]) && $_POST["btn_agregarProdCarrito"] 
 	$cantidad = $_REQUEST["pro_cantidad"];
 	$idProducto = $_REQUEST["pro_id"];
 	$total = $_REQUEST["pro_total"];
-	/*
-	echo "id: ".$idProducto;
-	echo "<br/>";
-	echo "cantidad: ".$cantidad;
-	echo "<br/>";
-	echo "total: ".$total;
-	echo "<br/>";
-	*/
+	
  	session_start();
 
 	$carrito = $_SESSION["carrito"];
@@ -36,7 +29,7 @@ if(count($carrito)!= 0){
 		}
 	}
 	if($bandera!=0){
-		//echo "3.1";
+		
 		//actualiza producto
 	$prodRepetido =	$carrito[$indexAux];
 		$auxCantidad =  $prodRepetido["cantidad"];
@@ -48,7 +41,7 @@ if(count($carrito)!= 0){
 	$carrito[$indexAux] = $prodRepetido;
 	$_SESSION["carrito"] = $carrito;
 	}else{
-		//echo "3.2";
+		
 		//agrega nuevo producto
 		$newProducto = array(
 			"id" => $idProducto,
@@ -61,7 +54,7 @@ if(count($carrito)!= 0){
 	}
 	
 }else{
-	//echo "2";
+	
 	$newProducto = array(
 			"id" => $idProducto,
 			"cantidad" => $cantidad,
@@ -71,7 +64,7 @@ if(count($carrito)!= 0){
 		$_SESSION["carrito"] = $carrito;
 }
 $cdestino = "Location:../../index.php";
-//echo "3"; 
+
 }else{
 	//actualizar el carrito de compras antes de finalizar la compra
 	if( isset($_POST["Btnsubmit"]) && $_POST["Btnsubmit"] == "comprar"){
@@ -80,22 +73,18 @@ $cdestino = "Location:../../index.php";
 		$carrito = $_SESSION["carrito"];
 		
 		if(count($carrito)!=0){
-		//	$cantidad = "";
-		//	$subtotal = "";
+		
 			foreach ($carrito as $index => $producto){		
 				$cantidad = $_REQUEST["cantidad".$producto["id"]];
 				$subtotal = $_REQUEST["subtotal".$producto["id"]];
 				$producto["cantidad"] = $cantidad;
 				$producto["total"] = $subtotal;
 				$carrito[$index] = $producto;
-		//		echo "Cantidad".$producto["id"]." : ".$cantidad;
-		//		echo "subtotal".$producto["id"]." : ".$subtotal;
-		//		$cantidadTotal += $producto["cantidad"];
-		//		$precioTotal += $producto["total"];
+	
 			}
 			$_SESSION["carrito"] = $carrito;
 			$cdestino = "Location:../../pago.php";
-			//print_r($carrito);
+		
 		}
 		
 		
@@ -135,11 +124,30 @@ $cdestino = "Location:../../index.php";
 				if(!insertarDatos($pconexion, $equery)){
 					$cmensaje = "No fue posible registrar el carrito tiene productos";
 					break;
-				}else{
-				}			
-			}		
+				}
+
+			$dquery="SELECT producto.cantidad_existencia FROM producto WHERE producto.id_producto = '$idProducto'";
+			$productoArray=extraerRegistro($pconexion,$dquery);	
+
+			$nuevaCantidad = $productoArray[0] - $cantidadProducto;
+			if($nuevaCantidad < 0){
+				$nuevaCantidad = 0;
+			}
+			
+			$uquery = "UPDATE producto";
+			$uquery .= " SET cantidad_existencia = '$nuevaCantidad'";
+			$uquery .= " WHERE (id_producto = $idProducto)";
+			
+				if (!editarDatos($pconexion, $uquery) ){
+					$cmensaje = "No fue posible actualizar el producto";
+					break;
+				}
+			}
 		 	//$cmensaje = "Registrado carrito tiene productos";	     	
-	    // 	$cquery2 = "SELECT * ";	     	
+	    // 	$cquery2 = "SELECT * ";	    
+	    unset($_SESSION["carrito"]);
+	    $nuevoCarrito = array();
+	    $_SESSION["carrito"] = $nuevoCarrito; 	
 	   	}
 	  	 else{
 	     $cmensaje = "No fue posible registrar el usuario";	 

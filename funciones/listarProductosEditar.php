@@ -12,7 +12,7 @@ function listarProductosEditar(){
     $cquery .= "producto.precio AS Precio ";
     $cquery .= "FROM producto";
     //Se ejecuta la sentencia SQL
-    $lresult = mysqli_query($pconexion, $cquery); 
+    $lresult = mysqli_query($pconexion, $cquery);
     
     if (!$lresult) {
         $cerror = "No fue posible recuperar la informacion de la base de datos.<br>";
@@ -33,7 +33,7 @@ function listarProductosEditar(){
                 $ccontenido .= "<td class=\"tabla_textocontenido\">";
                 $ccontenido .= "<ul >";
                 $ccontenido .= "<li class=\"accion\"><a href=\"editarproducto.php?cid_producto=$cid_producto\"><img src=\"imagen/fotoeditar.jpg\"></a></li>";
-                $ccontenido .= "<li class=\"accion\"><a href=\"#\"><img src=\"imagen/fotoborrar.jpg\"></a></li>";
+                $ccontenido .= "<li class=\"accion\"><a href=\"eliminarproducto.php?cid_producto=$cid_producto\"><img src=\"imagen/fotoborrar.jpg\"></a></li>";
                 $ccontenido .= "</ul>";
                 $ccontenido .= "</td>";
                 $ccontenido .= "</tr>";
@@ -44,7 +44,7 @@ function listarProductosEditar(){
  
     if ( empty($ccontenido) ){
         $ccontenido .= "<tr>";
-        $ccontenido .= "<td colspan=\"11\">No se obtuvieron resultados</td>";		
+        $ccontenido .= "<td colspan=\"11\">No se obtuvieron resultados</td>";
         $ccontenido .= "</tr>";
     }
     

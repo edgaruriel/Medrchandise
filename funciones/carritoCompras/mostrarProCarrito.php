@@ -15,7 +15,7 @@ function listarProCarrito(){
 	 
 	if(count($carrito)!=0){
 		foreach ($carrito as $index => $producto){
-		 	$cquery = "SELECT * FROM producto WHERE id_producto = ".$producto["id"];
+		 	$cquery = "SELECT * FROM producto AS p JOIN fotos AS f ON f.id_producto = p.id_producto WHERE p.id_producto = ".$producto["id"];
 		 	$lresult = mysqli_query($pconexion, $cquery); 
 		 	 if (!$lresult) {
 			   $cerror = "No fue posible recuperar la informaci�n de la base de datos.<br>";
@@ -26,8 +26,18 @@ function listarProCarrito(){
  			} 
 		 	else{
 		 		$adatos = mysqli_fetch_array($lresult, MYSQLI_BOTH);
-		 	 $ccontenido .= "<tr class=\"fila_producto\">";
-		 	 $ccontenido .= "<td class=\"tabla_textocontenido\"> <img id=\"img_producto\" alt=\"\" src=\"imagen/prod.jpg\"> </td>";
+		 		$ccontenido .= "<tr class=\"fila_producto\">";		 		
+		 		if($adatos["ruta"] == null){
+		 			$cquery2 = "SELECT * FROM producto WHERE id_producto =".$producto["id"];
+		 			$lresult2 = mysqli_query($pconexion, $cquery2);
+		 			$adatos = mysqli_fetch_array($lresult2, MYSQLI_BOTH);
+		 			$ccontenido .= "<td class=\"tabla_textocontenido\"> <img id=\"img_producto\" alt=\"\" src=\"imagen/default.jpg\"> </td>";
+		 		}else{
+		 			$ccontenido .= "<td class=\"tabla_textocontenido\"> <img id=\"img_producto\" alt=\"\" src=\"".$adatos["ruta"]."\"> </td>";
+		 		}
+		 		
+		 	 
+		 	 
 		 //	 $ccontenido .= "</tr>";
 		 //	 $ccontenido .= "<tr>";
 			 	  $ccontenido .= "<td class=\"tabla_textocontenido\">";
@@ -51,7 +61,7 @@ function listarProCarrito(){
 		// 	 $ccontenido .= "</tr>";
 		// 	 $ccontenido .= "<tr>";
 		 	 	  $ccontenido .= "<td class=\"tabla_textocontenido\">";
-			 	  $ccontenido .= " <a class=\"eliminar_prod\" href=\"funciones/carritoCompras/eliminarProCarrito.php?ID=".$producto["id"]."\">Eliminar</a>";
+			 	  $ccontenido .= " <a class=\"eliminar_prod\" href=\"funciones/carritoCompras/eliminarProCarrito.php?ID=".$producto["id"]."&&Tipo=unElemento\">Eliminar</a>";
 			 	  $ccontenido .= "</td>";
 		 	 $ccontenido .= "</tr>";
 		 	 $idProductos .= $producto["id"]."-";
@@ -111,7 +121,8 @@ function resumenCarrito(){
 function mostrarDatosPago(){
 	$ccontenido = "";
 	$carrito = $_SESSION["carrito"];
-	$usuario = $_SESSION["cidusuario"];
+	//$usuario = $_SESSION["cidusuario"];
+	$usuario = obtenerInfoSesion();
 	
 if(count($carrito)!=0){
 		$cantidadTotal = "";
@@ -128,15 +139,15 @@ if(count($carrito)!=0){
 		$ccontenido .= "</tr>";
 		$ccontenido .= "<tr>";
 		$ccontenido .= "<td>Nombre:</td>";
-		$ccontenido .= "<td><input type=\"text\" id=\"nombre\" value=\"".$usuario."\" readonly></></td>";
+		$ccontenido .= "<td><input type=\"text\" id=\"nombre\" value=\"".$usuario[3]." ".$usuario[4]."\" readonly></></td>";
 		$ccontenido .= "</tr>";
 		$ccontenido .= "<tr>";
 		$ccontenido .= "<td>N&uacute;mero de tarjeta:</td>";
-		$ccontenido .= "<td><input type=\"text\" id=\"num_tarjeta\" ></></td>";
+		$ccontenido .= "<td><input type=\"text\" id=\"num_tarjeta\" onkeypress=\"return validarNumero(event)\"></td>";
 		$ccontenido .= "</tr>";
 		$ccontenido .= "<tr>";
 		$ccontenido .= "<td>Direcci&oacute;n:</td>";
-		$ccontenido .= "<td><input type=\"text\" id=\"direccion\"></></td>";
+		$ccontenido .= "<td><input type=\"text\" id=\"direccion\" value=\"".$usuario[5]."\" readonly></td>";
 		$ccontenido .= "</tr>";
 		$ccontenido .= "<tr>";
 		$ccontenido .= "<td>Cantidad a de articulos:</td>";
