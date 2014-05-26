@@ -128,19 +128,20 @@ function listarUsuarios(){
    if (mysqli_num_rows($lresult) > 0){
   	 //Recorre los registros arrojados por la consulta SQL
 	 while ($adatos = mysqli_fetch_array($lresult, MYSQLI_BOTH)){
-
-       $cid_usuario = $adatos["Id_Usuario"]; //**
-	   $ccontenido .= "<tr>";
-	   $ccontenido .= "<td class=\"tabla_textocontenido\">".$adatos["Id_Usuario"]."</td>";
-        $ccontenido .= "<td colspan=\"2\" class=\"tabla_textocontenido\">".$adatos["Nombre"]."</td>";
-        $ccontenido .= "<td class=\"tabla_textocontenido\">".$adatos["Rol"]."</td>";
-        $ccontenido .= "<td class=\"tabla_textocontenido\">";
-         $ccontenido .= "<ul>";
-         $ccontenido .= "<li class=\"accion\"><a href=\"cuenta_usuario.php?cid_usuario=$cid_usuario\"><img src=\"imagen/fotoeditar.jpg\"></a></li>";
-         $ccontenido .= "<li class=\"accion\"><a href=\"funciones/borrarUsuario.php?cid_usuario=$cid_usuario\" onClick=\"return confirmar(String.fromCharCode(191)+'Seguro que desea eliminar el registro?')\"><img src=\"imagen/fotoborrar.jpg\"></a></li>";
-         $ccontenido .= "</ul>";
-         $ccontenido .= "</td>";
-	   $ccontenido .= "</tr>";	
+         if($adatos["Rol"]=="USUARIO"){
+                   $cid_usuario = $adatos["Id_Usuario"]; //**
+                   $ccontenido .= "<tr>";
+                   $ccontenido .= "<td class=\"tabla_textocontenido\">".$adatos["Id_Usuario"]."</td>";
+                    $ccontenido .= "<td colspan=\"2\" class=\"tabla_textocontenido\">".$adatos["Nombre"]."</td>";
+                    $ccontenido .= "<td class=\"tabla_textocontenido\">".$adatos["Rol"]."</td>";
+                    $ccontenido .= "<td class=\"tabla_textocontenido\">";
+                     $ccontenido .= "<ul>";
+                     $ccontenido .= "<li class=\"accion\"><a href=\"cuenta_usuario.php?cid_usuario=$cid_usuario\"><img src=\"imagen/fotoeditar.jpg\"></a></li>";
+                     $ccontenido .= "<li class=\"accion\"><a href=\"funciones/borrarUsuario.php?cid_usuario=$cid_usuario\" onClick=\"return confirmar(String.fromCharCode(191)+'Seguro que desea eliminar el registro?')\"><img src=\"imagen/fotoborrar.jpg\"></a></li>";
+                     $ccontenido .= "</ul>";
+                     $ccontenido .= "</td>";
+                   $ccontenido .= "</tr>";   
+         }	
 	 }   
    }	 
  }	 
