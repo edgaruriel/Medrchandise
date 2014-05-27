@@ -36,30 +36,23 @@ function listarProCarrito(){
 		 			$ccontenido .= "<td class=\"tabla_textocontenido\"> <img id=\"img_producto\" alt=\"\" src=\"".$adatos["ruta"]."\"> </td>";
 		 		}
 		 		
-		 	 
-		 	 
-		 //	 $ccontenido .= "</tr>";
-		 //	 $ccontenido .= "<tr>";
+		 
 			 	  $ccontenido .= "<td class=\"tabla_textocontenido\">";
 			 	  $ccontenido .= $adatos["nombre"];
 			 	  $ccontenido .= "</td>";
-		 //	 $ccontenido .= "</tr>";
-		 //	 $ccontenido .= "<tr>";
+		
 		 	 	  $ccontenido .= "<td class=\"tabla_textocontenido\">";
 			 	  $ccontenido .= $adatos["precio"];
 			 	  $ccontenido .= "</td>";
-		// 	 $ccontenido .= "</tr>";
-		// 	 $ccontenido .= "<tr>";
+		
 		 	 	  $ccontenido .= "<td class=\"tabla_textocontenido\">";
 			 	  $ccontenido .= "<input type=\"number\" id=\"cantidad".$producto["id"]."\" name=\"cantidad".$producto["id"]."\" min=\"1\" value=\"".$producto["cantidad"]."\" onkeypress=\"return validarNumero(event)\" onchange='actualizarSubtotal(this)' class=\"estilo_cantidad\">";
 			 	  $ccontenido .= "</td>";
-		// 	 $ccontenido .= "</tr>";
-		// 	 $ccontenido .= "<tr>";
+		
 		 	 	  $ccontenido .= "<td class=\"tabla_textocontenido\">";
 			 	  $ccontenido .= "$<input type=\"text\" id=\"subtotal".$producto["id"]."\" name=\"subtotal".$producto["id"]."\" value=\"".$adatos["precio"]*$producto["cantidad"]."\" readonly>";
 			 	  $ccontenido .= "</td>";
-		// 	 $ccontenido .= "</tr>";
-		// 	 $ccontenido .= "<tr>";
+		
 		 	 	  $ccontenido .= "<td class=\"tabla_textocontenido\">";
 			 	  $ccontenido .= " <a class=\"eliminar_prod\" href=\"funciones/carritoCompras/eliminarProCarrito.php?ID=".$producto["id"]."&&Tipo=unElemento\">Eliminar</a>";
 			 	  $ccontenido .= "</td>";
