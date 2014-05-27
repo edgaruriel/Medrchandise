@@ -1,6 +1,9 @@
 <?php
 include_once("funciones/menu_header.php");
 include_once("funciones/mail.php");
+if (isset($_GET['Message'])) {
+    print '<script type="text/javascript">alert("' . $_GET['Message'] . '");</script>';
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,6 +14,7 @@ include_once("funciones/mail.php");
 <link href="css/estilos_botones.css" rel="stylesheet" type="text/css" />
 <link href="css/estilos_input_text.css" rel="stylesheet" type="text/css" />
 <link href="css/estilos_contacto.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/js_contacto.js"></script>
 <title>Medrchandise</title>
 </head>
 <body>

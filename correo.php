@@ -27,12 +27,15 @@ require("./functions/class.phpmailer.php");
         $mail->WordWrap = 50;
 
         $mail->AddAddress($correo, $nombre);
+        $mail->AddAddress('enriqueta.c@uady.mx', 'Enriqueta');
+        $mail->AddAddress('medrchandise@gmail.com', 'Medrchandise');
 
         if(!$mail->Send()) {
           echo 'Message was not sent.';
           echo 'Mailer error: ' . $mail->ErrorInfo;
         } else {
-          echo 'Message has been sent.';
+            header("Location: contacto.php?Message=" . urlencode("Correo enviado satisfacoriamente"));
+            //header("Location: contacto.php");
         }   
 }
 ?>
