@@ -5,8 +5,8 @@ include_once("./funciones/acceder_base_datos.php");
 include_once("./funciones/administrar_productos.php");
 include_once("./funciones/mantener_sesion.php");
 $adatos = recuperarInfoProducto($_GET["cid_producto"]);
-$nomDis = recuperarInfoNombre($_GET["cid_producto"],"id_estados_disponibilidad","estados_disponibilidad");
-$nomSub = recuperarInfoNombre($_GET["cid_producto"],"id_subcategoria","subcategoria");
+$nomDis = recuperarNombreDisponibilidades($adatos["id_estados_disponibilidad"]);
+$nomSub = recuperarNombreSubcategorias($adatos["id_subcategoria"]);
 validarSesion();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -78,17 +78,6 @@ validarSesion();
                             <td>Disponibilidad:</td>
                             <td><?php echo $nomDis["estados_disponibilidad"]; ?></td>
                         </tr>
-<!--
-                        <tr>
-                            <td>Categoria:</td>
-                            <td>
-                                <select name="cmb_idcategorias" id="cmb_idcategorias">
-                                    <option value="0"></option>
-                                    <?php echo listarCategorias(); ?>
-                                </select>
-                            </td>
-                        </tr>
--->
                         <tr>
                             <td>Subcategoria:</td>
                             <td>
