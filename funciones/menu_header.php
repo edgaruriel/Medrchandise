@@ -35,11 +35,8 @@ function listarMenu(){
  	$menu .= "</a>";
  	
  	
- 	$menu .= "<a class=\"menu\" href=\"mailto:mijangosjavier@gmail.com?";
-    $menu .= "cc=uriel.fmat@gmail.com&";
-	$menu .= "bcc=andsomeoneelse@example.com&subject=Medrchandise&";
-	$menu .= "body=No%20olvides%20darnos%20tu%20nombre\">";
- 	$menu .= "Contacto";
+ 	$menu .= "<a class=\"menu\" href=\"contacto.php\">";
+    $menu .= "Contacto";
  	$menu .= "</a>";
  	
  	$menu .= "<a class=\"menu\" href=\"AcercaDe.php\">";
@@ -56,11 +53,8 @@ function listarMenu(){
 	$menu .= "Productos";
  	$menu .= "</a>";
  	
- 	$menu .= "<a class=\"menu\" href=\"mailto:mijangosjavier@gmail.com?";
-    $menu .= "cc=uriel.fmat@gmail.com&";
-	$menu .= "bcc=andsomeoneelse@example.com&subject=Medrchandise&";
-	$menu .= "body=No%20olvides%20darnos%20tu%20nombre\">";
- 	$menu .= "Contacto";
+ 	$menu .= "<a class=\"menu\" href=\"contacto.php\">";
+    $menu .= "Contacto";
  	$menu .= "</a>";
  	
  	$menu .= "<a class=\"menu\" href=\"AcercaDe.php\">";

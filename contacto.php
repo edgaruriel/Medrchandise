@@ -37,7 +37,7 @@ include_once("funciones/mail.php");
         <div id="cuerpo">
             <div id="div_cuerpo">
             <div id="forma">
-            <form method="post" action="<?php echo $_SERVER["PHP_SELF"];?>">
+            <form method="post" action="correo.php">
                 <table>
                     <tr>
                         <td class="celda_texto">
@@ -53,7 +53,7 @@ include_once("funciones/mail.php");
                             <p class="texto">Correo:</p>
                         </td>
                         <td>
-                            <input class="forma_texto" type="text" id="txt_correo" name="txt_nombre" value="" size="25">
+                            <input class="forma_texto" type="text" id="txt_correo" name="txt_correo" value="" size="25">
                         </td>
                     </tr>
                     
@@ -62,7 +62,7 @@ include_once("funciones/mail.php");
                             <p class="texto">Comentarios:</p>
                         </td>
                         <td>
-                            <textarea class="forma_areatexto" id="txtr_comentarios" name="txtr_comentarios" cols="40" rows="5" wrap="soft"></textarea>
+                            <textarea class="forma_areatexto" id="txt_comentarios" name="txt_comentarios" cols="40" rows="5" wrap="soft"></textarea>
                         </td>
                     </tr>
                     <tr>
