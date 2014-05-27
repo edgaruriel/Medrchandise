@@ -85,17 +85,20 @@ validarSesion();
                         </tr>
 						<tr>
 							<td>Imagen:</td>
+							
 							<td><a id="examinar_imagen" name="examinar_imagen" class="boton" >Examinar</a></td>
 						</tr>
 					</table>
 					<hr color="#82c396">
 					<table>
                         <tr>
+                        
+                        <td><input type="file" id="file_img" name="file_img" ></td>                        
                             <td><input id="btn_guardar" name="btn_guardar" type="submit" class="boton" value="Guardar"></td>
                             <td><a id="btn_cancelar" class="boton" value="Cancelar" href="catalogoProductos.php">Cancelar</a></td>
                         </tr>
                     </table>
-					<input type="file" id="file_img">
+					
 				</form>
 			</div>
 			

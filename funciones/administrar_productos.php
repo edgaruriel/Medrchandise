@@ -54,12 +54,15 @@ function agregarProducto(){
                     $cquery .= " (nombre, descripcion, precio, cantidad_existencia, id_estados_disponibilidad, id_subcategoria, descuento, id_ofertas)";
                     $cquery .= " VALUES ('$cnombre', '$cdescripcion', $cprecio, $ccantidad, $cdisponibilidad, $csubcategoria, 0, 1)";
                     if (insertarDatos($pconexion, $cquery) ){
-                        if(empty($_FILES)){
+                    	$filesize = $_FILES['file_img']['size'];
+                        if($filesize > 0){
+                        	
                             $adatos = array();
                             $cquery = "SELECT * FROM producto WHERE (nombre = '$cnombre')";
                             $adatos = extraerRegistro($pconexion, $cquery);
                             $idproducto = $adatos["id_producto"];
                             if($_FILES["file_img"]["error"]>0){
+                            	
                                 $cquery = "DELETE FROM producto"; 
                                 $cquery .=" WHERE (id_producto = $idproducto)";
                                 if ( editarDatos($pconexion, $cquery) )
@@ -68,17 +71,23 @@ function agregarProducto(){
                                     $cmensaje = "El producto no se registro correctamente";
                             }
                             else{
+                            	
                                 $apermitidos = array("image/jpg","image/jpeg","image/gif","image/png");
                                 if(in_array($_FILES['file_img']['type'],$apermitidos)){
-                                    $sdirectorio = '/imagenesProductos/';
-                                    $sarchivo = '/imagenesProductos/' . $_FILES['file_img']['name'];
+                                	
+                                    $sdirectorio = 'imagen/';
+                                    $sarchivo = 'imagen/' . $_FILES['file_img']['name'];
                                     $nombrearchivo = $_FILES['file_img']['name'];
                                     if(!file_exists($sarchivo)){
-                                        $resultado = @move_uploaded_file($_FILE['file_img']['tmp_name'], $sarchivo);
+                                    	$temp = $_FILES['file_img']['tmp_name'];
+                                    	//echo "4 ruta: ".$sarchivo." Temp: ".$temp;
+                                    	
+                                        $resultado = move_uploaded_file($temp, $sarchivo);
                                         if($resultado){
+                                        	//echo "5";
                                             $inombre = $_FILES['file_img']['name'];
                                             $cquery = "INSERT INTO fotos";
-                                            $cquery.= " (ruta, id_producto) VALUES ('$inombre', $idproducto)";
+                                            $cquery.= " (ruta, id_producto) VALUES ('$sarchivo', $idproducto)";
                                             if(insertarDatos($pconexion,$cquery)){
                                                 $cmensaje = "Producto registrado";
                                             }
@@ -94,6 +103,7 @@ function agregarProducto(){
                                             }
                                         }
                                         else{
+                                        	echo "4.1";
                                             $cquery = "DELETE FROM producto"; 
                                             $cquery .=" WHERE (id_producto = $idproducto)";
                                             if ( editarDatos($pconexion, $cquery) )
@@ -121,6 +131,7 @@ function agregarProducto(){
                                 }
                             }
                         }
+                        //echo "Tiene que seleccionar un archivo";
                     }
                     else{
                         $cmensaje = "No fue posible registrar el producto en el catálogo";	 

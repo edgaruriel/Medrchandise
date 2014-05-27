@@ -64,7 +64,7 @@ validarSesion();
                         <td class="tabla_textotitulo">
                             Operaciones.
                         </td>
-                    </tr>    
+                    </tr>
 				        <?php 
 				       echo listarProCarrito();
 				        ?>

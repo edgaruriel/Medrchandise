@@ -36,30 +36,23 @@ function listarProCarrito(){
 		 			$ccontenido .= "<td class=\"tabla_textocontenido\"> <img id=\"img_producto\" alt=\"\" src=\"".$adatos["ruta"]."\"> </td>";
 		 		}
 		 		
-		 	 
-		 	 
-		 //	 $ccontenido .= "</tr>";
-		 //	 $ccontenido .= "<tr>";
+		 
 			 	  $ccontenido .= "<td class=\"tabla_textocontenido\">";
 			 	  $ccontenido .= $adatos["nombre"];
 			 	  $ccontenido .= "</td>";
-		 //	 $ccontenido .= "</tr>";
-		 //	 $ccontenido .= "<tr>";
+		
 		 	 	  $ccontenido .= "<td class=\"tabla_textocontenido\">";
 			 	  $ccontenido .= $adatos["precio"];
 			 	  $ccontenido .= "</td>";
-		// 	 $ccontenido .= "</tr>";
-		// 	 $ccontenido .= "<tr>";
+		
 		 	 	  $ccontenido .= "<td class=\"tabla_textocontenido\">";
 			 	  $ccontenido .= "<input type=\"number\" id=\"cantidad".$producto["id"]."\" name=\"cantidad".$producto["id"]."\" min=\"1\" value=\"".$producto["cantidad"]."\" onkeypress=\"return validarNumero(event)\" onchange='actualizarSubtotal(this)' class=\"estilo_cantidad\">";
 			 	  $ccontenido .= "</td>";
-		// 	 $ccontenido .= "</tr>";
-		// 	 $ccontenido .= "<tr>";
+		
 		 	 	  $ccontenido .= "<td class=\"tabla_textocontenido\">";
-			 	  $ccontenido .= "$<input type=\"text\" id=\"subtotal".$producto["id"]."\" name=\"subtotal".$producto["id"]."\" value=\"".$producto["total"]."\" readonly>";
+			 	  $ccontenido .= "$<input type=\"text\" id=\"subtotal".$producto["id"]."\" name=\"subtotal".$producto["id"]."\" value=\"".$adatos["precio"]*$producto["cantidad"]."\" readonly>";
 			 	  $ccontenido .= "</td>";
-		// 	 $ccontenido .= "</tr>";
-		// 	 $ccontenido .= "<tr>";
+		
 		 	 	  $ccontenido .= "<td class=\"tabla_textocontenido\">";
 			 	  $ccontenido .= " <a class=\"eliminar_prod\" href=\"funciones/carritoCompras/eliminarProCarrito.php?ID=".$producto["id"]."&&Tipo=unElemento\">Eliminar</a>";
 			 	  $ccontenido .= "</td>";
@@ -86,12 +79,19 @@ function resumenCarrito(){
 	
 	$carrito = $_SESSION["carrito"];
 	
+	$pconexion = abrirConexion();
+    seleccionarBaseDatos($pconexion);
+	
 	if(count($carrito)!=0){
 		$cantidadTotal = "";
 		$precioTotal = "";
 		foreach ($carrito as $index => $producto){
 			$cantidadTotal += $producto["cantidad"];
-			$precioTotal += $producto["total"];
+			$cquery = "SELECT * FROM producto WHERE id_producto = ".$producto["id"];
+		 	$lresult = mysqli_query($pconexion, $cquery); 	
+			$adatos = mysqli_fetch_array($lresult, MYSQLI_BOTH);
+		 	
+			$precioTotal += $adatos["precio"]*$producto["cantidad"];
 		}
 		
 		$ccontenido .= "<div>";
