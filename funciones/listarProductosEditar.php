@@ -23,13 +23,33 @@ function listarProductosEditar(){
     else{ 
         //Verifica que la consulta haya devuelto por lo menos un registro
         if (mysqli_num_rows($lresult) > 0){
-            //Recorre los registros arrojados por la consulta SQL
             while ($adatos = mysqli_fetch_array($lresult, MYSQLI_BOTH)){
                 $cid_producto = $adatos["Id_Producto"]; //**
                 $ccontenido .= "<tr>";
             	$ccontenido .= "<td colspan=\"2\" class=\"tabla_textocontenido\">".$adatos["Nombre"]."</td>";
                 $ccontenido .= "<td class=\"tabla_textocontenido\">".$adatos["Precio"]."</td>";
-                $ccontenido .= "<td class=\"tabla_textocontenido\"><img src=\"imagen/fotoproducto.jpg\"></td>";
+                $ccontenido .= "<td class=\"tabla_textocontenido\">";
+                
+                $cquery = "SELECT fotos.id_fotos AS Id_Fotos, fotos.ruta AS Ruta, ";
+                $cquery.= "fotos.id_producto AS Id_Producto ";
+                $cquery.= "FROM fotos WHERE (id_producto = $cid_producto)";
+                $lresult2 = mysqli_query($pconexion, $cquery);
+                
+                if(!$lresult2){
+                    $cerror = "No fue posible recuperar la informacion de la imagen de la base de datos.<br>";
+                    $cerror .= "SQL: $cquery <br>";
+                    $cerror .= "Descripcion: ".mysqli_connect_error($pconexion);
+                    die($cerror);
+                }
+                else{
+                    if(mysqli_num_rows($lresult2) > 0){
+                        while ($adatos2 = mysqli_fetch_array($lresult2, MYSQLI_BOTH)){
+                            $ccontenido .= "<img src=\"funciones/imagenesProductos/".$adatos2["Ruta"]."\" >";
+                        }
+                    }
+                }
+                
+                $ccontenido .= "</td>";
                 $ccontenido .= "<td class=\"tabla_textocontenido\">";
                 $ccontenido .= "<ul >";
                 $ccontenido .= "<li class=\"accion\"><a href=\"editarproducto.php?cid_producto=$cid_producto\"><img src=\"imagen/fotoeditar.jpg\"></a></li>";

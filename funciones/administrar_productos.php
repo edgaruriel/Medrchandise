@@ -150,7 +150,7 @@ function agregarProducto(){
     return $cmensaje;
 }
 
-function listarCategorias(){
+/*function listarCategorias(){
     $copciones = "";
 	$pconexion = abrirConexion();
 	seleccionarBaseDatos($pconexion);
@@ -185,7 +185,7 @@ function listarCategorias(){
 	mysqli_free_result($lresult);
 	cerrarConexion($pconexion);
 	return $copciones;
-}
+}*/
 
 function listarSubcategorias(){
     $copciones = "";
@@ -198,24 +198,15 @@ function listarSubcategorias(){
 	$lresult = mysqli_query($pconexion, $cquery);
 	if ( $lresult ){
         
-		if (mysqli_num_rows($lresult) > 0){          
-			if (  !$_POST["cmb_idsubcategoria"] || !isset($_POST["cmb_idsubcategoria"]) || $_POST["cmb_idsubcategoria"]=="0"){	 
-				while ( $adatos = mysqli_fetch_array($lresult) ){
-					$copciones .= "<option value=\"".$adatos["id_subcategoria"]."\">";
-					$copciones .= $adatos["nombre_subcategoria"];
-					$copciones .= "</option>\n";
-				} //fin while     
-			} 
-			else{
-				while ( $adatos = mysqli_fetch_array($lresult) ){
-					if ( $_POST["cmb_idsubcategoria"] == $adatos["id_subcategoria"] )
-						$copciones .= "<option value=\"".$adatos["id_subcategoria"]."\" selected>";
-					else
-						$copciones .= "<option value=\"".$adatos["id_subcategoria"]."\">";
-					$copciones .= $adatos["nombre_subcategoria"];
-					$copciones .= "</option>\n";
-				}	   
-			} //fin else	 
+		if (mysqli_num_rows($lresult) > 0){
+            while ( $adatos = mysqli_fetch_array($lresult) ){
+                if ( $_POST["cmb_idsubcategoria"] == $adatos["id_subcategoria"] )
+                    $copciones .= "<option value=\"".$adatos["id_subcategoria"]."\" selected>";
+                else
+                    $copciones .= "<option value=\"".$adatos["id_subcategoria"]."\">";
+                $copciones .= $adatos["nombre_subcategoria"];
+                $copciones .= "</option>\n";
+            }	   	 
 		}
 	} 
 	
@@ -236,23 +227,14 @@ function listarDisponibilidad(){
 	if ( $lresult ){
         
 		if (mysqli_num_rows($lresult) > 0){          
-			if (  !$_POST["cmb_iddisponibilidad"] || !isset($_POST["cmb_iddisponibilidad"]) || $_POST["cmb_iddisponibilidad"]=="0"){	 
-				while ( $adatos = mysqli_fetch_array($lresult) ){
-					$copciones .= "<option value=\"".$adatos["id_estados_disponibilidad"]."\">";
-					$copciones .= $adatos["estados_disponibilidad"];
-					$copciones .= "</option>\n";
-				} //fin while
-			} 
-			else{	   
-				while ( $adatos = mysqli_fetch_array($lresult) ){
-					if ( $_POST["cmb_iddisponibilidad"] == $adatos["id_estados_disponibilidad"] )
-						$copciones .= "<option value=\"".$adatos["id_estados_disponibilidad"]."\" selected>";
-					else
-						$copciones .= "<option value=\"".$adatos["id_estados_disponibilidad"]."\">";
-					$copciones .= $adatos["estados_disponibilidad"];
-					$copciones .= "</option>\n";
-				}	   
-			} //fin else	 
+            while ( $adatos = mysqli_fetch_array($lresult) ){
+                if ( $_POST["cmb_iddisponibilidad"] == $adatos["id_estados_disponibilidad"] )
+                    $copciones .= "<option value=\"".$adatos["id_estados_disponibilidad"]."\" selected>";
+                else
+                    $copciones .= "<option value=\"".$adatos["id_estados_disponibilidad"]."\">";
+                $copciones .= $adatos["estados_disponibilidad"];
+                $copciones .= "</option>\n";
+            }
 		}
 	} 
 	
@@ -265,24 +247,43 @@ function obtenerSubcategorias(){
 	$pconexion = abrirConexion();
 	seleccionarBaseDatos($pconexion);
  
-	$cquery = "SELECT * FROM estados_disponibilidad";
-	$cquery .=" ORDER BY estados_disponibilidad ASC";
+	$cquery = "SELECT * FROM subcategoria";
+	$cquery .=" ORDER BY nombre_subcategoria ASC";
     
     $lresult = mysqli_query($pconexion, $cquery);
-    $nSubcat = mysqli_num_rows($lresult);
 	if ( $lresult ){
-        if ($nSubcat > 0){
-            for($i=0;$i<$nSubcat;$i++){
-                $varSubcat = mysqli_fetch_array($lresult);
-                $CargaIdSub[$i] = $varSubcat["id_subcategoria"];
-                $CargaNomSub[$CargaIdSub[$i]] = $varSubcat["nombre_subcategoria"];
-                $CargaIdCat[$CargaNomSub[$CargaIdSub[$i]]] = $varSubcat["id_categorias"];
+		if (mysqli_num_rows($lresult) > 0){
+            $i = 0; $listaSubcategorias = array();
+            while ( $adatos = mysqli_fetch_array($lresult) ){
+                $listaSubcategorias[$i] = $adatos["nombre_subcategoria"];
+                $i++;
             }
-        }
-    }
+		}
+	}
     mysqli_free_result($lresult);
 	cerrarConexion($pconexion);
-	return $CargaIdCat;
+    return $listaSubcategorias;
+}
+
+function obtenerDisponibilidades(){
+    $pconexion = abrirConexion();
+	seleccionarBaseDatos($pconexion);
+ 
+	$cquery = "SELECT * FROM estados_disponibilidad";
+	$cquery .= " ORDER BY estados_disponibilidad ASC";
+    
+    $lresult = mysqli_query($pconexion, $cquery);
+	if ( $lresult ){
+		if (mysqli_num_rows($lresult) > 0){
+            $i = 0; $listaDisponibilidades = array();
+            while ( $adatos = mysqli_fetch_array($lresult) ){
+                $listaDisponibilidades[$i] = $adatos["estados_disponibilidad"];
+                $i++;
+            }
+		}
+	}
+    mysqli_free_result($lresult);
+	cerrarConexion($pconexion);
+    return $listaDisponibilidades;
 }
 ?>
-

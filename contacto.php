@@ -1,6 +1,9 @@
 <?php
 include_once("funciones/menu_header.php");
 include_once("funciones/mail.php");
+if (isset($_GET['Message'])) {
+    print '<script type="text/javascript">alert("' . $_GET['Message'] . '");</script>';
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,6 +14,7 @@ include_once("funciones/mail.php");
 <link href="css/estilos_botones.css" rel="stylesheet" type="text/css" />
 <link href="css/estilos_input_text.css" rel="stylesheet" type="text/css" />
 <link href="css/estilos_contacto.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/js_contacto.js"></script>
 <title>Medrchandise</title>
 </head>
 <body>
@@ -37,7 +41,7 @@ include_once("funciones/mail.php");
         <div id="cuerpo">
             <div id="div_cuerpo">
             <div id="forma">
-            <form method="post" action="<?php echo $_SERVER["PHP_SELF"];?>">
+            <form method="post" action="correo.php">
                 <table>
                     <tr>
                         <td class="celda_texto">
@@ -53,7 +57,7 @@ include_once("funciones/mail.php");
                             <p class="texto">Correo:</p>
                         </td>
                         <td>
-                            <input class="forma_texto" type="text" id="txt_correo" name="txt_nombre" value="" size="25">
+                            <input class="forma_texto" type="text" id="txt_correo" name="txt_correo" value="" size="25">
                         </td>
                     </tr>
                     
@@ -62,7 +66,7 @@ include_once("funciones/mail.php");
                             <p class="texto">Comentarios:</p>
                         </td>
                         <td>
-                            <textarea class="forma_areatexto" id="txtr_comentarios" name="txtr_comentarios" cols="40" rows="5" wrap="soft"></textarea>
+                            <textarea class="forma_areatexto" id="txt_comentarios" name="txt_comentarios" cols="40" rows="5" wrap="soft"></textarea>
                         </td>
                     </tr>
                     <tr>
