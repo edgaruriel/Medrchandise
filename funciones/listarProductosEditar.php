@@ -44,8 +44,12 @@ function listarProductosEditar(){
                 else{
                     if(mysqli_num_rows($lresult2) > 0){
                         while ($adatos2 = mysqli_fetch_array($lresult2, MYSQLI_BOTH)){
-                            $ccontenido .= "<img id=\"img_producto\" src=\"".$adatos2["Ruta"]."\" >";
+                        	$ccontenido .= "<img id=\"img_producto\" src=\"".$adatos2["Ruta"]."\" >";
+                        	
+                            
                         }
+                    }else{
+                    	$ccontenido .= "<img id=\"img_producto\" src=\"imagen/default.jpg\" >";
                     }
                 }
                 
