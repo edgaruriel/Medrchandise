@@ -14,13 +14,27 @@ function recuperarInfoProducto($cid_producto){
     return $adatos;
 }
 
-function recuperarInfoNombre($cid,$tid,$ctabla){
+function recuperarNombreSubcategorias($cid_producto){
     $adatos = array();
     $pconexion = abrirConexion();
     seleccionarBaseDatos($pconexion);
     
-    $cquery = "SELECT * FROM $ctabla";
-    $cquery .=" WHERE ($tid = $cid)";
+    $cquery = "SELECT * FROM subcategoria";
+    $cquery .=" WHERE (id_subcategoria = $cid_producto)";
+    
+    $adatos = extraerRegistro($pconexion, $cquery);
+    cerrarConexion($pconexion);
+    
+    return $adatos;
+}
+
+function recuperarNombreDisponibilidades($cid_producto){
+    $adatos = array();
+    $pconexion = abrirConexion();
+    seleccionarBaseDatos($pconexion);
+    
+    $cquery = "SELECT * FROM estados_disponibilidad";
+    $cquery .=" WHERE (id_estados_disponibilidad = $cid_producto)";
     
     $adatos = extraerRegistro($pconexion, $cquery);
     cerrarConexion($pconexion);
