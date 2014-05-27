@@ -23,8 +23,8 @@ function CalcularTotal() {
     precio = document.getElementById("pro_precio");
     total = document.getElementById("pro_total");
     
-    if(isNaN(Number(cantidad.value))) {
-        alert("La cantidad debe ser un número entero mayor que cero");
+    if(isNaN(Number(cantidad.value))||cantidad.length==0||cantidad.value<=0||cantidad=="") {
+        alert("La cantidad debe ser un n\u00FAmero entero mayor que cero");
         cantidad.value = 0;
         cantidad.focus();
     }   
