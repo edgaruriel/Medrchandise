@@ -12,13 +12,6 @@ function mostrar_ventana(id,nombre,imagen, descripcion,precio) {
     ventana.document.write("                    <div id=\"img_principal\">");
     ventana.document.write("                        <img src=\""+imagen+"\" name=\"visorImagen\" id=\"visorImagen\">");
     ventana.document.write("                    </div>");
-    ventana.document.write("                    <div id=\"img_secundarias\">");
-    ventana.document.write("                        <img class=\"linea_img\" src=\"imagen/foto1.jpg\" name=\"foto1\" id=\"foto1\">");
-    ventana.document.write("                        <img class=\"linea_img\" src=\"imagen/foto2.jpg\" name=\"foto2\" id=\"foto2\">");
-    ventana.document.write("                        <img class=\"linea_img\" src=\"imagen/foto3.jpg\" name=\"foto3\" id=\"foto3\">");
-    ventana.document.write("                        <img class=\"linea_img\" src=\"imagen/foto4.jpg\" name=\"foto4\" id=\"foto4\">");
-    ventana.document.write("                        <img class=\"linea_img\" src=\"imagen/foto5.jpg\" name=\"foto5\" id=\"foto5\">");
-    ventana.document.write("                    </div>");
     ventana.document.write("            </div>");        
     ventana.document.write("            <div id=\"info\">");
     ventana.document.write("                <div id=\"descripcion\">");
