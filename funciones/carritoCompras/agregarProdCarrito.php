@@ -2,8 +2,9 @@
 include_once("../../config.inc.php"); 
 include_once("../acceder_base_datos.php");
 
-
-if( isset($_POST["btn_agregarProdCarrito"]) && $_POST["btn_agregarProdCarrito"] == "agregar"){
+//echo "heyy";
+if( isset($_REQUEST["btn_agregarProdCarrito"]) && $_REQUEST["btn_agregarProdCarrito"] == "agregar"){
+//echo "heyy22";
 
 	$pconexion = abrirConexion();
 	seleccionarBaseDatos($pconexion);
@@ -11,7 +12,10 @@ if( isset($_POST["btn_agregarProdCarrito"]) && $_POST["btn_agregarProdCarrito"] 
 	$cantidad = $_REQUEST["pro_cantidad"];
 	$idProducto = $_REQUEST["pro_id"];
 	$total = $_REQUEST["pro_total"];
-	
+	//echo $idProducto;
+//	print_r("cantidad: "+ $cantidad + " id: "+$idProducto + " total: " );
+//	echo "cantidad: "+ $cantidad + " id: "+$idProducto + " total: " ;
+//	exit();
  	session_start();
 
 	$carrito = $_SESSION["carrito"];
@@ -63,11 +67,12 @@ if(count($carrito)!= 0){
 		$carrito[$idProducto] = $newProducto;
 		$_SESSION["carrito"] = $carrito;
 }
-$cdestino = "Location:../../index.php";
+
+//$cdestino = "Location:../../productos.php";
 
 }else{
 	//actualizar el carrito de compras antes de finalizar la compra
-	if( isset($_POST["Btnsubmit"]) && $_POST["Btnsubmit"] == "comprar"){
+	if( isset($_REQUEST["Btnsubmit"]) && $_REQUEST["Btnsubmit"] == "comprar"){
 		
 		session_start();
 		$carrito = $_SESSION["carrito"];
@@ -84,14 +89,15 @@ $cdestino = "Location:../../index.php";
 			}
 			$_SESSION["carrito"] = $carrito;
 			$cdestino = "Location:../../pago.php";
-		
+			header($cdestino);
+			exit();
 		}
 		
 		
 	}else{
 		
 		//agregar a BD
-		if( isset($_POST["Btnsubmit"]) && $_POST["Btnsubmit"] == "pago"){
+		if( isset($_REQUEST["Btnsubmit"]) && $_REQUEST["Btnsubmit"] == "pago"){
 			session_start();
 			$carrito = $_SESSION["carrito"];
 			 $Total = "";
@@ -156,10 +162,25 @@ $cdestino = "Location:../../index.php";
 		}
 		//echo $cmensaje;
 	$cdestino = "Location:../../index.php";
+	header($cdestino);
+	exit();
 	}
 
 }
+?>
+<html>
+<head>
+<script type="text/javascript">
+	function recarga_padre_y_cierra_ventana(){
+	window.opener.location.reload();
+	window.close();
+	}
+</script>
+<title>Redireccionar</title>
+</head>
+<body onLoad="recarga_padre_y_cierra_ventana()">
+<label>GGGGGG</label>	
+</body>
+</html>
 
-header($cdestino);
-exit();
 

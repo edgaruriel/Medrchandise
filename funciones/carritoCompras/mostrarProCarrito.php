@@ -56,7 +56,7 @@ function listarProCarrito(){
 		// 	 $ccontenido .= "</tr>";
 		// 	 $ccontenido .= "<tr>";
 		 	 	  $ccontenido .= "<td class=\"tabla_textocontenido\">";
-			 	  $ccontenido .= "$<input type=\"text\" id=\"subtotal".$producto["id"]."\" name=\"subtotal".$producto["id"]."\" value=\"".$producto["total"]."\" readonly>";
+			 	  $ccontenido .= "$<input type=\"text\" id=\"subtotal".$producto["id"]."\" name=\"subtotal".$producto["id"]."\" value=\"".$adatos["precio"]*$producto["cantidad"]."\" readonly>";
 			 	  $ccontenido .= "</td>";
 		// 	 $ccontenido .= "</tr>";
 		// 	 $ccontenido .= "<tr>";
@@ -86,12 +86,19 @@ function resumenCarrito(){
 	
 	$carrito = $_SESSION["carrito"];
 	
+	$pconexion = abrirConexion();
+    seleccionarBaseDatos($pconexion);
+	
 	if(count($carrito)!=0){
 		$cantidadTotal = "";
 		$precioTotal = "";
 		foreach ($carrito as $index => $producto){
 			$cantidadTotal += $producto["cantidad"];
-			$precioTotal += $producto["total"];
+			$cquery = "SELECT * FROM producto WHERE id_producto = ".$producto["id"];
+		 	$lresult = mysqli_query($pconexion, $cquery); 	
+			$adatos = mysqli_fetch_array($lresult, MYSQLI_BOTH);
+		 	
+			$precioTotal += $adatos["precio"]*$producto["cantidad"];
 		}
 		
 		$ccontenido .= "<div>";

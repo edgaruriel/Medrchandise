@@ -55,35 +55,6 @@ include_once("../funciones/acceder_base_datos.php");
 	}
 	else{$cdestino = "Location:../loginError.php";}
  }
-		
-		
-		
-	  /*if(($_POST["txt_usuario"]==$row['nick']) && ($_POST["pass_usuario"]==$row['contrasena'])){
-	   //admin
-	   echo "Entro en admin";
-	   iniciarSesion($_POST["txt_usuario"]);
-	   $cdestino = "Location:../index.php";
-	   
-	   }else{
-	   	//usuario registrado
-	   	echo "Entro en cliente registrado";
-	   	if (($_POST["txt_usuario"]==$row['nick']) && ($_POST["pass_usuario"]==$row['contrasena'])) {
-	    iniciarSesion($_POST["txt_usuario"]);
-	    
-	    session_start();
-	    $carrito = array();
-	    $_SESSION["carrito"] = $carrito;
-	    
-	    $cdestino = "Location:../index.php";
-	   	}else{
-	   		echo "Entro en else de cliente";
-	   	}
-	   }
-   
- }else{
- 	echo "No entro";
- }
- */
 
  
  header($cdestino);

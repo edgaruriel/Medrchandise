@@ -1,5 +1,5 @@
 function mostrar_ventana(id,nombre,imagen, descripcion,precio) {
-    var ventana = window.open("", "ventana", "width=800 height=300 scrollbars=true");
+    var ventana = window.open("", "ventana", "width=800 height=500 scrollbars=true");
     ventana.document.open();
     ventana.document.write("<html><head><title>Detalles</title>");
     ventana.document.write("<link href=\"css/estilos_detalles.css\" rel=\"stylesheet\" type=\"text/css\">");
@@ -26,7 +26,7 @@ function mostrar_ventana(id,nombre,imagen, descripcion,precio) {
     ventana.document.write("                    <p>"+descripcion+"</p>");
     ventana.document.write("                </div>");
     ventana.document.write("                <div id=\"info_gral\">");
-    ventana.document.write("                    <form id=\"btn_agregarProdCarrito\" method=\"post\" action=\"funciones/carritoCompras/agregarProdCarrito.php\">Disponibilidad: <input type=\"text\" disabled=\"disabled\" value=\"En existencia\" id=\"txt_dispo\"><br>");
+    ventana.document.write("                    <form id=\"btn_agregarProdCarrito\" name=\"btn_agregarProdCarrito\" method=\"post\" action=\"funciones/carritoCompras/agregarProdCarrito.php\">Disponibilidad: <input type=\"text\" disabled=\"disabled\" value=\"En existencia\" id=\"txt_dispo\"><br>");
     ventana.document.write("                        Cantidad: <input type=\"text\" id=\"pro_cantidad\" name=\"pro_cantidad\" onblur=\"CalcularTotal()\"><br>");
     ventana.document.write("                        Precio Unitario:<input type=\"text\" disabled=\"disabled\" value=\""+precio+"\" id=\"pro_precio\">MXN<br>");
     ventana.document.write("                        Total: <input type=\"text\" disabled=\"disabled\" id=\"pro_total\" name=\"pro_total\" value=\"0\">MXN<br><input id=\"pro_id\" name=\"pro_id\" type=\"hidden\" value=\""+id+"\">");

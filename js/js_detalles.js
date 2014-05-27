@@ -27,12 +27,7 @@ function CalcularTotal() {
         alert("La cantidad debe ser un número entero mayor que cero");
         cantidad.value = 0;
         cantidad.focus();
-    }   
+    }
     total.value = cantidad.value * precio.value;
 }
 
-function Cerrar(){
-	//alert("HEYY");
-	document.getElementById("btn_agregarProdCarrito").submit();
-	//window.close();
-}
