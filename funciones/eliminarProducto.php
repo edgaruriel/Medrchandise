@@ -13,14 +13,21 @@ include_once("acceder_base_datos.php");
         $cquery .=" WHERE (id_producto = $cid_producto)";
         
         if ( editarDatos($pconexion, $cquery) ){
-            $cquery = "DELETE FROM producto"; 
+            
+        	$cquery = "DELETE FROM carrito_has_producto"; 
+            $cquery .=" WHERE (id_producto = $cid_producto)";
+            
+        	if(editarDatos($pconexion, $cquery)){
+        	
+        	$cquery = "DELETE FROM producto"; 
             $cquery .=" WHERE (id_producto = $cid_producto)";
             
             if ( editarDatos($pconexion, $cquery) )
                 $curl="Location:".$GLOBALS["raiz_sitio"]."catalogoProductos.php"; 
             else 
                 $curl="Location:".$GLOBALS["raiz_sitio"]."eliminarproducto.php?cid_producto=$cid_producto";
-        }
+        	}
+        	}
         else 
             $curl="Location:".$GLOBALS["raiz_sitio"]."eliminarproducto.php?cid_producto=$cid_producto";
         //"editarproducto.php?cid_producto=$cid_producto"
