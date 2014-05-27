@@ -52,7 +52,7 @@ function listarProductos(){
                 $cprodutos .=            "<div id=\"img_principal\">";
 
 
-                $cquery = "SELECT * FROM fotos AS f WHERE f.id_fotos = $cid_producto";
+                $cquery = "SELECT * FROM fotos AS f WHERE f.id_producto = $cid_producto";
                 $lresult2 = mysqli_query($pconexion, $cquery);
                 if($lresult2){
                     if (mysqli_num_rows($lresult2) > 0) {
