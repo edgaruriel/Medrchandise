@@ -32,8 +32,7 @@ function validacion() {
 			return false;
 			break;
 			}
-		}
-		
+		}		
 	return true;
 }
 	
