@@ -28,7 +28,8 @@ include_once("../funciones/acceder_base_datos.php");
 			echo "Entrando a la validacion de usuario y contraseña";
 			$dquery="SELECT usuario.id_rol, usuario.id_usuario FROM usuario WHERE usuario.nick = '$cusuario'";
 			$rolArray=extraerRegistro($pconexion,$dquery);
-			
+			 setcookie('usuario', $cusuario, false, '/login.php', 'localhost');
+            setcookie('contrasena', $ccontrasena, false, '/login.php', 'localhost');
 			if($rolArray[0]==1){
 	   			//admin
 				echo "Entro en admin";
