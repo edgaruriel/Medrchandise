@@ -13,8 +13,11 @@ include_once("acceder_base_datos.php");
         $ccantidad = $_POST["cantidad"];
         $cprecio = $_POST["precio"];
         $cdisponibilidad = $_POST["cmb_iddisponibilidad"];
+        print_r($cdisponibilidad);
         $csubcategoria = $_POST["cmb_idsubcategoria"];
-        if(strcasecmp($cnombre,'')==0 && empty($ccantidad) && empty($cprecio) && ctype_digit($cprecio) && ctype_digit($ccantidad)){
+        print_r($csubcategoria);
+        //exit();
+//        if(strcasecmp($cnombre,'')==0 && empty($ccantidad) && empty($cprecio) && ctype_digit($cprecio) && ctype_digit($ccantidad)){
             $cquery = "UPDATE producto"; 
             $cquery .=" SET nombre = '$cnombre',"; 
             $cquery .=" descripcion = '$cdescripcion',"; 
@@ -28,12 +31,14 @@ include_once("acceder_base_datos.php");
 
             if ( editarDatos($pconexion, $cquery) )
                 $curl="Location:".$GLOBALS["raiz_sitio"]."catalogoProductos.php"; 
-            else 
+            else{
                 $curl="Location:".$GLOBALS["raiz_sitio"]."editarproducto.php?cid_producto=$cid_producto";
-        }
-        else{
-            $curl="Location:".$GLOBALS["raiz_sitio"]."editarproducto.php?cid_producto=$cid_producto";
-        }
+            }                
+//        }
+//        else{
+//            die($cerror);
+//            $curl="Location:".$GLOBALS["raiz_sitio"]."editarproducto.php?cid_producto=$cid_producto";
+//        }
         cerrarConexion($pconexion); 
         header($curl);
         exit(); 

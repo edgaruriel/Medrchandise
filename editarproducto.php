@@ -5,8 +5,6 @@ include_once("./funciones/acceder_base_datos.php");
 include_once("./funciones/administrar_productos.php");
 include_once("./funciones/mantener_sesion.php");
 $adatos = recuperarInfoProducto($_GET["cid_producto"]);
-$nomDis = recuperarInfoNombre($adatos["id_producto"],"id_estados_disponibilidad","estados_disponibilidad");
-$nomSub = recuperarInfoNombre($adatos["id_producto"],"id_subcategoria","subcategoria");
 validarSesion();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -52,7 +50,6 @@ validarSesion();
 			<div id="div_contenido">
 				<form id="formulario" method="post" action="./funciones/editarProducto.php">
                     <input type="hidden" name="hdn_idproducto" value="<?php echo $adatos["id_producto"]; ?>">
-
 					<table>
 						<tr>
 							<td>*Nombre:</td>
@@ -71,18 +68,45 @@ validarSesion();
 							<td><input type="text" id="precio" name="precio" value="<?php echo $adatos["precio"]; ?>"></td>
 						</tr>
                         <tr>
-                            <td>*Disponibilidad:</td>
+                            <td>
+                                <?php
+                                    list($disponibilidad) = split("-",$adatos["id_estados_disponibilidad"]);
+                                    $listaDisponibilidades = obtenerDisponibilidades();
+                                ?>
+                                *Disponibilidad:
+                            </td>
                             <td>
                                 <select name="cmb_iddisponibilidad" id="cmb_iddisponibilidad">
-                                    <?php echo listarDisponibilidad(); ?>
+                                    <?php
+                                         for ($i=1; $i<=count($listaDisponibilidades); $i++) {
+                                            echo "<option ";
+                                            if ($i == $disponibilidad) {
+                                                echo "selected=\"selected\" ";
+                                            }
+                                            echo "value=\"$i\">", $listaDisponibilidades[$i-1], "</option>\n";
+                                        }
+                                    ?>
                                 </select>
                             </td>
                         </tr>
                         <tr>
-                            <td>*Subcategoria:</td>
+                            <td><?php 
+                                    list($subcategoria) = split("-",$adatos["id_subcategoria"]);
+                                    $listaSubcategorias = obtenerSubcategorias();
+                                ?>
+                                *Subcategoria:
+                            </td>
                             <td>
                                 <select name="cmb_idsubcategoria" id="cmb_idsubcategoria">
-                                    <?php echo listarSubcategorias(); ?>
+                                    <?php
+                                        for ($i=1; $i<=count($listaSubcategorias); $i++) {
+                                            echo "<option ";
+                                            if ($i == $subcategoria) {
+                                                echo "selected=\"selected\" ";
+                                            }
+                                            echo "value=\"$i\">", $listaSubcategorias[$i-1], "</option>\n";
+                                        }
+                                    ?>
                                 </select>
                             </td>
                         </tr>
